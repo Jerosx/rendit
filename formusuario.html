@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>proyecto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="titulo">
+            <h1>Diligencie la información correspondiente</h1>
+        </div>
+        <form action="registro.php" method="post">
+
+            <div class="mb-3">
+                 <label class="form-label">NOMBRES</label><br/>
+                 <input type="text" class="form-control" name="Nombres">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">APELLIDOS</label><br/>
+                <input type="text" class="form-control" name="Apellidos">
+           </div>
+            <div class="mb-3">
+                <label class="form-label">DOCUMENTO DE IDENTIDAD</label><br/>
+                <input type="text" class="form-control" name="Docid">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">TELÉFONO</label><br/>
+                <input type="tel" class="form-control" name="Telefono">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CORREO</label><br/>
+                <input type="email" class="form-control" name="Correo">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CARGO</label><br/>
+                <input type="text" class="form-control" name="Cargo">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CÓDIGO PERSONAL</label><br/>
+                <input type="text" class="form-control" name="Codigo">
+            </div>
+            <button class="enviar" type="submit" class="bt-send">LISTO</button>
+        </form>
+    </div>
+</body>
+</html>
