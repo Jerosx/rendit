@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>proyecto</title>
+    <title>Registro de nuevos usuarios</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         <div class="titulo">
             <h1>Diligencie la información correspondiente</h1>
         </div>
-        <form action="sistema/registro_usuario.php" method="post">
+        <form action="../sistema/registro_usuario.php" method="post">
 
             <div class="mb-3">
                  <label class="form-label">NOMBRES</label><br/>
@@ -25,24 +25,16 @@
                 <input type="text" class="form-control" name="Apellidos">
            </div>
             <div class="mb-3">
-                <label class="form-label">DOCUMENTO DE IDENTIDAD</label><br/>
-                <input type="text" class="form-control" name="Docid">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">TELÉFONO</label><br/>
-                <input type="tel" class="form-control" name="Telefono">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">CORREO</label><br/>
-                <input type="email" class="form-control" name="Correo">
+                <label class="form-label">CÓDIGO PERSONAL</label><br/>
+                <input type="text" class="form-control" name="codigo">
             </div>
             <div class="mb-3">
                 <label class="form-label">CARGO</label><br/>
-                <input type="text" class="form-control" name="Cargo">
+                <input type="text" class="form-control" name="rol">
             </div>
             <div class="mb-3">
-                <label class="form-label">CÓDIGO PERSONAL</label><br/>
-                <input type="text" class="form-control" name="Codigo">
+                <label class="form-label">CONTRASEÑA</label><br/>
+                <input type="text" class="form-control" name="contraseña">
             </div>
             <button class="enviar" type="submit" class="bt-send">LISTO</button>
         </form>

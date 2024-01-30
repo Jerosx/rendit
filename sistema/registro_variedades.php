@@ -21,6 +21,6 @@ else{
 
 
 
-print "<a href='../formvariedades.html'> REGRESAR </a>"; #creo un botón para regresar al formulario
+print "<a href='../admin/formvariedades.html'> REGRESAR </a>"; #creo un botón para regresar al formulario
 
 ?>
