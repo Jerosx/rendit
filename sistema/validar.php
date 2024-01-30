@@ -13,11 +13,16 @@ $consulta="SELECT*FROM tblusuario WHERE Codigo='$codigousuario' and Contraseña=
 
 $resultado=mysqli_query($conexion,$consulta);#creo una variable llamada '$resultado' que me va a guardar la consulta de los dos datos de la BD
 
-$filas=mysqli_num_rows($resultado); #Creo una variable llamada '$filas' que va a almacenar el resultado 
+$filas=mysqli_fetch_array($resultado);
 
-if($filas){  #si filas es true va a mandar al usuario a la página de index
-    header("location:../admin/indexadmin.php");
-}else{       #si no es verdadero, las credenciales no están, por lo que la página te vuelve a direccionar a la pestaña de login
+if($filas['Rol']==1){  #Si Rol==1 es administrador
+    header("location:../admin/indexadmin.php"); #envialo al index de administrador
+}else
+if($filas['Rol'==2]){ #si Rol==2 es operario
+    header("location:../operario/indexope.php");#envialo al index del operario
+}
+
+else{ #si no es verdadero, las credenciales no están, por lo que la página te vuelve a direccionar a la pestaña de login
     ?>
     <?php
     header("location:../login.html");
