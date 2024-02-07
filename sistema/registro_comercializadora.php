@@ -18,7 +18,7 @@ else{
 
 
 
-print "<a href='admin/formcomercializadora.html'> REGRESAR </a>"; #creo un botón para regresar al formulario
+print "<a href='../admin/formcomercializadora.php'> REGRESAR </a>"; #creo un botón para regresar al formulario
 
 
 ?>

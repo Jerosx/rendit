@@ -21,7 +21,7 @@ else{
 
 #------------FIN ENVIO INFO A LA BD, TBLUSUARIO------------------------
 
-print "<a href='../admin/formusuario.html'> REGRESAR </a>"; #creo un botón para regresar al formulario
+print "<a href='../admin/formusuario.php'> REGRESAR </a>"; #creo un botón para regresar al formulario
 
 
 

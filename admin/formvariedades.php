@@ -14,7 +14,7 @@
       <div class="titulo">
           <h1>Diligencie la información correspondiente</h1>
       </div>
-      <form action="variedades.php" method="post">
+      <form action="../sistema/registro_variedades.php" method="post">
           <div class="mb-3">
             <label for="codigoFlor">Código de la variedad:</label>
             <input type="text" id="codigovariedad" name="codigovariedad" required>
