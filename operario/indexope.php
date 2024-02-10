@@ -43,9 +43,10 @@ if ($rolUsuario != 2) { # Si el rol del usuario no es operario, redirigir al usu
     
     <H1>OPERARIO</H1>
 
+     <!--BOTÓN CIERRE DE SESIÓN -->
     <form action="../sistema/cerrarsesion.php" method="post">
     <button type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-
+     <!--BOTÓN CIERRE DE SESIÓN -->
 
 
 </body>

@@ -74,13 +74,14 @@ if ($rolUsuario != 1) { # Si el rol del usuario no es administrador, redirigir a
     <a href="#">Estadisticas de operación</a>
     <a href="formusuario.php">Añadir nuevo operario</a>
     <a href="#">Actualizar datos operario</a>
-    <a href="intermedio_comer_var.php">gestión comercializadora o variedades</a>
+    <!-- a href="intermedio_comer_var.php">gestión comercializadora o variedades</a> -->
    
 
 
-
+    <!--BOTÓN CIERRE DE SESIÓN -->
     <form action="../sistema/cerrarsesion.php" method="post">
     <button type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+     <!--BOTÓN CIERRE DE SESIÓN -->
 
 </body>
 </html>
