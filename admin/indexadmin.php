@@ -54,6 +54,7 @@ if ($rolUsuario != 1) { # Si el rol del usuario no es administrador, redirigir a
                         <th>Nombre</th> <!--Creo el campo Nombre en la cabecera-->
                         <th>Apellidos</th><!--Creo el campo Apellidos en la cabecera-->
                         <th>Codigo</th><!--Creo el campo Codigo en la cabecera-->
+                        <th>Actualizar datos</th><!--Creo el campo Actualizar datos Operario en la cabecera-->
 
                     </tr>
             <?php
@@ -63,6 +64,7 @@ if ($rolUsuario != 1) { # Si el rol del usuario no es administrador, redirigir a
                 <tr><td><?php echo $fila['Nombre']?></td> <!--Comienza a escribir en bucle los nombres, apellidos y codigos que se encuentra con la consulta hasta finalizar el while -->
                     <td><?php echo $fila['Apellido']?></td>
                     <td><?php echo $fila['Codigo']?></td>
+                    <td><a href="actualizar.php?id=<?php echo $fila['Codigo']?>">Editar</a></td>
 
                 </tr>
             <?php
@@ -73,7 +75,7 @@ if ($rolUsuario != 1) { # Si el rol del usuario no es administrador, redirigir a
 
     <a href="#">Estadisticas de operación</a>
     <a href="formusuario.php">Añadir nuevo operario</a>
-    <a href="#">Actualizar datos operario</a>
+    <!--<a href="#">Actualizar datos operario</a>-->
     <!-- a href="intermedio_comer_var.php">gestión comercializadora o variedades</a> -->
    
 
