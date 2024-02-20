@@ -64,7 +64,7 @@ if ($rolUsuario != 1) { # Si el rol del usuario no es administrador, redirigir a
                 <tr><td><?php echo $fila['Nombre']?></td> <!--Comienza a escribir en bucle los nombres, apellidos y codigos que se encuentra con la consulta hasta finalizar el while -->
                     <td><?php echo $fila['Apellido']?></td>
                     <td><?php echo $fila['Codigo']?></td>
-                    <td><a href="actualizar.php?id=<?php echo $fila['Codigo']?>">Editar</a></td>
+                    <td><a href="actualizar_usuario.php?id=<?php echo $fila['Codigo']?>">Editar</a></td>
 
                 </tr>
             <?php

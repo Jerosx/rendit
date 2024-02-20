@@ -1,6 +1,6 @@
 <?php
 
-include('../sistema/conexion.php'); //Conexión a la BD 
+include('conexion.php'); //Conexión a la BD 
 
     $id=$_POST['Codigo']; // Obtenemos los valores enviados por el formulario mediante el método POST
     $Contraseña=$_POST['Contraseña'];// Obtenemos la contraseña del formulario mediante el método POST
@@ -18,10 +18,10 @@ $up=$con->query("UPDATE tblusuario SET ## se realiza la consulta a la BD para re
     WHERE Codigo='$id' ");
 // se verifica si la consulta es exitosa
 if($up){
-    header('location:indexadmin.php');
+    header('location:../admin/indexadmin.php');
 }
 else{
-    header('location:actualizar.php');
+    header('location:../admin/actualizar_usuario.php');
 }
 
 ?>

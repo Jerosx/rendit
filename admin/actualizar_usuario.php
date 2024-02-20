@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body> 
-    <form action="update.php" method="POST">
+    <form action="../sistema/update.php" method="POST">
 
             <div class="id"><br> 
                 <input type="hidden" value="<?php echo $fila['Codigo']?>" name="Codigo"><br></div> <!--campo oculto para enviar el codigo a la actualizacion-->
