@@ -1,9 +1,9 @@
 <?php
-    include('conexion.php'); 
+    include('../sistema/conexion.php');
     $id=$_REQUEST['id'];
 
-    $sel=$con->query('SELECT*FROM tblusuario WHERE Codigo='.$id);
-        if($fila=$sel->fetch_assoc()){
+    $sel=$con->query('SELECT*FROM tblusuario WHERE Codigo='.$id); // Se realiza la consulta para obtener los datos del usuario con el Código proporcionado
+        if($fila=$sel->fetch_assoc()){  // Si se encuentra una fila en el resultado de la consulta, significa que se encontró el usuario
 
     }
 
@@ -24,25 +24,25 @@
     <form action="update.php" method="POST">
 
             <div class="id"><br> 
-                <input type="hidden" value="<?php echo $fila['Codigo']?>" name="Codigo"><br></div>
+                <input type="hidden" value="<?php echo $fila['Codigo']?>" name="Codigo"><br></div> <!--campo oculto para enviar el codigo a la actualizacion-->
        
                 <div class="Contraseña"><label><h1>Contraseña</h1></label><br>
-                <input type="text" value="<?php echo $fila['Contraseña']?>" name="Contraseña"><br></div>
+                <input type="text" value="<?php echo $fila['Contraseña']?>" name="Contraseña"><br></div> <!--campo para abtener la contraseña-->
 
                 <div class="Nombre"><label><h1>Nombre</h1></label><br>
-                <input type="text" value="<?php echo $fila['Nombre']?>"name="Nombre"><br></div>
+                <input type="text" value="<?php echo $fila['Nombre']?>"name="Nombre"><br></div> <!--campo para abtener el nombre-->
 
                 <div class="Rol"><label><h1>Rol</h1></label><br>
-                <input type="text" value="<?php echo $fila['Rol']?>" name="Rol"><br></div>
+                <input type="text" value="<?php echo $fila['Rol']?>" name="Rol"><br></div> <!--campo para abtener el rol-->
 
                 <div class="Apellido"><label><h1>Apellido</h1></label><br>
-                <input type="text" value="<?php echo $fila['Apellido']?>" name="Apellido"><br></div>
+                <input type="text" value="<?php echo $fila['Apellido']?>" name="Apellido"><br></div> <!--campo para abtener los apellidos-->
 
                 <div class="Estado"><label><h1>Estado</h1></label><br>
-                <input type="text" value="<?php echo $fila['Estado']?>" name="Estado"><br></div>
+                <input type="text" value="<?php echo $fila['Estado']?>" name="Estado"><br></div> <!--campo para abtener el estado del operario-->
 
                 
-                <div class="enviar"><input type="submit" value="Modificar"><br></div>
+                <div class="enviar"><input type="submit" value="Modificar"><br></div> <!--Boton para enviar los cambios a la actualizacion-->
             </div>
     </forms> 
 </body>

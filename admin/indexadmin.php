@@ -12,7 +12,6 @@ if($valsesion== null || $valsesion==''){
 # FIN DE VALIDACIÓN DE SESION ACTIVA
 
 #INICIO VALIDACIÓN DE ROL
-
 $conexion = mysqli_connect('localhost', 'root', '', 'rendit'); #creo una conexión a la BD 
 $consulta = "SELECT Rol FROM tblusuario WHERE Codigo='$valsesion'"; #consulto el codigo de la persona y lo guardo en valsesion
 $resultado = mysqli_query($conexion, $consulta); #creo una variable que almacene los datos de la consulta
@@ -48,6 +47,7 @@ if ($rolUsuario != 1) { # Si el rol del usuario no es administrador, redirigir a
     <?php
         include('../sistema/conexion.php'); #Traigo la conexión a la bd
     ?>
+    
     <table border="1" align="left"> <!--Creo una tabbla -->
                     <tr> 
         
