@@ -1,3 +1,12 @@
+<?php
+#INICIO DE VALIDACIÓN DE SESION ACTIVA
+    include ('../sistema/validar_sesion.php');
+# FIN DE VALIDACIÓN DE SESION ACTIVA
+
+#INICIO VALIDACIÓN DE ROL
+    include ('../sistema/validar_rolad.php');
+#FIN VALIDACIÓN DE ROL
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
