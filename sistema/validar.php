@@ -23,7 +23,7 @@ if($filas['Rol'==2]){ #si Rol==2 es operario
     header("location:../operario/indexope.php");#envialo al index del operario
 }
 else{ #si no es verdadero, las credenciales no están, por lo que la página te vuelve a direccionar a la pestaña de login
-    header("location:../login.html");
+    header("location:../index.html");
     exit; #detiene la ejecución del script
 }
 

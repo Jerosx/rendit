@@ -1,44 +1,16 @@
 <?php
 #INICIO DE VALIDACIÓN DE SESION ACTIVA
-
-session_start();
-$valsesion= $_SESSION['codigoUser'];
-
-if($valsesion== null || $valsesion==''){
-    header("location:../login.html");
-    die();
-}
-
+include ('../sistema/validar_sesion.php');
 # FIN DE VALIDACIÓN DE SESION ACTIVA
 
 #INICIO VALIDACIÓN DE ROL
-include('../sistema/conexion.php'); #Incluir el archivo de conexión
-$consulta = "SELECT Rol, Nombre FROM tblusuario WHERE Codigo='$valsesion'"; #consulto el codigo y el nombre de la persona que ingresa y lo guardo en valsesion
-$resultado = mysqli_query($con, $consulta); #creo una variable que almacene los datos de la consulta
-
-$filas = mysqli_fetch_array($resultado);#Fetch_array me trae los datos de cada fila, Creo una variable llamada '$filas' que va a almacenar el resultado de la consulta
-$rolUsuario = $filas['Rol']; #creo una variable llamada 'rolUsuario' para almacenar el resultado con el Rol
-$nombreUsuario= $filas['Nombre'];#creo una variable llamada 'nombreUsuario' para almacenar el resultado con el Nombre
-
-mysqli_free_result($resultado); #obtengo el resultado y cuando no sea necesario lo elimino
-mysqli_close($con); #cierro la conexión abierta a la bd
-
-if ($rolUsuario != 2) { # Si el rol del usuario no es operario, redirigir al usuario a la página de inicio de sesión y cerrar la sesión
-    session_destroy();
-    header("location:../login.html");
-    exit; # Detener la ejecución del script
-}
-
+include ('../sistema/validar_rolop.php');
 #FIN VALIDACIÓN DE ROL
 
 # INICIO FECHA
-
 include ('../sistema/fecha.php');
-
 #FIN FECHA
-
-?>
-
+?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
