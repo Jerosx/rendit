@@ -36,10 +36,27 @@ include ('../sistema/fecha.php');
 
     <H1>OPERARIO</H1>
 
-     <!--BOTÓN CIERRE DE SESIÓN -->
+        <!-- INICIO Cronometro -->
+            <div id="timer">00:00:00</div>
+            <button onclick="startTimer()">Iniciar Cronómetro</button>
+            <button onclick="pauseTimer()">Pausar Cronómetro</button>
+            <button onclick="resetTimer()">Finalizar Cronómetro</button>
+
+            <script src="../sistema/cronometro.js"></script>
+        <!--FIN Cronometro-->
+
+    <!--INICIO Contador de cajas -->
+    <form action="../sistema/actualizarcajas.php" method="post">
+        <label for="cajas">Cajas empacadas:</label>
+        <input type="number" id="cajas" name="cajas" required>
+        <button type="submit">GUARDAR</button>
+    </form>
+    <!--FIN Contador de cajas -->
+
+     <!--INICIO BOTÓN CIERRE DE SESIÓN -->
     <form action="../sistema/cerrarsesion.php" method="post">
     <button type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-     <!--BOTÓN CIERRE DE SESIÓN -->
+     <!--FIN BOTÓN CIERRE DE SESIÓN -->
 
 
 </body>
