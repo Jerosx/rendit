@@ -27,14 +27,15 @@ include ('../sistema/fecha.php');
     <p> <span id="hora"></span></p> <!-- HORA -->
     <p> <?php echo "$fecha_actual" ?></p><!-- FECHA -->
     
-    <!-- Llama a la función actualizarHora al cargar la página -->
-    <script>
-        window.onload = function() {
-            actualizarHora();
-        };
-    </script>
+        <!-- Llama a la función actualizarHora al cargar la página -->
+            <script>
+                window.onload = function() {
+                    actualizarHora();
+                };
+            </script>
+        <!-- Llama a la función actualizarHora al cargar la página -->
 
-    <H1>OPERARIO</H1>
+         <H1>OPERARIO</H1>
 
         <!-- INICIO Cronometro -->
             <div id="timer">00:00:00</div>
@@ -45,19 +46,98 @@ include ('../sistema/fecha.php');
             <script src="../sistema/cronometro.js"></script>
         <!--FIN Cronometro-->
 
+        <!--INICIO PESTAÑA MODAL INICIAR TURNO -->
+
+            <button id="btn-modal-iniciar">ABRIR MODAL INICIAR TURNO</button>
+
+            <dialog id="modal-iniciar">
+
+                <h2> ATENCIÓN </h2>
+                <p> ¿Estás seguro de que quieres comenzar tú turno?<p>
+
+                <form method="post" action="../sistema/iniciarTurno.php">
+        
+                        <select name="opcion" id="opcion">
+                            <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
+                            <option value="opcionSi">SI</option>
+                            <option value="opcionNo">NO</option>
+                        </select>
+                        <button type="submit" value="Enviar">Iniciar Turno</button>
+                </form>
+
+                <button id="btn-cerrar-modal-iniciar">Cerrar</button>
+
+            </dialog>
+        <!--FIN PESTAÑA MODAL INICIAR TURNO -->
+
+        <!--INICIO PESTAÑA MODAL PARE TURNO -->
+
+            <button id="btn-modal-parar">ABRIR MODAL PARAR TURNO</button>
+
+            <dialog id="modal-parar">
+
+                <h2> ATENCIÓN </h2>
+                <p> ¿Estás seguro de que quieres parar tú turno?<p>
+
+                <form method="post" action="../sistema/.php">
+
+                        <select name="opcion" id="opcion">
+                            <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
+                            <option value="opcionSi">SI</option>
+                            <option value="opcionNo">NO</option>
+                        </select>
+                        <button type="submit" value="Enviar">Parar Turno</button>
+                </form>
+
+                <button id="btn-cerrar-modal-parar">Cerrar</button>
+
+            </dialog>
+        <!--FIN PESTAÑA MODAL PARE TURNO -->
+
+        <!--INICIO PESTAÑA MODAL TERMINAR TURNO -->
+
+            <button id="btn-modal-terminar">ABRIR MODAL FINALIZAR TURNO</button>
+
+            <dialog id="modal-terminar">
+
+                <h2> ATENCIÓN </h2>
+                <p> ¿Estás seguro de que quieres terminar tú turno?<p>
+
+                <form method="post" action="../sistema/terminarTurno.php">
+
+                        <select name="opcion" id="opcion">
+                            <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
+                            <option value="opcionSi">SI</option>
+                            <option value="opcionNo">NO</option>
+                        </select>
+                        <button type="submit" value="Enviar">Terminar Turno</button>
+                </form>
+
+                <button id="btn-cerrar-modal-terminar">Cerrar</button>
+
+            </dialog>
+        <!--FIN PESTAÑA MODAL TERMINAR TURNO -->
+
     <!--INICIO Contador de cajas -->
-    <form action="../sistema/actualizarcajas.php" method="post">
-        <label for="cajas">Cajas empacadas:</label>
-        <input type="number" id="cajas" name="cajas" required>
-        <button type="submit">GUARDAR</button>
-    </form>
+        <form action="../sistema/actualizarcajas.php" method="post">
+            <label for="cajas">Cajas empacadas:</label>
+            <input type="number" min="0" id="cajas" name="cajas"> <!--La cantidad de cajas no va a ser inferior a 0 -->
+            <button type="submit">GUARDAR</button>
+        </form>
     <!--FIN Contador de cajas -->
 
      <!--INICIO BOTÓN CIERRE DE SESIÓN -->
-    <form action="../sistema/cerrarsesion.php" method="post">
-    <button type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+        <form action="../sistema/cerrarsesion.php" method="post">
+        <button type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
      <!--FIN BOTÓN CIERRE DE SESIÓN -->
 
+<!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
+
+    <script src="../sistema/modal_iniciar.js"></script>         <!--Script controla modal inicio turno -->
+    <script src="../sistema/.js"></script>                      <!--Script controla modal xxxxxx turno -->
+    <script src="../sistema/modal_terminar.js"></script>        <!--Script controla modal terminar turno -->
+
+<!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 
 </body>
 </html>

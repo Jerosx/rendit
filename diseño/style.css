@@ -63,3 +63,14 @@ label{
    margin-bottom: 50px;
 
 }
+
+
+/* MODAL */
+
+#modal::backdrop{
+
+    background-color: rgba(0,0,0,.55);
+
+}
+
+/* MODAL */
