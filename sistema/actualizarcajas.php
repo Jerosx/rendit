@@ -1,45 +1,36 @@
 <?php
 include('conexion.php'); // Incluir el archivo de conexión
+# Verifico la conexión
+if ($con->connect_error) {
+    die("Conexión fallida: " . $con->connect_error);
 
-if(isset($_POST['cajas'])) { // Verificar si se ha enviado un valor válido para el campo 'cajas' desde el formulario
-    
-    $cajas = $_POST['cajas']; // Capturar el valor enviado desde el formulario
-
-    // Primero, obtenemos el próximo código de turno
-    $query = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'rendit' AND TABLE_NAME = 'tblturno'";
-    $resultado = mysqli_query($con, $query);
-
-    if ($resultado) {  // Verificar si la consulta fue exitosa
-        $fila = mysqli_fetch_assoc($resultado);
-
-        // Obtener el código de turno
-        $codigo_turno = $fila['AUTO_INCREMENT'] - 1; // Restamos 1 para obtener el último código antes del próximo autoincremento (ESTO PARA PODER IR TANTEANDOLO HACIENDO USO DE EL DATO QUE YA ESTA EN LA BD, CUANDO ESTO SE VAYA A IMPLEMENTAR SE DEBE MODIFICAR)
-
-        // Cerrar el resultado
-        mysqli_free_result($resultado);
-
-        // Obtener el ID de sesión
-        session_start();
-        $session_id = session_id();
-
-        // Ahora podemos usar $codigo_turno y $session_id según sea necesario
-
-        // Luego, actualizamos la caja con el nuevo valor
-        $actualizarcaja = $con->query("UPDATE tblturno SET Cajas = '$cajas' WHERE Codigo = $codigo_turno");
-
-        if ($actualizarcaja === TRUE) {
-            echo "Cajas actualizada correctamente.";
-        } else {
-            echo "Error al actualizar la caja: " . $con->error;
-        }
-    } else {
-        // Error si la consulta falla
-        echo "Error al consultar el código de turno: " . mysqli_error($con);
-    }
-
-    mysqli_close($con); // Cerrar la conexión
-} else {
-    echo "No se recibió un valor válido para el campo 'cajas' desde el formulario."; // Por si le meten letras
 }
+include('validar_sesion.php');
+#include('fecha.php'); HABILITAR ESTE COMENTARIO UNA VEZ FINALIZADO EL PROCESO DE PROGRAMACIÓN (#Incluyo este archivo para hacer uso de la variable 'fecha_actual´, está almacena el día en el que se está al abrir el aplicativo)
+
+$fecha_actual='2023-07-23'; #ELIMINAR ESTÁ VARIABLE UNA VEZ TERMINADO EL PROCESO DE PROGRAMACIÓN
+
+#-------------------------------------INICIO ACTUALIZAR CAJAS DEL OP A LA BD----------------------------------------------------------
+
+$cajas = $_POST['cajas']; // Capturar el valor enviado desde el formulario
+
+    $actualizarcaja = $con->query("UPDATE tblturno SET Cajas = '$cajas' 
+                                WHERE Empacador = '$valsesion'
+                                AND Fecha = '$fecha_actual'"); #Actualizo las cajas filtrando por el operario con la sesión y por la fecha del día
+
+        if ($actualizarcaja === TRUE) { #Si sale bien 
+
+            echo "Cajas actualizada correctamente.";
+
+        } else { #Si sale mal mostrar el error
+
+            echo "Error al actualizar la caja: " . $con->error;
+
+        }
+   
+    mysqli_close($con); #Cierro la conexión
+#-------------------------------------FIN ACTUALIZAR CAJAS DEL OP A LA BD----------------------------------------------------------
+
+print "<a href='../operario/indexope.php'> REGRESAR </a>"; #creo un botón para regresar al formulario
 ?>
 

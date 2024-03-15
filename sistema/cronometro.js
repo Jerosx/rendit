@@ -1,46 +1,66 @@
-// Declaración de variables
-let timerInterval; // Almacena el identificador del intervalo de tiempo para el temporizador
-let seconds = 0; // Almacena los segundos del temporizador, inicializado en 0
-let minutes = 0; // Almacena los minutos del temporizador, inicializado en 0
-let hours = 0; // Almacena las horas del temporizador, inicializado en 0
-let displayTimer = document.getElementById("timer"); // Obtiene el elemento HTML con ID "timer" para mostrar el temporizador
+// Obtiene el elemento HTML con ID "timer" para mostrar el temporizador
+const displayTimer = document.getElementById("timer");
+
+// Almacena el identificador del intervalo de tiempo para el temporizador
+let timerInterval;
+
+// Almacena los segundos, minutos y horas del temporizador, inicializados en 0
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 
 // Función para iniciar el temporizador
 function startTimer() {
-    timerInterval = setInterval(updateTimer, 1000); // Llama a la función updateTimer cada 1000 milisegundos (1 segundo)
+    // Llama a la función updateTimer cada 1000 milisegundos (1 segundo)
+    timerInterval = setInterval(updateTimer, 1000);
 }
 
 // Función para pausar el temporizador
 function pauseTimer() {
-    clearInterval(timerInterval); // Detiene el intervalo de tiempo del temporizador
+    // Detiene el intervalo de tiempo del temporizador
+    clearInterval(timerInterval);
 }
 
 // Función para reiniciar el temporizador
 function resetTimer() {
-    clearInterval(timerInterval); // Detiene el intervalo de tiempo del temporizador
-    seconds = 0; // Reinicia los segundos a 0
-    minutes = 0; // Reinicia los minutos a 0
-    hours = 0; // Reinicia las horas a 0
-    displayTimer.textContent = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds); // Actualiza el contenido del elemento HTML para mostrar el tiempo reiniciado
+    // Detiene el intervalo de tiempo del temporizador
+    clearInterval(timerInterval);
+    // Reinicia los segundos, minutos y horas a 0
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    // Actualiza el contenido del elemento HTML para mostrar el tiempo reiniciado
+    updateDisplay();
 }
 
 // Función para actualizar el temporizador
 function updateTimer() {
-    seconds++; // Incrementa los segundos
-    if (seconds === 60) { // Si los segundos llegan a 60
-        seconds = 0; // Reinicia los segundos a 0
-        minutes++; // Incrementa los minutos
-    }
-    if (minutes === 60) { // Si los minutos llegan a 60
-        minutes = 0; // Reinicia los minutos a 0
-        hours++; // Incrementa las horas
-    }
-    // Actualiza el contenido del elemento HTML para mostrar el tiempo actualizado en formato HH:MM:SS
-    displayTimer.textContent = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
+    // Incrementa los segundos, minutos y horas según sea necesario
+    incrementTime();
+    // Actualiza el contenido del elemento HTML para mostrar el tiempo actualizado
+    updateDisplay();
 }
 
-// Función para formatear el tiempo (segundos, minutos o horas) como dos dígitos (agregando un cero al principio si es necesario)
+// Función para incrementar los segundos, minutos y horas del temporizador
+function incrementTime() {
+    seconds++;
+    if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+    }
+    if (minutes === 60) {
+        minutes = 0;
+        hours++;
+    }
+}
+
+// Función para actualizar el contenido del elemento HTML con el tiempo formateado
+function updateDisplay() {
+    // Utiliza plantillas de cadenas para formatear el tiempo como HH:MM:SS
+    displayTimer.textContent = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+}
+
+// Función para formatear el tiempo (segundos, minutos u horas) como dos dígitos
 function formatTime(time) {
-    return time < 10 ? "0" + time : time;
+    return time < 10 ? `0${time}` : time;
 }
-

@@ -38,17 +38,17 @@ include ('../sistema/fecha.php');
          <H1>OPERARIO</H1>
 
         <!-- INICIO Cronometro -->
-            <div id="timer">00:00:00</div>
+            <!-- <div id="timer">00:00:00</div>
             <button onclick="startTimer()">Iniciar Cronómetro</button>
             <button onclick="pauseTimer()">Pausar Cronómetro</button>
             <button onclick="resetTimer()">Finalizar Cronómetro</button>
 
-            <script src="../sistema/cronometro.js"></script>
+            <script src="../sistema/cronometro.js"></script>-->
         <!--FIN Cronometro-->
 
         <!--INICIO PESTAÑA MODAL INICIAR TURNO -->
 
-            <button id="btn-modal-iniciar">ABRIR MODAL INICIAR TURNO</button>
+            <button id="btn-modal-iniciar">INICIAR TURNO</button>
 
             <dialog id="modal-iniciar">
 
@@ -62,41 +62,51 @@ include ('../sistema/fecha.php');
                             <option value="opcionSi">SI</option>
                             <option value="opcionNo">NO</option>
                         </select>
-                        <button type="submit" value="Enviar">Iniciar Turno</button>
+                        <button type="submit" value="Enviar">CONFIRMAR</button>
                 </form>
 
-                <button id="btn-cerrar-modal-iniciar">Cerrar</button>
+                <!--<button id="btn-cerrar-modal-iniciar">Cerrar</button>-->
 
             </dialog>
         <!--FIN PESTAÑA MODAL INICIAR TURNO -->
 
         <!--INICIO PESTAÑA MODAL PARE TURNO -->
 
-            <button id="btn-modal-parar">ABRIR MODAL PARAR TURNO</button>
+            <button id="btn-modal-parar">PARAR TURNO</button>
 
             <dialog id="modal-parar">
 
                 <h2> ATENCIÓN </h2>
                 <p> ¿Estás seguro de que quieres parar tú turno?<p>
 
-                <form method="post" action="../sistema/.php">
+                <form method="post" action="../sistema/iniciar_pare.php">
 
                         <select name="opcion" id="opcion">
                             <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
                             <option value="opcionSi">SI</option>
                             <option value="opcionNo">NO</option>
                         </select>
-                        <button type="submit" value="Enviar">Parar Turno</button>
+
+                        <p> ¿Cuál es el motivo del pare?<p>  
+                        <select name="motivo" id="motivo">
+                            <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
+                            <option value="motivoDesayuno">DESAYUNO</option>
+                            <option value="opcionFCanastillas">FALTA CANASTILLAS</option>
+                            <option value="opcionBandaLlena">BANDA LLENA</option>
+                            <option value="opcionFFlor">FALTA FLOR</option>
+                            <option value="opcionFMaterial">FALTA DE MATERIAL</option>
+                        </select>
+                        <button type="submit" value="Enviar">CONFIRMAR</button>
                 </form>
 
-                <button id="btn-cerrar-modal-parar">Cerrar</button>
+                <!--<button id="btn-cerrar-modal-parar">Cerrar</button>-->
 
             </dialog>
         <!--FIN PESTAÑA MODAL PARE TURNO -->
 
         <!--INICIO PESTAÑA MODAL TERMINAR TURNO -->
 
-            <button id="btn-modal-terminar">ABRIR MODAL FINALIZAR TURNO</button>
+            <button id="btn-modal-terminar">FINALIZAR TURNO</button>
 
             <dialog id="modal-terminar">
 
@@ -110,10 +120,10 @@ include ('../sistema/fecha.php');
                             <option value="opcionSi">SI</option>
                             <option value="opcionNo">NO</option>
                         </select>
-                        <button type="submit" value="Enviar">Terminar Turno</button>
+                        <button type="submit" value="Enviar">CONFIRMAR</button>
                 </form>
 
-                <button id="btn-cerrar-modal-terminar">Cerrar</button>
+                <!--<button id="btn-cerrar-modal-terminar">Cerrar</button>-->
 
             </dialog>
         <!--FIN PESTAÑA MODAL TERMINAR TURNO -->
@@ -134,7 +144,7 @@ include ('../sistema/fecha.php');
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 
     <script src="../sistema/modal_iniciar.js"></script>         <!--Script controla modal inicio turno -->
-    <script src="../sistema/.js"></script>                      <!--Script controla modal xxxxxx turno -->
+    <script src="../sistema/modal_parar.js"></script>                      <!--Script controla modal xxxxxx turno -->
     <script src="../sistema/modal_terminar.js"></script>        <!--Script controla modal terminar turno -->
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
