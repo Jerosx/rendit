@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $con->close(); #Cerrar conexión
 #-------------------------------------FIN ENVIO DE MOTIVO E INICIO DE PARE A LA BD----------------------------------------------------------
 
-echo '<script>window.location.href = "../operario/turno_parado.php";</script>'; #me lo manda a la página depués de ejecutarse el código.
+echo '<script>window.location.href = "../operario/turno_parado.php";</script>'; #me lo manda a la página 'turno_parado' después de ejecutarse el código.
 
 
 
