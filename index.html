@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="diseño/style.css">
     <title>Inicio de sesión</title>
 </head>
 <body>
     
-    <form action="sistema/validar.php" method="POST">
+    <form class="myForm" action="sistema/validar.php" method="POST">
 
-        <h1>INICIO DE SESIÓN</h1>
-        <label for="codigoUser"> CODIGO PERSONAL: </label>
+        <h1 class="titulo">INICIO DE SESIÓN</h1>
+        <label for="codigoUser"> Codigo personal </label>
         <input type="text" placeholder="inserte su código" id="codigoUser" name="codigoUser" required>
 
-        <label for="contraseña"> CONTRASEÑA: </label>
+        <label for="contraseña"> Contraseña </label>
         <input type="password" placeholder="inserte su contraseña" id="contraseña" name="contraseña" required>
 
-        <button type="summit">ENVIAR</button>
+        <button type="summit">Enviar</button>
 
     </form>
         
