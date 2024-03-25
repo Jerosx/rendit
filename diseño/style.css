@@ -1,13 +1,18 @@
 *{
     padding: 0%;
     margin: 0%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .login{
     background-image: url('img/login-source.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+.body-admin{
+    background-image: url('img/index-source.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .myForm{
     
     width: 400px;
@@ -25,6 +30,7 @@
     border-radius: 15PX;
   
 }
+
 
 .titulo{
     font-family: Arial, Helvetica, sans-serif;
@@ -45,6 +51,12 @@ input{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     margin-top: 15px;
+}
+.header-index-admin{
+    background-color: rgb(17 24 39);
+    width: 100%;
+    display: flex;
+    color: white;
 }
 .login-but{
     border: none;    
@@ -67,13 +79,94 @@ label{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
+.user-name{
+    width: 50%;
+    padding: 15px;
+    
+}
+.time-config{
+    width: 50%;
+    padding-left: 80%;
+    padding-top:15px ;
+    padding-bottom: 15px;
+}
+.main-admin{
+    width: 400px;
+    height: 400px;
+    padding: 70px;
+    background: rgba(255, 255, 255, 0.678);
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    box-shadow: 7PX 13px 37px #000;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+ 
+   
 
+}
+
+.links-con{
+    margin-top: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    float: left;
+}
+
+.tabla-usuarios{
+   width: 100%;
+   float: left;
+   margin-bottom: 50px;
+   overflow-x: hidden;
+}
+a{
+    margin: 30px;
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+
+}
+.but-new{
+    background-color: #1f53c5;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+}
+
+table{
+    margin-top:20px;}
+.but-new:hover{
+    background-color: #1d3e85;
+}
+.admin-but{
+    border: none;    
+    background-color: rgb(103, 197, 103);
+    color:white;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 80%;
+    padding: 15px;
+    margin: 40px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 /* MODAL */
 
 #modal::backdrop{
 
     background-color: rgba(0,0,0,.55);
 
+}
+li{
+    list-style: none;
+  
 }
 
 /* MODAL */

@@ -24,61 +24,72 @@
 
 
 </head>
-<body>
-    <p> <?php echo "Bienvenid@ <br> $nombreUsuario" ?> </p> <!--SALUDO Y NOMBRE -->
-    <p> <span id="hora"></span></p> <!-- HORA -->
-    <p> <?php echo "$fecha_actual" ?></p><!-- FECHA -->
-    
-    <!-- Llama a la función actualizarHora al cargar la página -->
-    <script>
-        window.onload = function() {
-            actualizarHora();
-        };
-    </script>
-
-    <h1>OPERARIOS REGISTRADOS</h1>
-
-    <!--CREACION LISTA DE OPERARIOS EN LA BASE DE DATOS-->
-    <?php
-        include('../sistema/conexion.php'); #Traigo la conexión a la bd
-    ?>
-    
-    <table border="1" align="left"> <!--Creo una tabbla -->
-                    <tr> 
+<body class="body-admin">
+    <header class="header-index-admin">
+        <div class="user-name">
+            <p> <?php echo "Bienvenid@ <br> $nombreUsuario" ?> </p> <!--SALUDO Y NOMBRE -->
+        </div>
+        <div class="time-config">
+                <p> <span id="hora"></span></p> <!-- HORA -->
         
-                        <th>Nombre</th> <!--Creo el campo Nombre en la cabecera-->
-                        <th>Apellidos</th><!--Creo el campo Apellidos en la cabecera-->
-                        <th>Codigo</th><!--Creo el campo Codigo en la cabecera-->
-                        <th>Actualizar datos</th><!--Creo el campo Actualizar datos Operario en la cabecera-->
+            <p> <?php echo "$fecha_actual" ?></p><!-- FECHA -->
+            
+            <!-- Llama a la función actualizarHora al cargar la página -->
+            <script>
+                window.onload = function() {
+                    actualizarHora();
+                };
+            </script>
+        </div>
+    </header>
+    <div class="main-admin">
+        <!--CREACION LISTA DE OPERARIOS EN LA BASE DE DATOS-->
+        <?php
+            include('../sistema/conexion.php'); #Traigo la conexión a la bd
+        ?>
+        <div class="tabla-usuarios">
+             <h1>OPERARIOS REGISTRADOS</h1>
+            <table border="1" align="left"> <!--Creo una tabbla -->
+                            <tr> 
+                
+                                <th>Nombre</th> <!--Creo el campo Nombre en la cabecera-->
+                                <th>Apellidos</th><!--Creo el campo Apellidos en la cabecera-->
+                                <th>Codigo</th><!--Creo el campo Codigo en la cabecera-->
+                                <th>Actualizar datos</th><!--Creo el campo Actualizar datos Operario en la cabecera-->
 
-                    </tr>
-            <?php
-                $consulta=$con->query("SELECT * FROM tblusuario WHERE Rol=2");#Creo una variable llamada 'conuslta' para almacenar la consulta a la Bd, le digo que traiga todos los usuarios con rol=2 (OPERARIOS)
-                    while($fila=$consulta->fetch_assoc()){ //while queda bierto para repetir hasta acabar la impresión de la consulta
-            ?>
-                <tr><td><?php echo $fila['Nombre']?></td> <!--Comienza a escribir en bucle los nombres, apellidos y codigos que se encuentra con la consulta hasta finalizar el while -->
-                    <td><?php echo $fila['Apellido']?></td>
-                    <td><?php echo $fila['Codigo']?></td>
-                    <td><a href="actualizar_usuario.php?id=<?php echo $fila['Codigo']?>">Editar</a></td>
+                            </tr>
+                    <?php
+                        $consulta=$con->query("SELECT * FROM tblusuario WHERE Rol=2");#Creo una variable llamada 'conuslta' para almacenar la consulta a la Bd, le digo que traiga todos los usuarios con rol=2 (OPERARIOS)
+                            while($fila=$consulta->fetch_assoc()){ //while queda bierto para repetir hasta acabar la impresión de la consulta
+                    ?>
+                        <tr><td><?php echo $fila['Nombre']?></td> <!--Comienza a escribir en bucle los nombres, apellidos y codigos que se encuentra con la consulta hasta finalizar el while -->
+                            <td><?php echo $fila['Apellido']?></td>
+                            <td><?php echo $fila['Codigo']?></td>
+                            <td><a href="actualizar_usuario.php?id=<?php echo $fila['Codigo']?>">Editar</a></td>
 
-                </tr>
-            <?php
-                } //cierro el while
-            ?>
-    </table>
-    <!--FIN LISTA DE OPERARIOS EN LA BASE DE DATOS-->
+                        </tr>
+                    <?php
+                        } //cierro el while
+                    ?>
+            </table>
+            <!--FIN LISTA DE OPERARIOS EN LA BASE DE DATOS-->
+        </div>
 
-    <a href="#">Estadisticas de operación</a>
-    <a href="formusuario.php">Añadir nuevo operario</a>
-    <!--<a href="#">Actualizar datos operario</a>-->
-    <!-- a href="intermedio_comer_var.php">gestión comercializadora o variedades</a> -->
-   
+        <div class="links-con">
+            <ul>
+                <li class="but-new"><a href="#">Estadisticas</a></li>
+                <li class="but-new"><a href="formusuario.php">Nuevo operario</a></li>
+            </ul>
+            <!--<a href="#">Actualizar datos operario</a>-->
+            <!-- a href="intermedio_comer_var.php">gestión comercializadora o variedades</a> -->
+        
 
 
-    <!--BOTÓN CIERRE DE SESIÓN -->
-    <form action="../sistema/cerrarsesion.php" method="post">
-    <button type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-     <!--BOTÓN CIERRE DE SESIÓN -->
-
+            <!--BOTÓN CIERRE DE SESIÓN -->
+            <form action="../sistema/cerrarsesion.php" method="post">
+            <button class="admin-but" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+            <!--BOTÓN CIERRE DE SESIÓN -->
+        </div>
+    </div>
 </body>
 </html>
