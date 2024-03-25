@@ -18,13 +18,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <div class="titulo">
-            <h1>Diligencie la información correspondiente</h1>
-        </div>
-        <form action="../sistema/registro_usuario.php" method="post">
-
+<body class="login">
+    
+        <form class="myForm" action="../sistema/registro_usuario.php" method="post">
+            <div class="titulo">
+                <h1>Diligencie la información correspondiente</h1>
+            </div>
             <div class="mb-3">
                  <label class="form-label">NOMBRES</label><br/>
                  <input type="text" class="form-control" name="Nombres">
@@ -45,8 +44,8 @@
                 <label class="form-label">CONTRASEÑA</label><br/>
                 <input type="text" class="form-control" name="contraseña">
             </div>
-            <button class="enviar" type="submit" class="bt-send">LISTO</button>
+            <button class="login-but" type="submit" class="bt-send">LISTO</button>
         </form>
-    </div>
+    
 </body>
 </html>

@@ -16,25 +16,32 @@ include ('../sistema/fecha.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../diseño/style.css">
     <title>Página principal operario</title>
 
     <script src="../sistema/hora.js"></script>
 
 </head>
-<body>
-    
-    <p> <?php echo "Bienvenid@ <br> $nombreUsuario" ?> </p> <!--SALUDO Y NOMBRE -->
-    <p> <span id="hora"></span></p> <!-- HORA -->
-    <p> <?php echo "$fecha_actual" ?></p><!-- FECHA -->
-    
-        <!-- Llama a la función actualizarHora al cargar la página -->
-            <script>
-                window.onload = function() {
-                    actualizarHora();
-                };
-            </script>
-        <!-- Llama a la función actualizarHora al cargar la página -->
+<body class="body-admin">
+   <header class="header-index-admin"> 
+    <div class="user-name">
+        <p> <?php echo "Bienvenid@ <br> $nombreUsuario" ?> </p> <!--SALUDO Y NOMBRE -->
+    </div>    
 
+    <div class="time-config">
+        <p> <span id="hora"></span></p> <!-- HORA -->
+        <p> <?php echo "$fecha_actual" ?></p><!-- FECHA -->
+        
+            <!-- Llama a la función actualizarHora al cargar la página -->
+                <script>
+                    window.onload = function() {
+                        actualizarHora();
+                    };
+                </script>
+    </div>
+    </header> 
+        <!-- Llama a la función actualizarHora al cargar la página -->
+    <div class="main-admin">
          <H1>OPERARIO</H1>
 
         <!-- INICIO Cronometro -->
@@ -48,7 +55,7 @@ include ('../sistema/fecha.php');
 
         <!--INICIO PESTAÑA MODAL INICIAR TURNO -->
 
-            <button id="btn-modal-iniciar">INICIAR TURNO</button>
+            <button class="ope-but" id="btn-modal-iniciar">INICIAR TURNO</button>
 
             <dialog id="modal-iniciar">
 
@@ -62,7 +69,7 @@ include ('../sistema/fecha.php');
                             <option value="opcionSi">SI</option>
                             <option value="opcionNo">NO</option>
                         </select>
-                        <button type="submit" value="Enviar">CONFIRMAR</button>
+                        <button class="admin-but" type="submit" value="Enviar">CONFIRMAR</button>
                 </form>
 
                 <!--<button id="btn-cerrar-modal-iniciar">Cerrar</button>-->
@@ -72,7 +79,7 @@ include ('../sistema/fecha.php');
 
         <!--INICIO PESTAÑA MODAL PARE TURNO -->
 
-            <button id="btn-modal-parar">PARAR TURNO</button>
+            <button class="ope-but" id="btn-modal-parar">PARAR TURNO</button>
 
             <dialog id="modal-parar">
 
@@ -96,7 +103,7 @@ include ('../sistema/fecha.php');
                             <option value="opcionFFlor">FALTA FLOR</option>
                             <option value="opcionFMaterial">FALTA DE MATERIAL</option>
                         </select>
-                        <button type="submit" value="Enviar">CONFIRMAR</button>
+                        <button class="admin-but"  type="submit" value="Enviar">CONFIRMAR</button>
                 </form>
 
                 <!--<button id="btn-cerrar-modal-parar">Cerrar</button>-->
@@ -106,7 +113,7 @@ include ('../sistema/fecha.php');
 
         <!--INICIO PESTAÑA MODAL TERMINAR TURNO -->
 
-            <button id="btn-modal-terminar">FINALIZAR TURNO</button>
+            <button class="ope-but" id="btn-modal-terminar">FINALIZAR TURNO</button>
 
             <dialog id="modal-terminar">
 
@@ -120,7 +127,7 @@ include ('../sistema/fecha.php');
                             <option value="opcionSi">SI</option>
                             <option value="opcionNo">NO</option>
                         </select>
-                        <button type="submit" value="Enviar">CONFIRMAR</button>
+                        <button class="admin-but"  type="submit" value="Enviar">CONFIRMAR</button>
                 </form>
 
                 <!--<button id="btn-cerrar-modal-terminar">Cerrar</button>-->
@@ -132,13 +139,13 @@ include ('../sistema/fecha.php');
         <form action="../sistema/actualizarcajas.php" method="post">
             <label for="cajas">Cajas empacadas:</label>
             <input type="number" min="0" id="cajas" name="cajas"> <!--La cantidad de cajas no va a ser inferior a 0 -->
-            <button type="submit">GUARDAR</button>
+            <button class="admin-but2"  type="submit">GUARDAR</button>
         </form>
     <!--FIN Contador de cajas -->
 
      <!--INICIO BOTÓN CIERRE DE SESIÓN -->
         <form action="../sistema/cerrarsesion.php" method="post">
-        <button type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+        <button class="admin-but2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
      <!--FIN BOTÓN CIERRE DE SESIÓN -->
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
@@ -146,7 +153,7 @@ include ('../sistema/fecha.php');
     <script src="../sistema/modal_iniciar.js"></script>         <!--Script controla modal inicio turno -->
     <script src="../sistema/modal_parar.js"></script>                      <!--Script controla modal xxxxxx turno -->
     <script src="../sistema/modal_terminar.js"></script>        <!--Script controla modal terminar turno -->
-
+</div>
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 
 </body>

@@ -29,8 +29,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
-<body> 
-    <form action="../sistema/update.php" method="POST">
+<body class="login"> 
+    <form class="myForm" action="../sistema/update.php" method="POST">
 
             <div class="id"><br> 
                 <input type="hidden" value="<?php echo $fila['Codigo']?>" name="Codigo"><br></div> <!--campo oculto para enviar el codigo a la actualizacion-->
@@ -51,7 +51,7 @@
                 <input type="text" value="<?php echo $fila['Estado']?>" name="Estado"><br></div> <!--campo para abtener el estado del operario-->
 
                 
-                <div class="enviar"><input type="submit" value="Modificar"><br></div> <!--Boton para enviar los cambios a la actualizacion-->
+                <input class="login-but" type="submit" value="Modificar"><br> <!--Boton para enviar los cambios a la actualizacion-->
             </div>
     </forms> 
 </body>
