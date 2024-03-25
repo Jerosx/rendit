@@ -2,7 +2,7 @@
     padding: 0%;
     margin: 0%;
 }
-body{
+.login{
     background-image: url('img/login-source.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -46,7 +46,7 @@ input{
     font-size: 18px;
     margin-top: 15px;
 }
-button{
+.login-but{
     border: none;    
     background-color: rgb(103, 197, 103);
     color:white;
