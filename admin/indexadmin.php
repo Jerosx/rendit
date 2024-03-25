@@ -49,7 +49,7 @@
         ?>
         <div class="tabla-usuarios">
              <h1>OPERARIOS REGISTRADOS</h1>
-            <table border="1" align="left"> <!--Creo una tabbla -->
+            <table class="customers" border="1" align="left"> <!--Creo una tabbla -->
                             <tr> 
                 
                                 <th>Nombre</th> <!--Creo el campo Nombre en la cabecera-->
