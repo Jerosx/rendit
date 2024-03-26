@@ -37,12 +37,16 @@
                 <input type="text" class="form-control" name="codigo">
             </div>
             <div class="mb-3">
+                <label class="form-label">CONTRASEÑA</label><br/>
+                <input type="text" class="form-control" name="contraseña">
+            </div>
+            <div class="mb-3">
                 <label class="form-label">CARGO</label><br/>
                 <input type="text" class="form-control" name="rol">
             </div>
             <div class="mb-3">
-                <label class="form-label">CONTRASEÑA</label><br/>
-                <input type="text" class="form-control" name="contraseña">
+                <label class="form-label">ESTADO</label><br/>
+                <input type="number" class="form-control" name="estado">
             </div>
             <button class="login-but" type="submit" class="bt-send">LISTO</button>
         </form>

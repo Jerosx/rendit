@@ -59,7 +59,7 @@
 
                             </tr>
                     <?php
-                        $consulta=$con->query("SELECT * FROM tblusuario WHERE Rol=2");#Creo una variable llamada 'conuslta' para almacenar la consulta a la Bd, le digo que traiga todos los usuarios con rol=2 (OPERARIOS)
+                        $consulta=$con->query("SELECT * FROM tblusuario WHERE Rol=2 AND Estado=1");#Creo una variable llamada 'conuslta' para almacenar la consulta a la Bd, le digo que traiga todos los usuarios con rol=2 (OPERARIOS) y estado = 1 (ACTIVO)
                             while($fila=$consulta->fetch_assoc()){ //while queda bierto para repetir hasta acabar la impresión de la consulta
                     ?>
                         <tr><td><?php echo $fila['Nombre']?></td> <!--Comienza a escribir en bucle los nombres, apellidos y codigos que se encuentra con la consulta hasta finalizar el while -->

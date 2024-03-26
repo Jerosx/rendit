@@ -7,10 +7,11 @@ $Apellidos=$_POST['Apellidos'];
 $Codigo=$_POST['codigo'];
 $Rol=$_POST['rol'];
 $Contraseña=$_POST['contraseña'];
+$Estado = $_POST['estado'];
 
 #---------INICIO ENVIO INFO A LA BD, TBLUSUARIO------------------------
-$insuser=$con->query("insert into tblusuario(Codigo,Contraseña,Nombre,Rol,Apellido) 
-                    values('$Codigo','$Contraseña','$Nombre','$Rol','$Apellido')");
+$insuser=$con->query("insert into tblusuario(Codigo,Contraseña,Nombre,Rol,Apellido, Estado) 
+                    values('$Codigo','$Contraseña','$Nombres','$Rol','$Apellidos','$Estado')");
 
  if($insuser){
       echo"<h1> Usuario registrado con exito. </h1>";
