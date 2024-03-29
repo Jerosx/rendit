@@ -1,14 +1,14 @@
 <?php
 #INICIO DE VALIDACIÓN DE SESION ACTIVA
-include ('../sistema/validar_sesion.php');
+    include ('../sistema/validar_sesion.php');
 # FIN DE VALIDACIÓN DE SESION ACTIVA
 
 #INICIO VALIDACIÓN DE ROL
-include ('../sistema/validar_rolop.php');
+    include ('../sistema/validar_rolop.php');
 #FIN VALIDACIÓN DE ROL
 
 # INICIO FECHA
-include ('../sistema/fecha.php');
+    include ('../sistema/fecha.php');
 #FIN FECHA
 ?>
 <!DOCTYPE html>

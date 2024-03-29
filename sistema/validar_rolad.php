@@ -1,6 +1,15 @@
 <?php
 #INICIO VALIDACIÓN DE ROL
-include('conexion.php'); #Incluir el archivo de conexión
+#-----------------------------------CONEXIÓN A LA BD----------------------------------------
+    include ('conexion.php'); #me conecto a la BD
+
+    # Verifico la conexión
+    if ($con->connect_error) {
+        die("Conexión fallida: " . $con->connect_error);
+
+    }
+#-----------------------------------CONEXIÓN A LA BD----------------------------------------
+
 $consulta = "SELECT Rol, Nombre FROM tblusuario WHERE Codigo='$valsesion'"; #consulto el codigo y el nombre de la persona que ingresa y lo guardo en valsesion
 $resultado = mysqli_query($con, $consulta); #creo una variable que almacene los datos de la consulta
 
