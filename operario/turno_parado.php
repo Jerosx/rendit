@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../diseño/style.css">
     <title>Página de turno parado</title>
 
-    <!-- <script src="../sistema/hora.js"></script> INHABILITO LA HORA POR FALLO--> 
+    <!-- <script src="../sistema/js/hora.js"></script> INHABILITO LA HORA POR FALLO--> 
 
 </head>
 <body class="body-admin">
@@ -48,7 +48,7 @@
 
             <h1>Cronómetro</h1>
             <p id="timer">00:00</p>
-            <script src="../sistema/cronometro_pare.js"></script>
+            <script src="../sistema/js/cronometro_pare.js"></script>
 
 
         <!--INICIO PESTAÑA MODAL RE-INICIAR TURNO -->
@@ -77,7 +77,7 @@
 
         <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 
-            <script src="../sistema/modal_retomar_turno.js"></script>         <!--Script controla modal inicio turno -->
+            <script src="../sistema/js/modal_retomar_turno.js"></script>         <!--Script controla modal inicio turno -->
 
         <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->
                 

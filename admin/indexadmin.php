@@ -20,7 +20,7 @@
     <title>Página principal administrador</title>
     <link rel="stylesheet" href="../diseño/style.css">
 
-    <script src="../sistema/hora.js"></script>
+    <script src="../sistema/js/hora.js"></script>
 
 
 </head>

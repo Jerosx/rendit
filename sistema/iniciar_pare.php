@@ -41,7 +41,7 @@
 
             switch($motivoPare){ #SEGÚN el motivo de pare ejecuto LA MISMA CONSULTA, lo que cambia según el motivo es el número que incorpora, ya que cada número vincula una razón de apre diferente en la BD
 
-                case "motivoDesayuno"; #Caso DESAYUNO
+                case "opcionDesayuno"; #Caso DESAYUNO
 
                     echo("Motivo Desayuno");
                     echo $codTurno;

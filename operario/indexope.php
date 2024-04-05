@@ -19,7 +19,7 @@ include ('../sistema/fecha.php');
     <link rel="stylesheet" href="../diseño/style.css">
     <title>Página principal operario</title>
 
-    <script src="../sistema/hora.js"></script>
+    <script src="../sistema/js/hora.js"></script>
 
 </head>
 <body class="body-admin">
@@ -38,9 +38,10 @@ include ('../sistema/fecha.php');
                         actualizarHora();
                     };
                 </script>
+            <!-- Llama a la función actualizarHora al cargar la página -->
     </div>
     </header> 
-        <!-- Llama a la función actualizarHora al cargar la página -->
+
     <div class="main-admin">
          <H1>OPERARIO</H1>
 
@@ -50,7 +51,7 @@ include ('../sistema/fecha.php');
             <button onclick="pauseTimer()">Pausar Cronómetro</button>
             <button onclick="resetTimer()">Finalizar Cronómetro</button>
 
-            <script src="../sistema/cronometro.js"></script>-->
+            <script src="../sistema/js/cronometro.js"></script>-->
         <!--FIN Cronometro-->
 
         <!--INICIO PESTAÑA MODAL INICIAR TURNO -->
@@ -97,7 +98,7 @@ include ('../sistema/fecha.php');
                         <p> ¿Cuál es el motivo del pare?<p>  
                         <select name="motivo" id="motivo">
                             <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
-                            <option value="motivoDesayuno">DESAYUNO</option>
+                            <option value="opcionDesayuno">DESAYUNO</option>
                             <option value="opcionFCanastillas">FALTA CANASTILLAS</option>
                             <option value="opcionBandaLlena">BANDA LLENA</option>
                             <option value="opcionFFlor">FALTA FLOR</option>
@@ -136,11 +137,16 @@ include ('../sistema/fecha.php');
         <!--FIN PESTAÑA MODAL TERMINAR TURNO -->
 
     <!--INICIO Contador de cajas -->
-        <form action="../sistema/actualizarcajas.php" method="post">
-            <label for="cajas">Cajas empacadas:</label>
-            <input type="number" min="0" id="cajas" name="cajas"> <!--La cantidad de cajas no va a ser inferior a 0 -->
-            <button class="admin-but2"  type="submit">GUARDAR</button>
-        </form>
+        <div class="campo-cajas">
+
+            <form action="../sistema/actualizarcajas.php" method="post">
+                <label for="cajas">Cajas empacadas:</label>
+                <input type="number" min="0" id="cajas" name="cajas"> <!--La cantidad de cajas no va a ser inferior a 0 -->
+                <button class="admin-but2"  type="submit">GUARDAR</button>
+            </form>
+
+            <p id="numero-cajas"><?php include('../sistema/obtenerCajasBD.php'); ?></p>
+        </div>
     <!--FIN Contador de cajas -->
 
      <!--INICIO BOTÓN CIERRE DE SESIÓN -->
@@ -150,9 +156,9 @@ include ('../sistema/fecha.php');
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 
-    <script src="../sistema/modal_iniciar.js"></script>         <!--Script controla modal inicio turno -->
-    <script src="../sistema/modal_parar.js"></script>                      <!--Script controla modal xxxxxx turno -->
-    <script src="../sistema/modal_terminar.js"></script>        <!--Script controla modal terminar turno -->
+    <script src="../sistema/js/modal_iniciar.js"></script>         <!--Script controla modal inicio turno -->
+    <script src="../sistema/js/modal_parar.js"></script>                      <!--Script controla modal xxxxxx turno -->
+    <script src="../sistema/js/modal_terminar.js"></script>        <!--Script controla modal terminar turno -->
 </div>
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 
