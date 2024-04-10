@@ -80,10 +80,7 @@
                 <li class="but-new"><a href="#">Estadisticas</a></li>
                 <li class="but-new"><a href="formusuario.php">Nuevo operario</a></li>
             </ul>
-            <!--<a href="#">Actualizar datos operario</a>-->
-            <!-- a href="intermedio_comer_var.php">gestión comercializadora o variedades</a> -->
-        
-
+    
 
             <!--BOTÓN CIERRE DE SESIÓN -->
             <form action="../sistema/cerrarsesion.php" method="post">
