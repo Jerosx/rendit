@@ -27,13 +27,16 @@
         
             if ($con->query($hora) === TRUE) { #si todo sale bien
 
-                echo "Insertada correctamente en la base de datos";
-                header("Location: ../operario/indexope.php"); #Lo devuelvo a la página principal 
+                echo "<script> alert('TURNO INICIADO EXITOSAMENTE');
+                        window.location.href='../operario/indexope.php';
+                    </script>";
                 exit;
 
             } else { #si algo falla
 
-                echo "Error al insertar: " . $con->error;
+                echo "<script> alert('FALLO AL INICIAR TURNO');
+                        window.location.href='../operario/indexope.php';
+                    </script>"; $con->error;
 
             }
 
@@ -48,6 +51,5 @@
     $con->close(); #Cerrar conexión
 #-------------------------------------FIN ENVIO DE NOW A LA BD----------------------------------------------------------
 
-print "<a href='../operario/indexope.php'> REGRESAR </a>"; #creo un botón para regresar al formulario
 
 ?>

@@ -64,15 +64,22 @@ $Contraseña=$_POST['contraseña'];
                          values('$Codigo','$Contraseña','$Nombres','$Rol','$Apellidos','$Estado')");
 
      if($insuser){
-          echo"<h1> Usuario registrado con exito. </h1>";
+
+          echo "<script> alert('USUARIO REGISTRADO CON EXITO');
+                        window.location.href='../admin/indexadmin.php';
+                    </script>";
+
      }
      else{
-     echo"<h1> Error en el registro. </h1>";
+
+          echo "<script> alert('FALLO AL REGISTRAR EL USUARIO');
+                         window.location.href='../admin/indexadmin.php';
+                    </script>";
+
      }
 
 #------------FIN ENVIO INFO A LA BD, TBLUSUARIO------------------------
 
-print "<a href='../admin/formusuario.php'> REGRESAR </a>"; #creo un botón para regresar al formulario
 
 */
 

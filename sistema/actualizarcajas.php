@@ -23,11 +23,15 @@
 
             if ($actualizarcaja === TRUE) { #Si sale bien 
 
-                echo "Cajas actualizada correctamente.";
+                echo "<script> alert('CAJAS GUARDADAS EXITOSAMENTE');
+                        window.location.href='../operario/indexope.php';
+                    </script>";
 
             } else { #Si sale mal mostrar el error
 
-                echo "Error al actualizar la caja: " . $con->error;
+                echo "<script> alert('FALLO AL GUARDAR CAJAS');
+                        window.location.href='../operario/indexope.php';
+                    </script>"; $con->error;
 
             }
     

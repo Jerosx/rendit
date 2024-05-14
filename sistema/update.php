@@ -27,10 +27,18 @@ $Estado=$_POST['Estado']; // Obtenemos el estado del formulario mediante el mét
         WHERE Codigo='$id' ");
     // se verifica si la consulta es exitosa
     if($up){
-        header('location:../admin/indexadmin.php');
+
+        echo "<script> alert('DATOS ACTUALIZADOS');
+                        window.location.href='../admin/indexadmin.php';
+            </script>";
+
     }
     else{
-        header('location:../admin/actualizar_usuario.php');
+
+        "<script> alert('FALLO AL ACTUALIZAR DATOS');
+                        window.location.href='../admin/indexadmin.php';
+        </script>";
+        
     }
 #----------------------------------FIN ENVIO INFO A LA BD-----------------------------------------------------
 ?>

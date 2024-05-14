@@ -30,11 +30,15 @@
         
             if ($con->query($hora) === TRUE) { #si todo sale bien
 
-                echo "Turno finalizado";
+                echo "<script> alert('TURNO FINALIZADO EXITOSAMENTE');
+                        window.location.href='../operario/indexope.php';
+                    </script>";
 
             } else { #si algo falla
 
-                echo "Error al Finalizar turno: " . $con->error;
+                echo "<script> alert('FALLO AL FINALIZAR EL TURNO');
+                        window.location.href='../operario/indexope.php';
+                    </script>"; $con->error;
 
             }
 
