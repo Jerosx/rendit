@@ -18,69 +18,61 @@ $Contraseña=$_POST['contraseña'];
 
 
 #-------------inicio envio de la base de datos-----------#
-     switch($Rol){
+     switch($Rol){  // este switch hace la llamada a rol donde puede escoger si es administrador o operario.
 
-          case "Administrador";
+          case "Administrador"; // este caso muestra el registro de inicio del administrador
 
-               echo ("Eligio Administrador");
-               
+               echo ("Eligio Administrador"); // muetra cuando eligio el administrador.
+
+          #------hace la llamada a la base de datos indicando que escogio el rol administrador--------#
                $insuser=$con->query("insert into tblusuario(Codigo,Contraseña,Nombre,Rol,Apellido, Estado) 
-                         values('$Codigo','$Contraseña','$Nombres', 1 ,'$Apellidos',1 )");
+                         values('$Codigo','$Contraseña','$Nombres', 1 ,'$Apellidos',1 )");  
 
                     if($insuser){
-                         echo"<h1> Usuario registrado con exito. </h1>";
+        #-----------------el scrript muestra una ventana donde el administrador se registro con exito----------------#
+                         echo "<script> alert('ADMINISTRADOR REGISTRADO EXITOSAMENTE');  
+                                   window.location.href='../admin/indexadmin.php';  
+                              </script>";
+
                     }
                     else{
-                    echo"<h1> Error en el registro. </h1>";
+       #-------------------muestra fallos al registrar en la session administrador --------------#
+                         echo "<script> alert('FALLO AL REGISTRAR');
+                                   window.location.href='../admin/indexadmin.php';
+                              </script>"; $con->error;
                     }
-                    break;
 
-               break;
+                    break; // rompe la consulta
+
+               break; // rompe el if mostrando el registro con exito.
      
-          case  "Operario";
+          case  "Operario"; // muestra el registro de operario 
 
-              echo ("Eligio operario");
-           
+              echo ("Eligio operario"); // mensaje de de aceptacion que eligio operario
+
+           #-------hace la llamada en la base de datos indicando que escogio el rol de operario-------#
               $insuser=$con->query("insert into tblusuario(Codigo,Contraseña,Nombre,Rol,Apellido, Estado) 
-              values('$Codigo','$Contraseña','$Nombres', 1 ,'$Apellidos',1 )");
+              values('$Codigo','$Contraseña','$Nombres', 2 ,'$Apellidos',1 )"); // guarda el registro de operario con el rol 2 y lo guarda con el estado 1 
 
                     if($insuser){
-                         echo"<h1> Usuario registrado con exito. </h1>";
+         #------------muestra un mensaje donde el operario se registro correctamente--------#
+                         echo "<script> alert('OPERARIO REGISTRADO EXITOSAMENTE');
+                                   window.location.href='../admin/indexadmin.php';
+                              </script>";
+
                     }
                     else{
-                    echo"<h1> Error en el registro. </h1>";
+       #-----------------muestra fallos al registar el rol de operario----------#
+                         echo "<script> alert('FALLO AL REGISTRAR');
+                                    window.location.href='../admin/indexadmin.php';
+                              </script>"; $con->error;
+
                     }
-                    break;
+                    break; // rompe la consulta del  rol de operario.
 
-               break; 
+               break; // rompe el if mostrando el registro con exitos.
      }
-
-     print "<a href='../admin/formusuario.php'> REGRESAR </a>"; #creo un botón para regresar al formulario
 
 #-------------fin envio de la base de datos-----------#
-/*
-#---------INICIO ENVIO INFO A LA BD, TBLUSUARIO------------------------
-     $insuser=$con->query("insert into tblusuario(Codigo,Contraseña,Nombre,Rol,Apellido, Estado) 
-                         values('$Codigo','$Contraseña','$Nombres','$Rol','$Apellidos','$Estado')");
-
-     if($insuser){
-
-          echo "<script> alert('USUARIO REGISTRADO CON EXITO');
-                        window.location.href='../admin/indexadmin.php';
-                    </script>";
-
-     }
-     else{
-
-          echo "<script> alert('FALLO AL REGISTRAR EL USUARIO');
-                         window.location.href='../admin/indexadmin.php';
-                    </script>";
-
-     }
-
-#------------FIN ENVIO INFO A LA BD, TBLUSUARIO------------------------
-
-
-*/
 
 ?>
