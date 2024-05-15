@@ -23,35 +23,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../diseño/style.css">
+    <style>
+        body{
+            background: whitesmoke;
+            background: linear-gradient(to right, rgb(71, 128, 194), rgb(34, 52, 80) );
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="../diseño/style.css">-->
     <title>Actualizar datos Operarios</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
 </head>
-<body class="login"> 
-    <form class="myForm" action="../sistema/update.php" method="POST">
+<body> 
+<a class="btn btn-warning m-4" href="../admin/indexadmin.php" role="button">REGRESAR</a>
+    <div class="container mt-5 text-center bg-light rounded w-75 ">
+        <form class="form-floating" action="../sistema/update.php" method="POST">
+            
+            <h2 class="display-4 mt-5">Diligencie la información correspondiente</h2> 
 
-            <div class="id"><br> 
-                <input type="hidden" value="<?php echo $fila['Codigo']?>" name="Codigo"><br></div> <!--campo oculto para enviar el codigo a la actualizacion-->
-       
-                <div class="Contraseña"><label><h1>Contraseña</h1></label><br>
-                <input type="text" value="<?php echo $fila['Contraseña']?>" name="Contraseña"><br></div> <!--campo para abtener la contraseña-->
-
-                <div class="Nombre"><label><h1>Nombre</h1></label><br>
-                <input type="text" value="<?php echo $fila['Nombre']?>"name="Nombre"><br></div> <!--campo para abtener el nombre-->
-
-                <div class="Rol"><label><h1>Rol</h1></label><br>
-                <input type="text" value="<?php echo $fila['Rol']?>" name="Rol"><br></div> <!--campo para abtener el rol-->
-
-                <div class="Apellido"><label><h1>Apellido</h1></label><br>
-                <input type="text" value="<?php echo $fila['Apellido']?>" name="Apellido"><br></div> <!--campo para abtener los apellidos-->
-
-                <div class="Estado"><label><h1>Estado</h1></label><br>
-                <input type="text" value="<?php echo $fila['Estado']?>" name="Estado"><br></div> <!--campo para abtener el estado del operario-->
-
-                
-                <input class="login-but" type="submit" value="Modificar"><br> <!--Boton para enviar los cambios a la actualizacion-->
+            <div class="mb-3">
+                    <input type="hidden" value="<?php echo $fila['Codigo']?>" name="Codigo"><br> <!--campo oculto para enviar el codigo a la actualizacion-->
             </div>
-    </forms> 
+           
+            <div class="mb-3">
+                    <label class="form-label">CONTRASEÑA</label>
+                    <input class="form-control" type="text" value="<?php echo $fila['Contraseña']?>" name="Contraseña"><br> <!--campo para abtener la contraseña-->
+            </div>
+            
+            <div class="mb-3">
+                    <label class="form-label">NOMBRE</label>
+                    <input class="form-control" type="text" value="<?php echo $fila['Nombre']?>"name="Nombre"><br> <!--campo para abtener el nombre-->
+            </div>
+            <div class="mb-3">
+                    <label class="form-label">APELLIDO</label>
+                    <input class="form-control" type="text" value="<?php echo $fila['Apellido']?>" name="Apellido"><br> <!--campo para abtener los apellidos-->
+            </div>
+            <div class="mb-3">
+                   <label class="form-label">ROL</label>
+                    <input class="form-control" type="text" value="<?php echo $fila['Rol']?>" name="Rol"><br> <!--campo para abtener el rol-->
+            </div>
+           <div class="mb-3">
+                   <label class="form-label">ESTADO</label>
+                    <input class="form-control" type="text" value="<?php echo $fila['Estado']?>" name="Estado"><br> <!--campo para abtener el estado del operario-->
+            </div>
+                    
+                    <input class="btn btn-warning m-3" type="submit" value="Modificar"><br> <!--Boton para enviar los cambios a la actualizacion-->
+                
+        </form> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 </body>
+</html>

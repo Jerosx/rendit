@@ -18,43 +18,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página principal administrador</title>
-    <link rel="stylesheet" href="../diseño/style.css">
-
+    <!--<link rel="stylesheet" href="../diseño/style.css">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
     <script src="../sistema/js/hora.js"></script>
 
 
 </head>
-<body class="body-admin">
-    <header class="header-index-admin">
-        <div class="user-name">
-            <p> <?php echo "Bienvenid@ <br> $nombreUsuario" ?> </p> <!--SALUDO Y NOMBRE -->
-        </div>
-        <div class="time-config">
-                <p> <span id="hora"></span></p> <!-- HORA -->
-        
-            <p> <?php echo "$fecha_actual" ?></p><!-- FECHA -->
-            
-            <!-- Llama a la función actualizarHora al cargar la página -->
-            <script>
-                window.onload = function() {
-                    actualizarHora();
-                };
-            </script>
-        </div>
-    </header>
-    <div class="main-admin">
+<body>
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">RENDIT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           MENÚ
+          </a>
+          <ul class="dropdown-menu">
+                <li class="dropdown-item"><a class="navbar-brand" href="#">Estadisticas</a></li>
+                <li class="dropdown-item"><a class="navbar-brand" href="formusuario.php">Nuevo operario</a></li>
+            </ul>
+        </li>
+      </ul>
+    <ul class="navbar-nav ">
+      <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
+      <li class="nav-item"><form action="../sistema/cerrarsesion.php" method="post">
+            <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button></li>
+    </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container text-center mt-5">
         <!--CREACION LISTA DE OPERARIOS EN LA BASE DE DATOS-->
         <?php
             include('../sistema/conexion.php'); #Traigo la conexión a la bd
         ?>
         <div class="tabla-usuarios">
-             <h1>OPERARIOS REGISTRADOS</h1>
-            <table class="customers" border="1" align="left"> <!--Creo una tabbla -->
+             <h3 class="display-4">OPERARIOS REGISTRADOS</h3>
+            <table class="table mt-5" border="1" align="left"> <!--Creo una tabbla -->
                             <tr> 
                 
                                 <th>Nombre</th> <!--Creo el campo Nombre en la cabecera-->
                                 <th>Apellidos</th><!--Creo el campo Apellidos en la cabecera-->
-                                <th>Codigo</th><!--Creo el campo Codigo en la cabecera-->
+                                <th>Código</th><!--Creo el campo Codigo en la cabecera-->
                                 <th>Actualizar datos</th><!--Creo el campo Actualizar datos Operario en la cabecera-->
 
                             </tr>
@@ -65,7 +77,7 @@
                         <tr><td><?php echo $fila['Nombre']?></td> <!--Comienza a escribir en bucle los nombres, apellidos y codigos que se encuentra con la consulta hasta finalizar el while -->
                             <td><?php echo $fila['Apellido']?></td>
                             <td><?php echo $fila['Codigo']?></td>
-                            <td><a href="actualizar_usuario.php?id=<?php echo $fila['Codigo']?>">Editar</a></td>
+                            <td><a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="actualizar_usuario.php?id=<?php echo $fila['Codigo']?>">Editar</a></td>
 
                         </tr>
                     <?php
@@ -74,19 +86,7 @@
             </table>
             <!--FIN LISTA DE OPERARIOS EN LA BASE DE DATOS-->
         </div>
-
-        <div class="links-con">
-            <ul>
-                <li class="but-new"><a href="#">Estadisticas</a></li>
-                <li class="but-new"><a href="formusuario.php">Nuevo operario</a></li>
-            </ul>
-    
-
-            <!--BOTÓN CIERRE DE SESIÓN -->
-            <form action="../sistema/cerrarsesion.php" method="post">
-            <button class="admin-but" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-            <!--BOTÓN CIERRE DE SESIÓN -->
-        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

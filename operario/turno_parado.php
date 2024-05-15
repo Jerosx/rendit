@@ -16,48 +16,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../diseño/style.css">
+   <!-- <link rel="stylesheet" href="../diseño/style.css">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Página de turno parado</title>
 
     <!-- <script src="../sistema/js/hora.js"></script> INHABILITO LA HORA POR FALLO--> 
 
 </head>
 <body class="body-admin">
-    <header class="header-index-admin"> 
-        <div class="user-name">
-            <p> <?php echo "Bienvenid@ <br> $nombreUsuario" ?> </p> <!--SALUDO Y NOMBRE -->
-        </div>
-        
-        <div class="time-config">
-            <p> <span id="hora"></span></p> <!-- HORA -->
-            <p> <?php echo "$fecha_actual" ?></p><!-- FECHA -->
-            
-                <!-- Llama a la función actualizarHora al cargar la página -->
-                    <script>
-                        window.onload = function() {
-                            actualizarHora();
-                        };
-                    </script>
-        </div>
-                <!-- Llama a la función actualizarHora al cargar la página -->
-    </header> 
-    <div class="main-admin">
-                <H1>TURNO PARADO</H1>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">RENDIT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                    </ul>
+                <ul class="navbar-nav ">
+                    <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
                 
-
-            <h1>Cronómetro</h1>
-            <p id="timer">00:00</p>
+                </ul>
+                </div>
+            </div>
+    </nav>
+<div class="container text-center mt-5 w-75">
+            <H2 class="display-4">TURNO PARADO</H2>  
+            <h3 class="display-5">Ha transcurrido:</h3>
+            <p class="text-primary fs-2" id="timer">00:00</p>
             <script src="../sistema/js/cronometro_pare.js"></script>
 
 
         <!--INICIO PESTAÑA MODAL RE-INICIAR TURNO -->
 
-            <button class="admin-but" id="btn-modal-retomar">RETOMAR TURNO</button>
+            <button class="btn btn-success" id="btn-modal-retomar">RETOMAR TURNO</button>
 
             <dialog id="modal-retomar">
 
-                <h2> ATENCIÓN </h2>
+                <h2 class="text-warning"> ATENCIÓN </h2>
                 <p> ¿Estás seguro de que quieres retomar tú turno?<p>
 
                 <form method="post" action="../sistema/retomar_turno.php">
@@ -66,10 +64,10 @@
                             <option disabled selected="">SELECCIONE "SI" PARA RETOMAR:</option>
                             <option value="opcionSi">SI</option>
                         </select>
-                        <button type="submit" value="Enviar">CONFIRMAR</button>
+                        <button class="btn btn-danger" type="submit" value="Enviar">CONFIRMAR</button>
                 </form>
 
-                <button class="admin-but" id="btn-cerrar-modal-retomar">AÚN NO VOY A RETOMAR</button>
+                <button class="btn btn-warning" id="btn-cerrar-modal-retomar">AÚN NO VOY A RETOMAR</button>
 
             </dialog>
 
@@ -82,6 +80,7 @@
         <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->
                 
     </div>
-
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 </body>
 </html>
