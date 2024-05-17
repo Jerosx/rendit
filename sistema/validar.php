@@ -15,18 +15,29 @@ $resultado=mysqli_query($conexion,$consulta);#creo una variable llamada '$result
 
 $filas=mysqli_fetch_array($resultado); ##Fetch_array me trae los datos de cada fila, Creo una variable llamada '$filas' que va a almacenar el resultado de la consulta
 
-if($filas['Rol']==1){  #Si Rol==1 es administrador
-    header("location:../admin/indexadmin.php"); #envialo al index de administrador
-}
-else
-if($filas['Rol'==2]){ #si Rol==2 es operario
-    header("location:../operario/indexope.php");#envialo al index del operario
-}
-else{ #si no es verdadero, las credenciales no están, por lo que la página te vuelve a direccionar a la pestaña de login
-    header("location:../index.html");
-    exit; #detiene la ejecución del script
-}
+if($filas['Estado']==1) #Si el estado de la persona es 1, está activo y puede ingresar
+{
+    if($filas['Rol']==1){  #Si Rol==1 es administrador
+        header("location:../admin/indexadmin.php"); #envialo al index de administrador
+    }
 
+    else if($filas['Rol'==2]){ #si Rol==2 es operario
+        header("location:../operario/indexope.php");#envialo al index del operario
+    }
+
+    else{ #si no es verdadero, las credenciales no están, por lo que la página te vuelve a direccionar a la pestaña de login
+        header("location:../index.html");
+        exit; #detiene la ejecución del script
+    }
+
+}else{ #si el esatdo es diferente a 1, está inactivo, por lo que no debe pasar
+
+    echo "<script> alert('ESTE USUARIO SE ENCUENTRA INHABILITADO COMUNIQUESE CON SU SUPERVISOR MÁS CERCANO');
+                        window.location.href='../index.html';
+          </script>";
+        exit;
+
+}
 mysqli_free_result($resultado); #obtengo el resultado y cuando no sea necesario lo elimino
 mysqli_close($conexion); #cierro la conexión abierta a la bd
 

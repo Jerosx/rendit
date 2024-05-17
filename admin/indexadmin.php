@@ -67,16 +67,46 @@
                                 <th>Nombre</th> <!--Creo el campo Nombre en la cabecera-->
                                 <th>Apellidos</th><!--Creo el campo Apellidos en la cabecera-->
                                 <th>Código</th><!--Creo el campo Codigo en la cabecera-->
+                                <th>Estado</th><!--Creo el campo Codigo en la cabecera-->
                                 <th>Actualizar datos</th><!--Creo el campo Actualizar datos Operario en la cabecera-->
 
                             </tr>
                     <?php
-                        $consulta=$con->query("SELECT * FROM tblusuario WHERE Rol=2 AND Estado=1");#Creo una variable llamada 'conuslta' para almacenar la consulta a la Bd, le digo que traiga todos los usuarios con rol=2 (OPERARIOS) y estado = 1 (ACTIVO)
+                        $consulta=$con->query("SELECT * FROM tblusuario WHERE Rol=2");#Creo una variable llamada 'conuslta' para almacenar la consulta a la Bd, le digo que traiga todos los usuarios con rol=2 (OPERARIOS) y estado = 1 (ACTIVO)
                             while($fila=$consulta->fetch_assoc()){ //while queda bierto para repetir hasta acabar la impresión de la consulta
                     ?>
                         <tr><td><?php echo $fila['Nombre']?></td> <!--Comienza a escribir en bucle los nombres, apellidos y codigos que se encuentra con la consulta hasta finalizar el while -->
                             <td><?php echo $fila['Apellido']?></td>
                             <td><?php echo $fila['Codigo']?></td>
+                            <td><?php echo $fila['Estado']?></td>
+                            <td><a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="actualizar_usuario.php?id=<?php echo $fila['Codigo']?>">Editar</a></td>
+
+                        </tr>
+                    <?php
+                        } //cierro el while
+                    ?>
+            </table>
+
+            <div class="tabla-usuarios">
+             <h3 class="display-4">ADMINISTRADORES REGISTRADOS</h3>
+            <table class="table mt-5" border="1" align="left"> <!--Creo una tabbla -->
+                            <tr> 
+                
+                                <th>Nombre</th> <!--Creo el campo Nombre en la cabecera-->
+                                <th>Apellidos</th><!--Creo el campo Apellidos en la cabecera-->
+                                <th>Código</th><!--Creo el campo Codigo en la cabecera-->
+                                <th>Estado</th><!--Creo el campo Codigo en la cabecera-->
+                                <th>Actualizar datos</th><!--Creo el campo Actualizar datos Operario en la cabecera-->
+
+                            </tr>
+                    <?php
+                        $consulta=$con->query("SELECT * FROM tblusuario WHERE Rol=1");#Creo una variable llamada 'conuslta' para almacenar la consulta a la Bd, le digo que traiga todos los usuarios con rol=2 (OPERARIOS) y estado = 1 (ACTIVO)
+                            while($fila=$consulta->fetch_assoc()){ //while queda bierto para repetir hasta acabar la impresión de la consulta
+                    ?>
+                        <tr><td><?php echo $fila['Nombre']?></td> <!--Comienza a escribir en bucle los nombres, apellidos y codigos que se encuentra con la consulta hasta finalizar el while -->
+                            <td><?php echo $fila['Apellido']?></td>
+                            <td><?php echo $fila['Codigo']?></td>
+                            <td><?php echo $fila['Estado']?></td>
                             <td><a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="actualizar_usuario.php?id=<?php echo $fila['Codigo']?>">Editar</a></td>
 
                         </tr>
