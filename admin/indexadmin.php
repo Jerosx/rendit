@@ -41,7 +41,7 @@
            MENÚ
           </a>
           <ul class="dropdown-menu">
-                <li class="dropdown-item"><a class="navbar-brand" href="#">Estadisticas</a></li>
+                <li class="dropdown-item"><a class="navbar-brand" href="estadisticas.php">Estadisticas</a></li>
                 <li class="dropdown-item"><a class="navbar-brand" href="formusuario.php">Nuevo operario</a></li>
             </ul>
         </li>
