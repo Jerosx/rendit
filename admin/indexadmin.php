@@ -48,8 +48,11 @@
       </ul>
     <ul class="navbar-nav ">
       <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
-      <li class="nav-item"><form action="../sistema/cerrarsesion.php" method="post">
-            <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button></li>
+      <li class="nav-item">
+            <form action="../sistema/cerrarsesion.php" method="post">
+                <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+            </form>
+        </li>
     </ul>
     </div>
   </div>

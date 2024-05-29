@@ -10,6 +10,10 @@ include ('../sistema/validar_rolop.php');
 # INICIO FECHA
 include ('../sistema/fecha.php');
 #FIN FECHA
+
+#CONEXIÓN BD
+include('../sistema/conexion.php');
+#CONEXIÓN BD
 ?>  
 <!DOCTYPE html>
 <html lang="en">
@@ -137,24 +141,82 @@ include ('../sistema/fecha.php');
             </dialog>
         <!--FIN PESTAÑA MODAL TERMINAR TURNO -->
 
-    <!--INICIO Contador de cajas -->
-        <div class="container mt-5 w-75">
+        <!--      CONTEO CAJAS V2        -->
 
-            <form class="form-floating" action="../sistema/actualizarcajas.php" method="post">
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Ingrese la cantidad de cajas" aria-label="Recipient's username" aria-describedby="button-addon2" min="0" id="cajas" name="cajas">
-                    <button class="btn btn-success" type="submit">Guardar</button>
-                </div>
+            <!--TABLA CON CAJAS EMPACADAS--->
 
-               
+                    <table class="table mt-5" border="1" align="left"> <!--Creo una tabla -->
+                                    <tr> 
+                        
+                                        <th>Cajas empacadas</th> <!--Creo el campo Cajas empacadas en la cabecera-->
+
+                                    </tr>
+                            <?php
+
+                                $consulta=$con->query("SELECT Cajas FROM tblturno WHERE Empacador = '$valsesion' AND Fecha = '$fecha_actual'");
+                                    while($fila=$consulta->fetch_assoc()){ //while queda bierto para repetir hasta acabar la impresión de la consulta
+                                
+
+                            ?>
+                                <tr><td><?php echo $fila['Cajas']?></td> <!--Comienza a escribir las cajas que se encuentra con la consulta hasta finalizar el while -->
+
+                                </tr>
+                            <?php
+                                } #cierro el while
+                            ?>
+                    </table>
+
+            <!--TABLA CON CAJAS EMPACADAS--->
+
+            <!--BOTÓN SUMAR +1 CAJA EMPACADA--->
+
+                <form action="../sistema/sumarcaja.php" method="post">
+
+                    <button class="btn btn-warning m-2" type="submit" id="sumarCajaBTN" name="sumarCajaBTN"> SUMAR</button>
+
+                </form>
+
+            <!--BOTÓN SUMAR +1 CAJA EMPACADA--->
+            
+            <!--BOTÓN RESTAR -1 CAJA EMPACADA--->
+            
+                <form action="../sistema/restarcaja.php" method="post">
+
+                    <button class="btn btn-warning m-2" type="submit" id="restarCajaBTN" name="restarCajaBTN">RESTAR</button>
+
+                </form>
+
+            <!--BOTÓN RESTAR -1 CAJA EMPACADA--->
+
+
+        <!--      CONTEO CAJAS V2        -->
+
+        <!--CONTEO CAJAS V1 -->
+
+                <!--INICIO Contador de cajas
+                    <div class="container mt-5 w-75">
+
+                        <form class="form-floating" action="../sistema/actualizarcajas.php" method="post">
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Ingrese la cantidad de cajas" aria-label="Recipient's username" aria-describedby="button-addon2" min="0" id="cajas" name="cajas">
+                                <button class="btn btn-success" type="submit">Guardar</button>
+                            </div>
+
+                        
+                        </form>
+
+                        <p id="numero-cajas"><?php include('../sistema/obtenerCajasBD.php'); ?></p>
+                    </div>
+                FIN Contador de cajas -->
+
+        <!--CONTEO CAJAS V1 -->
+            
+        <!--INICIO BOTÓN CIERRE DE SESIÓN -->
+
+            <form action="../sistema/cerrarsesion.php" method="post">
+                <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
             </form>
 
-            <p id="numero-cajas"><?php include('../sistema/obtenerCajasBD.php'); ?></p>
-        </div>
-    <!--FIN Contador de cajas -->
-       <!--INICIO BOTÓN CIERRE DE SESIÓN -->
-        <form action="../sistema/cerrarsesion.php" method="post">
-        <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
         <!--FIN BOTÓN CIERRE DE SESIÓN -->
     
 
