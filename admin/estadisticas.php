@@ -27,11 +27,11 @@ $sql = "SELECT tu.Nombre, tt.Cajas, tt.HoraInicio, tt.HoraFin
         JOIN tblusuario tu ON tt.Empacador = tu.Codigo
         WHERE tt.Fecha = ?";
 
-//Se prepara el statement para la consulta a la BD. 
+// Se prepara el statement para la consulta a la BD.
 $stmt = $con->prepare($sql);
 $stmt->bind_param('s', $selectedDate);
 $stmt->execute();
-//se obtiene el resultado de la consulta
+// se obtiene el resultado de la consulta
 $result = $stmt->get_result();
 
 $empacadores = [];
@@ -42,12 +42,12 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $nombre = $row['Nombre'];
         $cajas = $row['Cajas'];
-        //se calculan las horas trabajadas de cada Empacador
-        $horaInicio = DateTime::createFromFormat('H:i:s',$row['HoraInicio']);
-        $horaFin = DateTime::createFromFormat('H:i:s',$row['HoraFin']);
+        // se calculan las horas trabajadas de cada Empacador
+        $horaInicio = DateTime::createFromFormat('H:i:s', $row['HoraInicio']);
+        $horaFin = DateTime::createFromFormat('H:i:s', $row['HoraFin']);
         $interval = $horaInicio->diff($horaFin);
-        $horasTrabajadas = $interval->h + ($interval->i / 60) + ($interval->s/3600);
-        //Validamos que las horas laboradas sean mayor a 0
+        $horasTrabajadas = $interval->h + ($interval->i / 60) + ($interval->s / 3600);
+        // Validamos que las horas laboradas sean mayor a 0
         if ($horasTrabajadas > 0) {
             $rendimiento = $cajas / $horasTrabajadas;
 
@@ -71,7 +71,7 @@ if ($result->num_rows > 0) {
         }
     }
 } else {
-    echo "0 resultados";
+    echo "";
 }
 $stmt->close();
 $con->close();
@@ -99,20 +99,11 @@ $rendimientoPorHoraJson = json_encode(array_values($rendimientoPorHora));
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        MENÚ
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-item"><a class="navbar-brand" href="estadisticas.php">Estadísticas</a></li>
-                        <li class="dropdown-item"><a class="navbar-brand" href="formusuario.php">Nuevo operario</a></li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
             <ul class="navbar-nav">
-                <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario $apellidoUsuario"; ?> </p></li>
+                <li class="nav-item">
+                    <p class="text-uppercase fs-6 mt-3 text-light"><?php echo "$nombreUsuario $apellidoUsuario"; ?></p>
+                </li>
                 <li class="nav-item">
                     <form action="../sistema/cerrarsesion.php" method="post">
                         <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
@@ -122,75 +113,96 @@ $rendimientoPorHoraJson = json_encode(array_values($rendimientoPorHora));
         </div>
     </div>
 </nav>
-<a class="btn btn-warning m-4" href="../admin/indexadmin.php" role="button">REGRESAR</a>
-<div class="container text-center mt-5">
-    <h3 class="display-4">Estadísticas</h3>
 
-    <!-- Formulario para seleccionar la fecha -->
-    <form method="post" action="">
-        <div class="form-group">
-            <label for="fecha">Selecciona una fecha:</label>
-            <input type="date" id="fecha" name="fecha" value="<?php echo $selectedDate; ?>" class="form-control" required>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 bg-light">
+            <h4 class="mt-4">Menú</h4>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="estadisticas.php">Estadísticas Operarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Estadísticas Paro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Estadísticas Generales</a>
+                </li>
+            </ul>
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Filtrar</button>
-    </form>
+        <div class="col-md-10">
+            <a class="btn btn-warning m-4" href="../admin/indexadmin.php" role="button">REGRESAR</a>
+            <div class="container text-center mt-5">
+                <h3 class="display-4">Estadísticas Operarios</h3>
 
-    <canvas id="myChart" width="400" height="100" class="mt-5"></canvas>
-    <canvas id="myChartRendimiento" width="400" height="100" class="mt-5"></canvas>
+                <!-- Formulario para seleccionar la fecha -->
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label for="fecha">Selecciona una fecha:</label>
+                        <input type="date" id="fecha" name="fecha" value="<?php echo $selectedDate; ?>" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Filtrar</button>
+                </form>
 
-    <script>
-        // Convertir los datos de PHP a formato JSON para JavaScript
-        var empacadores = <?php echo $empacadoresJson; ?>;
-        var numeroCajas = <?php echo $numeroCajasJson; ?>;
-        var rendimientoPorHora = <?php echo $rendimientoPorHoraJson; ?>;
+                <canvas id="myChart" width="400" height="100" class="mt-5"></canvas>
+                <canvas id="myChartRendimiento" width="400" height="100" class="mt-5"></canvas>
 
-        // Crear el gráfico de número de cajas con Chart.js
-      
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: empacadores,
-                datasets: [{
-                    label: 'Número de Cajas por Empacador',
-                    data: numeroCajas,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+                <script>
+                    // Convertir los datos de PHP a formato JSON para JavaScript
+                    var empacadores = <?php echo $empacadoresJson; ?>;
+                    var numeroCajas = <?php echo $numeroCajasJson; ?>;
+                    var rendimientoPorHora = <?php echo $rendimientoPorHoraJson; ?>;
 
-        // Crear el gráfico de rendimiento por hora con Chart.js
-        var ctxRendimiento = document.getElementById('myChartRendimiento').getContext('2d');
-        var myChartRendimiento = new Chart(ctxRendimiento, {
-            type: 'bar',
-            data: {
-                labels: empacadores,
-                datasets: [{
-                    label: 'Rendimiento por Hora',
-                    data: rendimientoPorHora,
-                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                    borderColor: 'rgba(153, 102, 255, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+                    // Crear el gráfico de número de cajas con Chart.js
+                  
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: empacadores,
+                            datasets: [{
+                                label: 'Número de Cajas por Empacador',
+                                data: numeroCajas,
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+                    // Crear el gráfico de rendimiento por hora con Chart.js
+                    var ctxRendimiento = document.getElementById('myChartRendimiento').getContext('2d');
+                    var myChartRendimiento = new Chart(ctxRendimiento, {
+                        type: 'bar',
+                        data: {
+                            labels: empacadores,
+                            datasets: [{
+                                label: 'Rendimiento por Hora',
+                                data: rendimientoPorHora,
+                                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                                borderColor: 'rgba(153, 102, 255, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
