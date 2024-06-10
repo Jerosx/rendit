@@ -123,10 +123,10 @@ $rendimientoPorHoraJson = json_encode(array_values($rendimientoPorHora));
                     <a class="nav-link" href="estadisticas.php">Estadísticas Operarios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Estadísticas Paro</a>
+                    <a class="nav-link" href="estadisticasParo.php">Estadísticas Paro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Estadísticas Generales</a>
+                    <a class="nav-link" href="estadisticasGeneral.php">Estadísticas Generales</a>
                 </li>
             </ul>
         </div>

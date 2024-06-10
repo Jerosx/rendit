@@ -13,18 +13,18 @@ $Nombres = strtoupper($_POST['Nombres']);
 $Apellidos = strtoupper($_POST['Apellidos']);
 $Codigo = strtoupper($_POST['codigo']);
 $Rol = strtoupper($_POST['rol']);
-$Contraseña = strtoupper($_POST['contraseña']);
+$Contrasena = strtoupper($_POST['contrasena']);
 
 #-------------inicio envio de la base de datos-----------#
 switch($Rol) {  // este switch hace la llamada a rol donde puede escoger si es administrador o operario
 
-    case "ADMINISTRADOR": // este caso muestra el registro de inicio del administrador
+    case "1": // este caso muestra el registro de inicio del administrador
 
         echo ("Eligió Administrador"); // muestra cuando eligió el administrador
 
         #------hace la llamada a la base de datos indicando que escogió el rol administrador--------#
-        $insuser = $con->query("INSERT INTO tblusuario(Codigo, Contraseña, Nombre, Rol, Apellido, Estado) 
-                   VALUES('$Codigo', '$Contraseña', '$Nombres', 1, '$Apellidos', 1)");  
+        $insuser = $con->query("INSERT INTO tblusuario(Codigo, Contrasena, Nombre, Rol, Apellido, Estado) 
+                   VALUES('$Codigo', '$Contrasena', '$Nombres', 1, '$Apellidos', 1)");  
 
         if($insuser) {
             #-----------------el script muestra una ventana donde el administrador se registró con éxito----------------#
@@ -41,13 +41,13 @@ switch($Rol) {  // este switch hace la llamada a rol donde puede escoger si es a
 
         break; // rompe la consulta
 
-    case "OPERARIO": // muestra el registro de operario 
+    case "2": // muestra el registro de operario 
 
         echo ("Eligió operario"); // mensaje de aceptación que eligió operario
 
         #-------hace la llamada en la base de datos indicando que escogió el rol de operario-------#
-        $insuser = $con->query("INSERT INTO tblusuario(Codigo, Contraseña, Nombre, Rol, Apellido, Estado) 
-                   VALUES('$Codigo', '$Contraseña', '$Nombres', 2, '$Apellidos', 1)"); // guarda el registro de operario con el rol 2 y lo guarda con el estado 1 
+        $insuser = $con->query("INSERT INTO tblusuario(Codigo, Contrasena, Nombre, Rol, Apellido, Estado) 
+                   VALUES('$Codigo', '$Contrasena', '$Nombres', 2, '$Apellidos', 1)"); // guarda el registro de operario con el rol 2 y lo guarda con el estado 1 
 
         if($insuser) {
             #------------muestra un mensaje donde el operario se registró correctamente--------#

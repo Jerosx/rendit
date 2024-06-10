@@ -6,6 +6,12 @@
 #INICIO VALIDACIÓN DE ROL
     include ('../sistema/validar_rolad.php');
 #FIN VALIDACIÓN DE ROL
+
+#conexion BD
+include('../sistema/conexion.php');
+
+$consultaRoles = 'SELECT Codigo, Nombre FROM tblrol'; #Consulta SQL para obtener todos los códigos y nombres de la tabla 'tblrol'
+$resultadoRoles = mysqli_query($con, $consultaRoles); #Se ejecuta la consulta SQL y se guarda el resultado en la variable $resultadoRoles
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,16 +56,19 @@
             <!-- Campo para ingresar contraseña -->
             <div class="mb-3">
                 <label class="form-label">CONTRASEÑA</label><br/>
-                <input type="text" class="form-control" name="contraseña">
+                <input type="text" class="form-control" name="contrasena">
             </div>
             <!-- Lista desplegable para seleccionar el cargo -->
             <div class="mb-3">
-                <label class="form-label">CARGO</label><br/>
-                <select name="rol" class="form-control">
-                    <option value="Administrador">Administrador</option>
-                    <option value="Operario">Operario</option>
-                </select>
+                <label class="form-label">CARGO</label>
+                <select id="rol" name="rol" required>
+                    <?php while ($rol = mysqli_fetch_assoc($resultadoRoles)): ?>
+                        <option value="<?= htmlspecialchars($rol['Codigo']) ?>"><?= htmlspecialchars($rol['Nombre']) ?></option>
+                    <?php endwhile; ?>
+                </select><br>
             </div>
+
+            
 
             <!-- Botón para enviar el formulario -->
             <button class="btn btn-warning m-3" type="submit" class="bt-send">LISTO</button>
