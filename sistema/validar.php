@@ -34,7 +34,7 @@ if($resultado->num_rows > 0) #En este punto valido que la varibale $resultado co
 
         else if($filas['Rol'==2]){ #si Rol==2 es operario
 
-            header("location:../operario/indexope.php");#envialo al index del operario
+            header("location:../operario/indexIniciarTurno.php");#envialo al index del operario
 
         }
 

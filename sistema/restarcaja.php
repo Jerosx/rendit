@@ -23,13 +23,13 @@
         if($restarCaja === TRUE) #Valido que todo salga bien
         {
             echo "Caja restada"; #mensaje depuración
-            header ("location: ../operario/indexope.php"); #lo devuelvo al index directamente
+            header ("location: ../operario/indexTurno.php"); #lo devuelvo al index directamente
             exit(); #detengo la ejecución del script
         }
         else
         {
             echo "Error al restar la caja" . $con->error; #mensaje depuración
-            header ("location: ../operario/indexope.php"); #lo devuelvo al index directamente
+            header ("location: ../operario/indexTurno.php"); #lo devuelvo al index directamente
         }
 
 #-------------------------------------FIN RESTAR CAJAS A LA BD----------------------------------------------------------

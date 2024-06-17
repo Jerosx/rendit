@@ -47,14 +47,14 @@
                 if ($con->query($hora) === TRUE) { # Si todo sale bien
 
                     echo "<script> alert('TURNO FINALIZADO EXITOSAMENTE');
-                            window.location.href='../operario/indexope.php';
+                            window.location.href='../operario/indexIniciarTurno.php';
                         </script>";
                     exit;
 
                 } else { # Si algo falla
 
                     echo "<script> alert('FALLO AL FINALIZAR EL TURNO');
-                            window.location.href='../operario/indexope.php';
+                            window.location.href='../operario/indexTurno.php';
                         </script>";
                     echo "Error: " . $con->error;
 
@@ -62,14 +62,14 @@
             } else { # Si HoraFin tiene un valor distinto de 00:00:00, significa que la persona ya finalizó el turno que tenía activo el día de hoy
                 
                 echo "<script> alert('USTED YA FINALIZÓ SU TURNO EL DÍA DE HOY');
-                        window.location.href='../operario/indexope.php';
+                        window.location.href='../operario/indexTurno.php';
                     </script>";
                 exit;
 
             }
         } else { # Si elige NO
 
-            header("Location: ../operario/indexope.php"); # Lo devuelvo a la página principal
+            header("Location: ../operario/indexTurno.php"); # Lo devuelvo a la página principal
             exit; # Detengo la ejecución después de redirigirlo
         }
     }

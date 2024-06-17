@@ -1,11 +1,11 @@
 <?php
 #-----------------------------------CONEXIÓN A LA BD----------------------------------------
-include ('conexion.php'); #me conecto a la BD
+    include ('conexion.php'); #me conecto a la BD
 
-# Verifico la conexión
-if ($con->connect_error) {
-    die("Conexión fallida: " . $con->connect_error);
-}
+    # Verifico la conexión
+    if ($con->connect_error) {
+        die("Conexión fallida: " . $con->connect_error);
+    }
 #-----------------------------------CONEXIÓN A LA BD----------------------------------------
 
 #-----------------------------------INCLUDE----------------------------------------
@@ -45,14 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($con->query($hora) === TRUE) { #si todo sale bien
                 
                 echo "<script> alert('TURNO INICIADO EXITOSAMENTE');
-                        window.location.href='../operario/indexope.php';
+                        window.location.href='../operario/indexTurno.php';
                       </script>";
                 exit;
 
             } else { #si algo falla
                 
                 echo "<script> alert('FALLO AL INICIAR TURNO');
-                        window.location.href='../operario/indexope.php';
+                        window.location.href='../operario/indexIniciarTurno.php';
                       </script>";
                 echo $con->error;
 
@@ -60,19 +60,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else { #Si la variable resultadoTurno tiene un valor mayor o igual a 1, significa que ya hay un turno registrado en la fecha de hoy 
             
             echo "<script> alert('USTED YA TIENE UN TURNO REGISTRADO EL DÍA DE HOY');
-                    window.location.href='../operario/indexope.php';
+                    window.location.href='../operario/indexIniciarTurno.php';
                   </script>";
             exit;
 
         }
     } else { #Si elije NO
         
-        header("Location: ../operario/indexope.php"); #Lo devuelvo a la página principal 
+        header("Location: ../operario/indexIniciarTurno.php"); #Lo devuelvo a la página principal 
         exit; #Detengo la ejecución después de redirigirlo
 
     }
 }
 $con->close(); #Cerrar conexión
+
+header("Location: ../operario/indexIniciarTurno.php");
 
 #-------------------------------------FIN ENVIO DE NOW A LA BD----------------------------------------------------------
 ?>

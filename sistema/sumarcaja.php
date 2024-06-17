@@ -23,13 +23,13 @@
         if($sumarCaja === TRUE) #Valido que todo salga bien
         {
             echo "Caja sumada"; #mensaje depuración
-            header ("location: ../operario/indexope.php"); #lo devuelvo al index directamente
+            header ("location: ../operario/indexTurno.php"); #lo devuelvo al index directamente
             exit(); #detengo la ejecución del script
         }
         else
         {
             echo "Error al sumar la caja" . $con->error; #mensaje depuración
-            header ("location: ../operario/indexope.php");#lo devuelvo al index directamente
+            header ("location: ../operario/indexTurno.php");#lo devuelvo al index directamente
         }
 
 #-------------------------------------FIN SUMAR CAJAS A LA BD----------------------------------------------------------

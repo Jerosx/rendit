@@ -126,7 +126,7 @@
         } else {#Si elije NO
 
         
-            header("Location: ../operario/indexope.php"); #Lo devuelvo a la página principal 
+            header("Location: ../operario/indexTurno.php"); #Lo devuelvo a la página principal 
             exit; #Detengo la ejecución después de redirigirlo
 
         }

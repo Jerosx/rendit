@@ -22,7 +22,7 @@ include('../sistema/conexion.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="../diseño/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Página principal operario</title>
+    <title>TURNO EN PROCESO</title>
 
     <script src="../sistema/js/hora.js"></script>
 
@@ -49,39 +49,6 @@ include('../sistema/conexion.php');
     <div class="container text-center mt-5 w-75">
          <H1 class="display-4">BIENVENIDO</H1>
          <P class="text-dark">¿Que desea hacer?</P>
-
-        <!-- INICIO Cronometro -->
-            <!-- <div id="timer">00:00:00</div>
-            <button onclick="startTimer()">Iniciar Cronómetro</button>
-            <button onclick="pauseTimer()">Pausar Cronómetro</button>
-            <button onclick="resetTimer()">Finalizar Cronómetro</button>
-
-            <script src="../sistema/js/cronometro.js"></script>-->
-        <!--FIN Cronometro-->
-
-        <!--INICIO PESTAÑA MODAL INICIAR TURNO -->
-
-            <button class="btn btn-success" id="btn-modal-iniciar">INICIAR TURNO</button>
-
-            <dialog id="modal-iniciar">
-
-                <h2 class="text-warning"> ATENCIÓN </h2>
-                <p> ¿Estás seguro de que quieres comenzar tú turno?<p>
-
-                <form  class="form-fluid" method="post" action="../sistema/iniciarTurno.php">
-        
-                        <select name="opcion" id="opcion">
-                            <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
-                            <option value="opcionSi">SI</option>
-                            <option value="opcionNo">NO</option>
-                        </select>
-                        <button class="btn btn-success" type="submit" value="Enviar">CONFIRMAR</button>
-                </form>
-
-                <!--<button id="btn-cerrar-modal-iniciar">Cerrar</button>-->
-
-            </dialog>
-        <!--FIN PESTAÑA MODAL INICIAR TURNO -->
 
         <!--INICIO PESTAÑA MODAL PARE TURNO -->
 
@@ -221,8 +188,6 @@ include('../sistema/conexion.php');
     
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
-
-    <script src="../sistema/js/modal_iniciar.js"></script>         <!--Script controla modal inicio turno -->
     <script src="../sistema/js/modal_parar.js"></script>                      <!--Script controla modal xxxxxx turno -->
     <script src="../sistema/js/modal_terminar.js"></script>        <!--Script controla modal terminar turno -->
 </div>

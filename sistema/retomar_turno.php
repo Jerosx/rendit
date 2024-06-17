@@ -45,50 +45,64 @@ if ($resultadoCodTurno->num_rows > 0) { #Este condicional verifica si la consult
 
     #-----------------------------------INICIO Consulta del último pare generado por el empacador----------------------------------------
 
-$consultaMaxCodigo = "SELECT MAX(Codigo) AS MaximoCodigo FROM tblturnorazonpare WHERE CodTurno = ?";
-$stmt = $con->prepare($consultaMaxCodigo);
-$stmt->bind_param("i", $codigoTurno);
-$stmt->execute();
-$resultadoMaxCodigo = $stmt->get_result();
+        $consultaMaxCodigo = "SELECT MAX(Codigo) AS MaximoCodigo FROM tblturnorazonpare WHERE CodTurno = ?";
+        $stmt = $con->prepare($consultaMaxCodigo);
+        $stmt->bind_param("i", $codigoTurno);
+        $stmt->execute();
+        $resultadoMaxCodigo = $stmt->get_result();
 
-#-----------------------------------FIN Consulta del último pare generado por el empacador----------------------------------------
+    #-----------------------------------FIN Consulta del último pare generado por el empacador----------------------------------------
 
-if ($resultadoMaxCodigo->num_rows > 0) {
-    $filaMax = $resultadoMaxCodigo->fetch_assoc();
-    $maxCodigo = $filaMax['MaximoCodigo']; #Imprimo el código máximo que encuentras afiliado a esta turno
+    if ($resultadoMaxCodigo->num_rows > 0) 
+    {
+        $filaMax = $resultadoMaxCodigo->fetch_assoc();
+        $maxCodigo = $filaMax['MaximoCodigo']; #Imprimo el código máximo que encuentras afiliado a esta turno
 
-    echo "Máximo código encontrado: " . $maxCodigo . "<br>";
+        echo "Máximo código encontrado: " . $maxCodigo . "<br>";
 
-    if (!empty($maxCodigo)) {
-        #-------------------------------------INICIO ENVIO DE HORAFINPARE A LA BD----------------------------------------------------------
+        if (!empty($maxCodigo)) {
+            #-------------------------------------INICIO ENVIO DE HORAFINPARE A LA BD----------------------------------------------------------
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["opcion"])) {
-            $opcionSeleccionada = $_POST["opcion"];
+            if ($_SERVER["REQUEST_METHOD"] == "POST")
+            {
+                $opcionSeleccionada = $_POST["opcion"];
 
-            if ($opcionSeleccionada == "opcionSi") {
-                $consultaActualizarHoraFin = "UPDATE tblturnorazonpare SET HoraFinPare = NOW() WHERE Codigo = ?";
-                $stmt = $con->prepare($consultaActualizarHoraFin);
-                $stmt->bind_param("i", $maxCodigo);
+                if ($opcionSeleccionada == "opcionSi") 
+                {
+                    $consultaActualizarHoraFin = "UPDATE tblturnorazonpare SET HoraFinPare = NOW() WHERE Codigo = ?";
+                    $stmt = $con->prepare($consultaActualizarHoraFin);
+                    $stmt->bind_param("i", $maxCodigo);
 
-                if ($stmt->execute()) {
-                    header("Location: ../operario/indexope.php");
-                    echo "La actualización se realizó correctamente.";
-                } else {
-                    echo "Error al actualizar la hora de fin: " . mysqli_error($con);
+                    if ($stmt->execute()) 
+                    {
+                        header("Location: ../operario/indexTurno.php");
+                        echo "La actualización se realizó correctamente.";
+                    } 
+                    else 
+                    {
+                        echo "Error al actualizar la hora de fin: " . mysqli_error($con);
+                    }
+                } 
+                else 
+                {
+                    header("Location: ../operario/turno_parado.php");
+                    echo ("Eligió no");
                 }
-            } else {
-                echo ("Eligió no");
             }
-        }
 
-        #-------------------------------------FIN ENVIO DE HORAFINPARE A LA BD----------------------------------------------------------
-    } else {
-            echo "El número máximo de Codigo está vacío.";}
-} else 
-{
-     echo "Error al obtener el número máximo de Codigo: " . mysqli_error($con);
+            #-------------------------------------FIN ENVIO DE HORAFINPARE A LA BD----------------------------------------------------------
+        } 
+        else 
+        {
+                echo "El número máximo de Codigo está vacío.";
+        }
+    } 
+    else 
+    {
+        echo "Error al obtener el número máximo de Codigo: " . mysqli_error($con);
+    }
 }
-}
+
 $stmt->close();
 $con->close();
 
