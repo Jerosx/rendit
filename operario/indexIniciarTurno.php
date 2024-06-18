@@ -1,19 +1,26 @@
 <?php
-#INICIO DE VALIDACIÓN DE SESION ACTIVA
-include ('../sistema/validar_sesion.php');
-# FIN DE VALIDACIÓN DE SESION ACTIVA
+#-----------------------------------INCLUDES----------------------------------------
+  #CONEXIÓN BD
+   include('../sistema/conexion.php');
+  #CONEXIÓN BD
 
-#INICIO VALIDACIÓN DE ROL
-include ('../sistema/validar_rolop.php');
-#FIN VALIDACIÓN DE ROL
+  # INICIO FECHA
+    include ('../sistema/fecha.php');
+  #FIN FECHA
 
-# INICIO FECHA
-include ('../sistema/fecha.php');
-#FIN FECHA
+  #INICIO DE VALIDACIÓN DE SESION ACTIVA
+    include ('../sistema/validar_sesion.php');
+  # FIN DE VALIDACIÓN DE SESION ACTIVA
 
-#CONEXIÓN BD
-include('../sistema/conexion.php');
-#CONEXIÓN BD
+  #INICIO VALIDACIÓN DE ROL
+    include ('../sistema/validar_rolop.php');
+  #FIN VALIDACIÓN DE ROL
+
+  #INICIO VALIDACIÓN DE TURNO ACTIVO
+    include ('../sistema/val_TurnoActivo.php');
+  #FIN VALIDACION TURNO ACTIVO
+
+#-----------------------------------INCLUDES----------------------------------------
 ?>  
 <!DOCTYPE html>
 <html lang="en">
