@@ -19,7 +19,6 @@
   #INICIO VALIDACIÓN DE TURNO ACTIVO
     include ('../sistema/val_TurnoActivo.php');
   #FIN VALIDACION TURNO ACTIVO
-
 #-----------------------------------INCLUDES----------------------------------------
 ?>  
 <!DOCTYPE html>
