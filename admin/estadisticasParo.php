@@ -101,43 +101,36 @@ $tiemposParoJson = json_encode(array_values($tiemposParo));
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">RENDIT</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <p class="text-uppercase fs-6 mt-3 text-light"><?php echo "$nombreUsuario $apellidoUsuario"; ?></p>
-                </li>
-                <li class="nav-item">
-                    <form action="../sistema/cerrarsesion.php" method="post">
-                        <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
+
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">RENDIT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+      <li class="nav-item">
+          <a class="nav-link" href="estadisticasGeneral.php">ESTADÍTICAS GENERALES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="estadisticas.php">ESTADÍSTICAS DE OPERARIOS</a>
+        </li>
+      </ul>
+    <ul class="navbar-nav ">
+      <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
+      <li class="nav-item">
+            <form action="../sistema/cerrarsesion.php" method="post">
+                <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+            </form>
+        </li>
+    </ul>
     </div>
+  </div>
 </nav>
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2 bg-light">
-            <h4 class="mt-4">Menú</h4>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="estadisticas.php">Estadísticas Operarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="estadisticasParo.php">Estadísticas Paro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="estadisticasGeneral.php">Estadísticas Generales</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-10">
+        <div class="col">
             <a class="btn btn-warning m-4" href="../admin/indexadmin.php" role="button">REGRESAR</a>
             <div class="container text-center mt-5">
                 <h3 class="display-4">Estadísticas Paros</h3>

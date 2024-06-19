@@ -40,24 +40,83 @@ include('../sistema/conexion.php');
       <li class="nav-item">
     </ul>
   <ul class="navbar-nav ">
-    <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
+    <li class="nav-item"></li>
+    <LI class="nav-item"><form action="../sistema/cerrarsesion.php" method="post">
+                <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+            </form></LI><!--SALUDO Y NOMBRE -->
   
   </ul>
   </div>
 </div>
 </nav>
     <div class="container text-center mt-5 w-75">
-         <H1 class="display-4">BIENVENIDO</H1>
-         <P class="text-dark">¿Que desea hacer?</P>
+         <p class="text-uppercase display-3 mt-3 text-secondary"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p>
+     <div class="row">
+        <div class="col-6">    
+            <div class="row">
+                <div class="col">
+        
+                    <table class="table mt-5" border="1" align="left"> <!--Creo una tabla -->
+                                    <tr> 
+                        
+                                        <th>Cajas empacadas</th> <!--Creo el campo Cajas empacadas en la cabecera-->
 
-        <!--INICIO PESTAÑA MODAL PARE TURNO -->
+                                    </tr>
+                            <?php
 
-            <button class="btn btn-warning" id="btn-modal-parar">PARAR TURNO</button>
+                                $consulta=$con->query("SELECT Cajas FROM tblturno WHERE Empacador = '$valsesion' AND Fecha = '$fecha_actual'");
+                                    while($fila=$consulta->fetch_assoc()){ //while queda bierto para repetir hasta acabar la impresión de la consulta
+                                
 
-            <dialog id="modal-parar">
+                            ?>
+                                <tr><td><h3 class="display-1"><?php echo $fila['Cajas']?></h3></td> <!--Comienza a escribir las cajas que se encuentra con la consulta hasta finalizar el while -->
 
-                <h2 class="text-warning"> ATENCIÓN </h2>
-                <p> ¿Estás seguro de que quieres parar tú turno?<p>
+                                </tr>
+                            <?php
+                                } #cierro el while
+                            ?>
+                    </table>
+
+            <!--TABLA CON CAJAS EMPACADAS--->
+            </div>  
+            </div>  
+            <div class="row">
+                <div class="col align-self-end">
+                     <!--BOTÓN SUMAR +1 CAJA EMPACADA--->
+
+                        <form action="../sistema/sumarcaja.php" method="post">
+
+                        <button class="btn btn-success m-2  p-5" type="submit" id="sumarCajaBTN" name="sumarCajaBTN" style="border-radius:150px;"> <h3 class="display-1">+</h3></button>
+
+                        </form>
+
+                    <!--BOTÓN SUMAR +1 CAJA EMPACADA--->
+                </div>
+                <div class="col align-self-start">
+                         <!--BOTÓN RESTAR -1 CAJA EMPACADA--->
+            
+                        <form action="../sistema/restarcaja.php" method="post">
+
+                        <button class="btn btn-danger m-2 p-5" type="submit" id="restarCajaBTN" name="restarCajaBTN" style="border-radius:150px;"><h3 class="display-1">-</h3></button>
+
+                        </form>
+                </div>
+
+           
+            
+           
+                </div>
+            </div>
+        <div class="col-6 pt-4">
+            <div class="row m-4"></div>
+            <div class="row mt-4">
+               
+                <button class="btn btn-warning m-3 p-4" id="btn-modal-parar"><h3 class="display-2">PARAR TURNO</h3></button>
+
+                <dialog id="modal-parar">
+
+                    <h2 class="text-warning"> ATENCIÓN </h2>
+                    <p> ¿Estás seguro de que quieres parar tú turno?<p>
 
                 <form class="form-fluid" method="post" action="../sistema/iniciar_pare.php">
 
@@ -79,118 +138,62 @@ include('../sistema/conexion.php');
                         <button class="btn btn-success"  type="submit" value="Enviar">CONFIRMAR</button>
                 </form>
 
-                <!--<button id="btn-cerrar-modal-parar">Cerrar</button>-->
 
-            </dialog>
-        <!--FIN PESTAÑA MODAL PARE TURNO -->
 
-        <!--INICIO PESTAÑA MODAL TERMINAR TURNO -->
+                        </dialog>
+            <!--FIN PESTAÑA MODAL PARE TURNO -->
+                </div>
+                <div class="row">
+                                                    
+                        <!--INICIO PESTAÑA MODAL TERMINAR TURNO -->
 
-            <button class="btn btn-danger" id="btn-modal-terminar">FINALIZAR TURNO</button>
+                        <button class="btn btn-danger m-3 p-4" id="btn-modal-terminar"><h3 class="display-2">FINALIZAR TURNO</h3></button>
 
-            <dialog id="modal-terminar">
+                        <dialog id="modal-terminar">
 
-                <h2 class="text-danger"> ATENCIÓN </h2>
-                <p> ¿Estás seguro de que quieres terminar tú turno?<p>
+                            <h2 class="text-danger"> ATENCIÓN </h2>
+                            <p> ¿Estás seguro de que quieres terminar tú turno?<p>
 
-                <form method="post" action="../sistema/terminarTurno.php">
+                            <form method="post" action="../sistema/terminarTurno.php">
 
-                        <select name="opcion" id="opcion">
-                            <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
-                            <option value="opcionSi">SI</option>
-                            <option value="opcionNo">NO</option>
-                        </select>
-                        <button class="btn btn-warning"  type="submit" value="Enviar">CONFIRMAR</button>
-                </form>
+                                    <select name="opcion" id="opcion">
+                                        <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
+                                        <option value="opcionSi">SI</option>
+                                        <option value="opcionNo">NO</option>
+                                    </select>
+                                    <button class="btn btn-warning"  type="submit" value="Enviar">CONFIRMAR</button>
+                            </form>
 
-                <!--<button id="btn-cerrar-modal-terminar">Cerrar</button>-->
+                            <!--<button id="btn-cerrar-modal-terminar">Cerrar</button>-->
 
-            </dialog>
+                        </dialog>
+                </div>
+
+            
+
+                    
+        </div>
+
+
+        <!--INICIO PESTAÑA MODAL PARE TURNO -->
+
+          
         <!--FIN PESTAÑA MODAL TERMINAR TURNO -->
 
-        <!--      CONTEO CAJAS V2        -->
-
-            <!--TABLA CON CAJAS EMPACADAS--->
-
-                    <table class="table mt-5" border="1" align="left"> <!--Creo una tabla -->
-                                    <tr> 
-                        
-                                        <th>Cajas empacadas</th> <!--Creo el campo Cajas empacadas en la cabecera-->
-
-                                    </tr>
-                            <?php
-
-                                $consulta=$con->query("SELECT Cajas FROM tblturno WHERE Empacador = '$valsesion' AND Fecha = '$fecha_actual'");
-                                    while($fila=$consulta->fetch_assoc()){ //while queda bierto para repetir hasta acabar la impresión de la consulta
-                                
-
-                            ?>
-                                <tr><td><?php echo $fila['Cajas']?></td> <!--Comienza a escribir las cajas que se encuentra con la consulta hasta finalizar el while -->
-
-                                </tr>
-                            <?php
-                                } #cierro el while
-                            ?>
-                    </table>
-
-            <!--TABLA CON CAJAS EMPACADAS--->
-
-            <!--BOTÓN SUMAR +1 CAJA EMPACADA--->
-
-                <form action="../sistema/sumarcaja.php" method="post">
-
-                    <button class="btn btn-warning m-2" type="submit" id="sumarCajaBTN" name="sumarCajaBTN"> SUMAR</button>
-
-                </form>
-
-            <!--BOTÓN SUMAR +1 CAJA EMPACADA--->
-            
-            <!--BOTÓN RESTAR -1 CAJA EMPACADA--->
-            
-                <form action="../sistema/restarcaja.php" method="post">
-
-                    <button class="btn btn-warning m-2" type="submit" id="restarCajaBTN" name="restarCajaBTN">RESTAR</button>
-
-                </form>
-
-            <!--BOTÓN RESTAR -1 CAJA EMPACADA--->
-
-
-        <!--      CONTEO CAJAS V2        -->
-
-        <!--CONTEO CAJAS V1 -->
-
-                <!--INICIO Contador de cajas
-                    <div class="container mt-5 w-75">
-
-                        <form class="form-floating" action="../sistema/actualizarcajas.php" method="post">
-                            <div class="input-group mb-3">
-                                <input type="number" class="form-control" placeholder="Ingrese la cantidad de cajas" aria-label="Recipient's username" aria-describedby="button-addon2" min="0" id="cajas" name="cajas">
-                                <button class="btn btn-success" type="submit">Guardar</button>
-                            </div>
-
-                        
-                        </form>
-
-                        <p id="numero-cajas"><?php include('../sistema/obtenerCajasBD.php'); ?></p>
-                    </div>
-                FIN Contador de cajas -->
-
-        <!--CONTEO CAJAS V1 -->
             
         <!--INICIO BOTÓN CIERRE DE SESIÓN -->
 
-            <form action="../sistema/cerrarsesion.php" method="post">
-                <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-            </form>
+           
 
         <!--FIN BOTÓN CIERRE DE SESIÓN -->
     
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
-    <script src="../sistema/js/modal_parar.js"></script>                      <!--Script controla modal xxxxxx turno -->
-    <script src="../sistema/js/modal_terminar.js"></script>        <!--Script controla modal terminar turno -->
-</div>
+        <script src="../sistema/js/modal_parar.js"></script>                      <!--Script controla modal xxxxxx turno -->
+        <script src="../sistema/js/modal_terminar.js"></script>                      <!--Script controla modal terminar turno -->
+        </div>      
+       
+    </div>
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 </body>
