@@ -43,7 +43,7 @@
           <ul class="dropdown-menu">
                 <li class="dropdown-item"><a class="navbar-brand" href="tablaoperarios.php">Operarios registrados</a></li>
                 <li class="dropdown-item"><a class="navbar-brand" href="tablaadmin.php">Administradores registrados</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="formusuario.php">Nuevo operario</a></li>
+                <li class="dropdown-item"><a class="navbar-brand" href="formusuario.php">Nuevo usuario</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown">
