@@ -43,7 +43,7 @@ include('../sistema/conexion.php');
     <li class="nav-item"></li>
     <LI class="nav-item"><form action="../sistema/cerrarsesion.php" method="post">
                 <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-            </form></LI><!--SALUDO Y NOMBRE -->
+            </form></LI>
   
   </ul>
   </div>
@@ -55,7 +55,8 @@ include('../sistema/conexion.php');
         <div class="col-6">    
             <div class="row">
                 <div class="col">
-        
+
+            <!--TABLA CON CAJAS EMPACADAS--->
                     <table class="table mt-5" border="1" align="left"> <!--Creo una tabla -->
                                     <tr> 
                         
@@ -86,7 +87,7 @@ include('../sistema/conexion.php');
 
                         <form action="../sistema/sumarcaja.php" method="post">
 
-                        <button class="btn btn-success m-2  p-5" type="submit" id="sumarCajaBTN" name="sumarCajaBTN" style="border-radius:150px;"> <h3 class="display-1">+</h3></button>
+                            <button class="btn btn-success m-2  p-5" type="submit" id="sumarCajaBTN" name="sumarCajaBTN" style="border-radius:150px;"> <h3 class="display-1">+</h3></button>
 
                         </form>
 
@@ -95,98 +96,97 @@ include('../sistema/conexion.php');
                 <div class="col align-self-start">
                          <!--BOTÓN RESTAR -1 CAJA EMPACADA--->
             
-                        <form action="../sistema/restarcaja.php" method="post">
+                            <form action="../sistema/restarcaja.php" method="post">
 
-                        <button class="btn btn-danger m-2 p-5" type="submit" id="restarCajaBTN" name="restarCajaBTN" style="border-radius:150px;"><h3 class="display-1">-</h3></button>
+                                <button class="btn btn-danger m-2 p-5" type="submit" id="restarCajaBTN" name="restarCajaBTN" style="border-radius:150px;"><h3 class="display-1"> - </h3></button>
 
-                        </form>
+                            </form>
+                        <!--BOTÓN RESTAR -1 CAJA EMPACADA--->
                 </div>
 
-           
-            
-           
                 </div>
             </div>
         <div class="col-6 pt-4">
             <div class="row m-4"></div>
             <div class="row mt-4">
-               
-                <button class="btn btn-warning m-3 p-4" id="btn-modal-parar"><h3 class="display-2">PARAR TURNO</h3></button>
 
-                <dialog id="modal-parar">
+            <!--INICIO PESTAÑA MODAL PARE TURNO -->   
+                <button class="btn btn-warning m-3 p-4" data-bs-toggle="modal" data-bs-target="#modal-parar"><h3 class="display-2">PARAR TURNO</h3></button>
 
-                    <h2 class="text-warning"> ATENCIÓN </h2>
-                    <p> ¿Estás seguro de que quieres parar tú turno?<p>
-
-                <form class="form-fluid" method="post" action="../sistema/iniciar_pare.php">
-
-                        <select name="opcion" id="opcion">
-                            <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
-                            <option value="opcionSi">SI</option>
-                            <option value="opcionNo">NO</option>
-                        </select>
-
-                        <p> ¿Cuál es el motivo del pare?<p>  
-                        <select name="motivo" id="motivo">
-                            <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
-                            <option value="opcionDesayuno">DESAYUNO</option>
-                            <option value="opcionFCanastillas">FALTA CANASTILLAS</option>
-                            <option value="opcionBandaLlena">BANDA LLENA</option>
-                            <option value="opcionFFlor">FALTA FLOR</option>
-                            <option value="opcionFMaterial">FALTA DE MATERIAL</option>
-                        </select>
-                        <button class="btn btn-success"  type="submit" value="Enviar">CONFIRMAR</button>
-                </form>
-
-
-
-                        </dialog>
+                <div class="modal fade" id="modal-parar" tabindex="-1" aria-labelledby="modalPararLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-warning" id="modalPararLabel">ATENCIÓN</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Estás seguro de que quieres parar tú turno?</p>
+                                <form method="post" action="../sistema/iniciar_pare.php">
+                                    <div class="mb-3">
+                                        <label for="opcion" class="form-label">Seleccione una opción:</label>
+                                        <select class="form-select" name="opcion" id="opcion" required>
+                                            <option disabled selected>SELECCIONE UNA OPCIÓN:</option>
+                                            <option value="opcionSi">SI</option>
+                                            <option value="opcionNo">NO</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="motivo" class="form-label">¿Cuál es el motivo del pare?</label>
+                                        <select class="form-select" name="motivo" id="motivo" required>
+                                            <option disabled selected>SELECCIONE UNA OPCIÓN:</option>
+                                            <option value="opcionDesayuno">DESAYUNO</option>
+                                            <option value="opcionFCanastillas">FALTA CANASTILLAS</option>
+                                            <option value="opcionBandaLlena">BANDA LLENA</option>
+                                            <option value="opcionFFlor">FALTA FLOR</option>
+                                            <option value="opcionFMaterial">FALTA DE MATERIAL</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">CONFIRMAR</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <!--FIN PESTAÑA MODAL PARE TURNO -->
                 </div>
                 <div class="row">
                                                     
                         <!--INICIO PESTAÑA MODAL TERMINAR TURNO -->
 
-                        <button class="btn btn-danger m-3 p-4" id="btn-modal-terminar"><h3 class="display-2">FINALIZAR TURNO</h3></button>
+                            <button class="btn btn-danger m-3 p-4" data-bs-toggle="modal" data-bs-target="#modal-terminar"><h3 class="display-2">FINALIZAR TURNO</h3></button>
 
-                        <dialog id="modal-terminar">
-
-                            <h2 class="text-danger"> ATENCIÓN </h2>
-                            <p> ¿Estás seguro de que quieres terminar tú turno?<p>
-
-                            <form method="post" action="../sistema/terminarTurno.php">
-
-                                    <select name="opcion" id="opcion">
-                                        <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
-                                        <option value="opcionSi">SI</option>
-                                        <option value="opcionNo">NO</option>
-                                    </select>
-                                    <button class="btn btn-warning"  type="submit" value="Enviar">CONFIRMAR</button>
-                            </form>
-
-                            <!--<button id="btn-cerrar-modal-terminar">Cerrar</button>-->
-
-                        </dialog>
+                            <div class="modal fade" id="modal-terminar" tabindex="-1" aria-labelledby="modalTerminarLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-danger" id="modalTerminarLabel">ATENCIÓN</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>¿Estás seguro de que quieres terminar tú turno?</p>
+                                            <form method="post" action="../sistema/terminarTurno.php">
+                                                <div class="mb-3">
+                                                    <label for="opcion" class="form-label">Seleccione una opción:</label>
+                                                    <select class="form-select" name="opcion" id="opcion" required>
+                                                        <option disabled selected>SELECCIONE UNA OPCIÓN:</option>
+                                                        <option value="opcionSi">SI</option>
+                                                        <option value="opcionNo">NO</option>
+                                                    </select>
+                                                </div>
+                                                <button type="submit" class="btn btn-warning">CONFIRMAR</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!--FIN PESTAÑA MODAL TERMINAR TURNO -->
                 </div>
 
             
 
                     
-        </div>
-
-
-        <!--INICIO PESTAÑA MODAL PARE TURNO -->
-
-          
-        <!--FIN PESTAÑA MODAL TERMINAR TURNO -->
-
-            
-        <!--INICIO BOTÓN CIERRE DE SESIÓN -->
-
-           
-
-        <!--FIN BOTÓN CIERRE DE SESIÓN -->
-    
+        </div>  
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
         <script src="../sistema/js/modal_parar.js"></script>                      <!--Script controla modal xxxxxx turno -->

@@ -47,54 +47,58 @@
     </ul>
   <ul class="navbar-nav ">
     <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
-  
+    <li class="nav-item"></li>
+    <LI class="nav-item">
+      <form action="../sistema/cerrarsesion.php" method="post">
+                <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button> <!--CERRAR SESIÓN-->
+      </form>
+    </LI>
   </ul>
+  
   </div>
 </div>
 </nav>
-    <div class="container text-center mt-5 w-75">
+
+<div class="container text-center mt-5 w-75">
          <H1 class="display-4">BIENVENIDO</H1>
          <P class="text-dark">Asegurese de estar listo antes de comenzar su turno</P>
 
 
         <!--INICIO PESTAÑA MODAL INICIAR TURNO -->
 
-            <button class="btn btn-success" id="btn-modal-iniciar">INICIAR TURNO</button>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-iniciar">INICIAR TURNO</button>
 
-            <dialog id="modal-iniciar">
-
-                <h2 class="text-warning"> ATENCIÓN </h2>
-                <p> ¿Estás seguro de que quieres comenzar tú turno?<p>
-
-                <form  class="form-fluid" method="post" action="../sistema/iniciarTurno.php">
-        
-                        <select name="opcion" id="opcion">
-                            <option disabled selected="">SELECCIONE UNA OPCIÓN:</option>
-                            <option value="opcionSi">SI</option>
-                            <option value="opcionNo">NO</option>
-                        </select>
-                        <button class="btn btn-success" type="submit" value="Enviar">CONFIRMAR</button>
-                </form>
-
-                <!--<button id="btn-cerrar-modal-iniciar">Cerrar</button>-->
-
-            </dialog>
+        <div class="modal fade" id="modal-iniciar" tabindex="-1" aria-labelledby="modalIniciarLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-warning" id="modalIniciarLabel">ATENCIÓN</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro de que quieres comenzar tú turno?</p>
+                        <form class="form-fluid" method="post" action="../sistema/iniciarTurno.php">
+                            <div class="mb-3">
+                                <label for="opcion" class="form-label">Seleccione una opción:</label>
+                                <select class="form-select" name="opcion" id="opcion" required>
+                                    <option disabled selected>SELECCIONE UNA OPCIÓN:</option>
+                                    <option value="opcionSi">SI</option>
+                                    <option value="opcionNo">NO</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success">CONFIRMAR</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--FIN PESTAÑA MODAL INICIAR TURNO -->
-            
-        <!--INICIO BOTÓN CIERRE DE SESIÓN -->
-
-            <form action="../sistema/cerrarsesion.php" method="post">
-                <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-            </form>
-
-        <!--FIN BOTÓN CIERRE DE SESIÓN -->
-    
+</div>
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 
     <script src="../sistema/js/modal_iniciar.js"></script>         <!--Script controla modal inicio turno -->
 
-</div>
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 </body>

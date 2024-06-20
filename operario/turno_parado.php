@@ -1,14 +1,14 @@
 <?php
 #INICIO DE VALIDACIÓN DE SESION ACTIVA
-    include ('../sistema/validar_sesion.php');
+include ('../sistema/validar_sesion.php');
 # FIN DE VALIDACIÓN DE SESION ACTIVA
 
 #INICIO VALIDACIÓN DE ROL
-    include ('../sistema/validar_rolop.php');
+include ('../sistema/validar_rolop.php');
 #FIN VALIDACIÓN DE ROL
 
 # INICIO FECHA
-    include ('../sistema/fecha.php');
+include ('../sistema/fecha.php');
 #FIN FECHA
 ?>
 <!DOCTYPE html>
@@ -48,39 +48,40 @@
             <p class="text-primary fs-2" id="timer">00:00</p>
             <script src="../sistema/js/cronometro_pare.js"></script>
 
-
         <!--INICIO PESTAÑA MODAL RE-INICIAR TURNO -->
 
-            <button class="btn btn-success" id="btn-modal-retomar">RETOMAR TURNO</button>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-retomar">RETOMAR TURNO</button>
 
-            <dialog id="modal-retomar">
-
-                <h2 class="text-warning"> ATENCIÓN </h2>
-                <p> ¿Estás seguro de que quieres retomar tú turno?<p>
-
-                <form method="post" action="../sistema/retomar_turno.php">
-
-                        <select name="opcion" id="opcion">
-                            <option disabled selected="">SELECCIONE "SI" PARA RETOMAR:</option>
-                            <option value="opcionSi">SI</option>
-                        </select>
-                        <button class="btn btn-danger" type="submit" value="Enviar">CONFIRMAR</button>
-                </form>
-
-                <button class="btn btn-warning" id="btn-cerrar-modal-retomar">AÚN NO VOY A RETOMAR</button>
-
-            </dialog>
-
+            <div class="modal fade" id="modal-retomar" tabindex="-1" aria-labelledby="modalRetomarLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-warning" id="modalRetomarLabel">ATENCIÓN</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>¿Estás seguro de que quieres retomar tú turno?</p>
+                            <form method="post" action="../sistema/retomar_turno.php">
+                                <div class="mb-3">
+                                    <label for="opcion" class="form-label">Seleccione "SI" para retomar:</label>
+                                    <select class="form-select" name="opcion" id="opcion" required>
+                                        <option disabled selected>SELECCIONE UNA OPCIÓN:</option>
+                                        <option value="opcionSi">SI</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-danger">CONFIRMAR</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <!--FIN PESTAÑA MODAL RE-INICIAR TURNO -->
-
-        <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
-
-            <script src="../sistema/js/modal_retomar_turno.js"></script>         <!--Script controla modal inicio turno -->
-
-        <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->
-                
     </div>
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
+
+<!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
+<script src="../sistema/js/modal_retomar_turno.js"></script>         <!--Script controla modal inicio turno -->
+
+<!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 </body>
 </html>
