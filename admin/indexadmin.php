@@ -44,7 +44,6 @@
                 <li class="dropdown-item"><a class="navbar-brand" href="tablaoperarios.php">Operarios registrados</a></li>
                 <li class="dropdown-item"><a class="navbar-brand" href="tablaadmin.php">Administradores registrados</a></li>
                 <li class="dropdown-item"><a class="navbar-brand" href="formusuario.php">Nuevo usuario</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="formMotivopare.php">Nuevo motivo de paro</a></li> <!--POSICION PROVICIONAL-->
             </ul>
         </li>
         <li class="nav-item dropdown">
