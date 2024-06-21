@@ -9,11 +9,11 @@
     }
 #-----------------------------------CONEXIÓN A LA BD----------------------------------------
 
-$id=$_POST['Codigo']; // Obtenemos los valores enviados por el formulario mediante el método POST
-$Contrasena=$_POST['Contrasena'];// Obtenemos la contraseña del formulario mediante el método POST
-$Nombre=$_POST['Nombre']; // Obtenemos el nombre del formulario mediante el método POST
+$id = mb_strtoupper($_POST['Codigo']);// Obtenemos los valores enviados por el formulario mediante el método POST
+$Contrasena = mb_strtoupper($_POST['Contrasena']);// Obtenemos la contraseña del formulario mediante el método POST
+$Nombre = mb_strtoupper($_POST['Nombre']); // Obtenemos el nombre del formulario mediante el método POST
 $Rol=$_POST['Rol']; // Obtenemos el rol del formulario mediante el método POST
-$Apellido=$_POST['Apellido']; // Obtenemos el apellido del formulario mediante el método POST
+$Apellido = mb_strtoupper($_POST['Apellido']); // Obtenemos el apellido del formulario mediante el método POST
 $Estado=$_POST['Estado']; // Obtenemos el estado del formulario mediante el método POST
 
 #----------------------------------INICIO ENVIO INFO A LA BD-----------------------------------------------------

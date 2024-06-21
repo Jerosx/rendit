@@ -1,20 +1,11 @@
 <?php
 #----------------INCLUDES----------------
-    #INICIO DE VALIDACIÓN DE SESION ACTIVA
-    include ('../sistema/validar_sesion.php');#VALIDACIÓN DE SESION ACTIVA
-
-
-    #INICIO VALIDACIÓN DE ROL
-    include ('../sistema/validar_rolad.php');#VALIDACIÓN DE ROL
-    #FIN VALIDACIÓN DE ROL
-
-    # INICIO FECHA
-    include ('../sistema/fecha.php');#FECHA
-    #FIN FECHA
-
-    include('../sistema/conexion.php'); #conexión a la bd
-        
+    include ('../sistema/validar_sesion.php'); #VALIDACIÓN DE SESION ACTIVA
+    include ('../sistema/validar_rolad.php');  #VALIDACIÓN DE ROL
+    include ('../sistema/fecha.php');          #FECHA
+    include('../sistema/conexion.php');        #Conexión a la BD
 #----------------INCLUDES----------------
+
 #-----Manejo del término de búsqueda-----
     $searchTerm = '';
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -28,7 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página principal administrador</title>
+    <title>Operarios registrados</title>
     <!--<link rel="stylesheet" href="../diseño/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="../sistema/js/hora.js"></script>
@@ -90,7 +81,7 @@
 
         <table class="table mt-5" border="1" align="left">
             <tr>
-                <th>Nombre</th>
+                <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Código</th>
                 <th>Estado</th>
@@ -99,15 +90,16 @@
             <?php
             # Modificar la consulta según el término de búsqueda
             $consulta = $con->prepare("
-                SELECT * 
-                FROM tblusuario 
-                WHERE Rol = 2 
+                SELECT u.*, e.Nombre AS EstadoNombre
+                FROM tblusuario u
+                JOIN tblestado e ON u.Estado = e.Codigo
+                WHERE u.Rol = 2
                 AND (
-                    CONCAT(Nombre, ' ', Apellido) LIKE ? 
-                    OR Nombre LIKE ? 
-                    OR Apellido LIKE ? 
-                    OR Codigo LIKE ? 
-                    OR Estado LIKE ?
+                    CONCAT(u.Nombre, ' ', u.Apellido) LIKE ?
+                    OR u.Nombre LIKE ?
+                    OR u.Apellido LIKE ?
+                    OR u.Codigo LIKE ?
+                    OR e.Nombre LIKE ?
                 )
             ");
             $likeTerm = '%' . $searchTerm . '%';
@@ -115,13 +107,13 @@
             $consulta->execute();
             $resultado = $consulta->get_result();
 
-            while($fila = $resultado->fetch_assoc()) {
+            while ($fila = $resultado->fetch_assoc()) {
             ?>
             <tr>
                 <td><?php echo $fila['Nombre']; ?></td>
                 <td><?php echo $fila['Apellido']; ?></td>
                 <td><?php echo $fila['Codigo']; ?></td>
-                <td><?php echo $fila['Estado']; ?></td>
+                <td><?php echo $fila['EstadoNombre']; ?></td>
                 <td><a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="actualizar_usuario.php?id=<?php echo $fila['Codigo']; ?>">Editar</a></td>
             </tr>
             <?php
