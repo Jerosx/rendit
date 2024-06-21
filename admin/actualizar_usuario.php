@@ -45,15 +45,15 @@ $resultadoRoles = mysqli_query($con, $consultaRoles); #Se ejecuta la consulta SQ
             </div>
             <div class="mb-3">
                 <label class="form-label">CONTRASEÑA</label>
-                <input class="form-control" type="text" value="<?php echo $fila['Contrasena'] ?>" name="Contrasena"><br>
+                <input class="form-control" type="password" value="<?php echo $fila['Contrasena'] ?>" name="Contrasena" required><br>
             </div>
             <div class="mb-3">
                 <label class="form-label">NOMBRE</label>
-                <input class="form-control" type="text" value="<?php echo $fila['Nombre'] ?>" name="Nombre"><br>
+                <input class="form-control" type="text" value="<?php echo $fila['Nombre'] ?>" name="Nombre" required><br>
             </div>
             <div class="mb-3">
                 <label class="form-label">APELLIDO</label>
-                <input class="form-control" type="text" value="<?php echo $fila['Apellido'] ?>" name="Apellido"><br>
+                <input class="form-control" type="text" value="<?php echo $fila['Apellido'] ?>" name="Apellido" required><br>
             </div>
             <div class="mb-3">
                 <label class="form-label">ROL</label>

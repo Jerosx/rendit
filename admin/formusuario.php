@@ -41,22 +41,22 @@ $resultadoRoles = mysqli_query($con, $consultaRoles); #Se ejecuta la consulta SQ
             <!-- Campo para ingresar nombres -->
             <div class="mb-3">
                 <label class="form-label">NOMBRES</label><br/>
-                <input type="text" class="form-control lg-8" name="Nombres">
+                <input type="text" class="form-control lg-8" name="Nombres" required>
             </div>
             <!-- Campo para ingresar apellidos -->
             <div class="mb-3">
                 <label class="form-label">APELLIDOS</label><br/>
-                <input type="text" class="form-control" name="Apellidos">
+                <input type="text" class="form-control" name="Apellidos" required>
         </div>
             <!-- Campo para ingresar código personal -->
             <div class="mb-3">
                 <label class="form-label">CÓDIGO PERSONAL</label><br/>
-                <input type="text" class="form-control" name="codigo">
+                <input type="text" class="form-control" name="codigo" required>
             </div>
             <!-- Campo para ingresar contraseña -->
             <div class="mb-3">
                 <label class="form-label">CONTRASEÑA</label><br/>
-                <input type="text" class="form-control" name="contrasena">
+                <input type="password" class="form-control" name="contrasena" required>
             </div>
             <!-- Lista desplegable para seleccionar el cargo -->
             <div class="mb-3">

@@ -1,11 +1,11 @@
 <?php
 #-----------------------------------CONEXIÓN A LA BD----------------------------------------
-include ('conexion.php'); # me conecto a la BD
+    include ('conexion.php'); # me conecto a la BD
 
-# Verifico la conexión
-if ($con->connect_error) {
-    die("Conexión fallida: " . $con->connect_error);
-}
+    # Verifico la conexión
+    if ($con->connect_error) {
+        die("Conexión fallida: " . $con->connect_error);
+    }
 #-----------------------------------CONEXIÓN A LA BD----------------------------------------
 
 # Obtengo los datos del formulario y los convierto a mayúsculas
