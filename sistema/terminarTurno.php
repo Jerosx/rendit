@@ -45,11 +45,13 @@
                         WHERE Empacador = '$valsesion' AND DATE(Fecha) = '$fecha_actual'"; # Actualizo el campo HoraFin filtrando por el operario con la sesión y por la fecha del día
 
                 if ($con->query($hora) === TRUE) { # Si todo sale bien
-
-                    echo "<script> alert('TURNO FINALIZADO EXITOSAMENTE');
+                    
+                    $_SESSION["turnoFin"]=true;
+                    header("Location:../operario/indexIniciarTurno.php");
+                   /*  echo "<script> alert('TURNO FINALIZADO EXITOSAMENTE');
                             window.location.href='../operario/indexIniciarTurno.php';
                         </script>";
-                    exit;
+                    exit; */
 
                 } else { # Si algo falla
 
@@ -61,10 +63,12 @@
                 }
             } else { # Si HoraFin tiene un valor distinto de 00:00:00, significa que la persona ya finalizó el turno que tenía activo el día de hoy
                 
-                echo "<script> alert('USTED YA FINALIZÓ SU TURNO EL DÍA DE HOY');
+                $_SESSION["finalizoTurno"]=true;
+                header("location:..operario/indexTurno.php");
+               /*  echo "<script> alert('USTED YA FINALIZÓ SU TURNO EL DÍA DE HOY');
                         window.location.href='../operario/indexTurno.php';
                     </script>";
-                exit;
+                exit; */
 
             }
         } else { # Si elige NO

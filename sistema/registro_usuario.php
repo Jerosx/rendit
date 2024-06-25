@@ -46,9 +46,12 @@ if($codigosRegistrados) #Si se ejecuta la consulta
 
                 if($insuser) {
                     #-----------------el script muestra una ventana donde el administrador se registró con éxito----------------#
-                    echo "<script> alert('ADMINISTRADOR REGISTRADO EXITOSAMENTE');  
+                    
+                    $_SESSION["adminRe"]=true;
+                    header("location:../admin/indexadmin.php");
+                    /* echo "<script> alert('ADMINISTRADOR REGISTRADO EXITOSAMENTE');  
                             window.location.href='../admin/indexadmin.php';  
-                        </script>";
+                        </script>"; */
                 } else {
                     #-------------------muestra fallos al registrar en la sesión administrador --------------#
                     echo "<script> alert('FALLO AL REGISTRAR');

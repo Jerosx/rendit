@@ -20,6 +20,8 @@
     <title>Página principal administrador</title>
     <!--<link rel="stylesheet" href="../diseño/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <script src="../sistema/js/hora.js"></script>
 
@@ -69,6 +71,49 @@
     </div>
   </div>
 </nav>
+
+<?php
+if(isset($_SESSION["datosAct"])){
+ if($_SESSION["datosAct"]){
+?>
+  <script>
+    Swal.fire({
+      icon: "success",
+      title: "",
+      text: 'DATOS ACTUALIZADOS ',
+      footer: ''
+    });
+  </script>
+<?php
+ }
+}
+  // Resetear la variable de sesión después de mostrar la alerta
+  unset($_SESSION["datosAct"]);
+
+?>
+
+<?php
+    if (isset($_SESSION["adminRe"])){
+      if($_SESSION["adminRe"]){
+
+?>
+   <script>
+    Swal.fire({
+      icon: "success",
+      title: "",
+      text: 'ADMINISTRADOR REGISTRADO EXITOSAMENTE ',
+      footer: ''
+    });
+  </script>
+
+  <?php
+      }
+    }
+
+    unset($_SESSION["adminRe"]);
+
+  ?>
+            
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

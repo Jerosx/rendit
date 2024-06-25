@@ -23,6 +23,7 @@ include('../sistema/conexion.php');
     <!--<link rel="stylesheet" href="../diseño/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>TURNO EN PROCESO</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="../sistema/js/hora.js"></script>
 
@@ -182,11 +183,53 @@ include('../sistema/conexion.php');
                             </div>
                         <!--FIN PESTAÑA MODAL TERMINAR TURNO -->
                 </div>
+                     
+                <?php
+    
+        if(isset($_SESSION["turnoIn"])){
+            if($_SESSION["turnoIn"]){
+                ?>
+                <script>
+                    Swal.fire({
+                    icon: "success",
+                    title: "sesion iniciada",
+                    text: ' TURNO INICIADO EXITOSAMENTE',
+                    footer: ''
+                    });
+                </script>
+            <?php 
+        }
+           
+    }
+    unset($_SESSION["turnoIn"]);
 
+?>
+
+<?php
+
+ if(isset($_SESSION["finalizoTurno"])){
+    if($_SESSION["finalizoTurno"]){
+ 
+?>
+<script>
+                Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: 'USTED YA FINALIZÓ SU TURNO EL DÍA DE HOY ',
+                footer: ''
+                });
+         <?php
+            }
+
+        }
+    ?>
+            </script>
             
 
                     
-        </div>  
+        </div> 
+        
+        
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
         <script src="../sistema/js/modal_parar.js"></script>                      <!--Script controla modal xxxxxx turno -->

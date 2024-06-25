@@ -40,20 +40,27 @@ if($resultado->num_rows > 0) #En este punto valido que la varibale $resultado co
 
     }else{ #si el estado es diferente a 1, está inactivo, por lo que no debe pasar
 
-        echo "<script> alert('ESTE USUARIO SE ENCUENTRA INHABILITADO COMUNIQUESE CON SU SUPERVISOR MÁS CERCANO');
+        $_SESSION["estado"]=false;
+        header("location:../index.php");#envialo al index del operario
+
+       /*  echo "<script> alert('ESTE USUARIO SE ENCUENTRA INHABILITADO COMUNIQUESE CON SU SUPERVISOR MÁS CERCANO');
                             window.location.href='../index.html';
             </script>";
             exit;
-
+ */
     }
 }
 else #si no es verdadero, las credenciales no están, por lo que la página te vuelve a direccionar a la pestaña de login
 {
 
-    echo "<script> alert('CREDENCIALES INCORRECTAS');
+
+    $_SESSION["validar"]=false;
+    header("location:../index.php");#envialo al index del operario
+
+    /* echo "<script> alert('CREDENCIALES INCORRECTAS');
                     window.location.href='../index.html';
     </script>";
-    exit;
+    exit; */
 }
 mysqli_free_result($resultado); #obtengo el resultado y cuando no sea necesario lo elimino
 mysqli_close($conexion); #cierro la conexión abierta a la bd

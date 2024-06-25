@@ -28,6 +28,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="../diseño/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>COMENZAR TURNO</title>
 
     <script src="../sistema/js/hora.js"></script>
@@ -94,6 +96,51 @@
         </div>
         <!--FIN PESTAÑA MODAL INICIAR TURNO -->
 </div>
+
+
+<?php
+    
+     
+
+    if(isset($_SESSION["registroDia"])){
+        if($_SESSION["registroDia"]){
+            ?>
+            <script>
+                Swal.fire({
+                icon: "success",
+                title: "",
+                text: 'USTED YA TIENE UN TURNO REGISTRADO EL DÍA DE HOY ',
+                footer: ''
+                });
+            </script>
+            <?php
+        }
+       
+    
+    }
+    unset($_SESSION["registroDia"]);
+    ?>
+
+<?php
+    
+    if (isset($_SESSION["turnoFin"])){
+        if($_SESSION["turnoFin"]){
+    ?>
+                <script>
+                Swal.fire({
+                icon: "success",
+                title: "",
+                text: 'TURNO FINALIZADO EXITOSAMENTE ',
+                footer: ''
+                });
+            </script>
+            <?php
+        }
+
+    }
+   unset($_SESSION["turnoFin"]);
+ ?>
+
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 

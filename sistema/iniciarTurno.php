@@ -44,10 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($con->query($hora) === TRUE) { #si todo sale bien
                 
-                echo "<script> alert('TURNO INICIADO EXITOSAMENTE');
+                $_SESSION["turnoIn"]=true;
+                header("location:../operario/indexTurno.php");
+                /* echo "<script> alert('TURNO INICIADO EXITOSAMENTE');
                         window.location.href='../operario/indexTurno.php';
                       </script>";
-                exit;
+                exit; */
 
             } else { #si algo falla
                 
@@ -58,11 +60,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             }
         } else { #Si la variable resultadoTurno tiene un valor mayor o igual a 1, significa que ya hay un turno registrado en la fecha de hoy 
-            
-            echo "<script> alert('USTED YA TIENE UN TURNO REGISTRADO EL DÍA DE HOY');
+               
+
+            $_SESSION["registroDia"]=true;
+
+            header("Location:../operario/indexIniciarTurno.php/");
+           /*  echo "<script> alert('USTED YA TIENE UN TURNO REGISTRADO EL DÍA DE HOY');
                     window.location.href='../operario/indexIniciarTurno.php';
                   </script>";
-            exit;
+            exit; */
 
         }
     } else { #Si elije NO
