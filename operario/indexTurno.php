@@ -111,7 +111,9 @@ include('../sistema/conexion.php');
             <div class="row m-4"></div>
             <div class="row mt-4">
 
-            <!--INICIO PESTAÑA MODAL PARE TURNO -->   
+            <!--INICIO PESTAÑA MODAL PARE TURNO V1-->
+            <!--
+
                 <button class="btn btn-warning m-3 p-4" data-bs-toggle="modal" data-bs-target="#modal-parar"><h3 class="display-2">PARAR TURNO</h3></button>
 
                 <div class="modal fade" id="modal-parar" tabindex="-1" aria-labelledby="modalPararLabel" aria-hidden="true">
@@ -149,7 +151,74 @@ include('../sistema/conexion.php');
                         </div>
                     </div>
                 </div>
-            <!--FIN PESTAÑA MODAL PARE TURNO -->
+
+            -->
+            <!--FIN PESTAÑA MODAL PARE TURNO V1-->
+
+            
+            <!--INICIO PESTAÑA MODAL PARE TURNO V2 -->   
+                <button class="btn btn-warning m-3 p-4" data-bs-toggle="modal" data-bs-target="#modal-parar"><h3 class="display-2">PARAR TURNO</h3></button>
+
+                    <div class="modal fade" id="modal-parar" tabindex="-1" aria-labelledby="modalPararLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-warning" id="modalPararLabel">ATENCIÓN</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>¿Estás seguro de que quieres parar tú turno?</p>
+                                    <p>SELECCIONE EL MOTIVO DE PARO</p>
+
+                                    <form action = "../sistema/motivosParo/desayuno.php" method ="POST" class = "action">
+
+                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> DESAYUNO </h3></button>
+
+                                    </form>
+
+                                    <form action = "../sistema/motivosParo/faltaCanastilla.php" method ="POST" class = "action">
+
+                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> FALTA CANASTILLA </h3></button>
+
+                                    </form>
+
+                                    <form action = "../sistema/motivosParo/bandaLlena.php" method ="POST" class = "action">
+
+                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> BANDA LLENA </h3></button>
+
+                                    </form>
+
+                                    <form action = "../sistema/motivosParo/faltaFlor.php" method ="POST" class = "action">
+
+                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> FALTA FLOR </h3></button>
+
+                                    </form>
+
+                                    <form action = "../sistema/motivosParo/faltaMaterial.php" method ="POST" class = "action">
+
+                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> FALTA MATERIAL </h3></button>
+
+                                    </form>
+
+                                    <form action = "../sistema/motivosParo/motivoEspecial.php" method ="POST" class = "action">
+
+                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> MOTIVO ESPECIAL </h3></button>
+
+                                    </form>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <!--FIN PESTAÑA MODAL PARE TURNO V2 -->
+
+
+
+
+
+
+
                 </div>
                 <div class="row">
                                                     
