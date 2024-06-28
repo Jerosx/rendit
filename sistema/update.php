@@ -1,4 +1,5 @@
 <?php
+session_start();
 #-----------------------------------CONEXIÓN A LA BD----------------------------------------
     include ('conexion.php'); #me conecto a la BD
 
@@ -39,9 +40,13 @@ $Estado=$_POST['Estado']; // Obtenemos el estado del formulario mediante el mét
     }
     else{
 
-        "<script> alert('FALLO AL ACTUALIZAR DATOS');
+
+        $_SESSION["fallaAc"]=true;
+        header("location.href='../admin/indexadmin.php");
+
+        /* "<script> alert('FALLO AL ACTUALIZAR DATOS');
                         window.location.href='../admin/indexadmin.php';
-        </script>";
+        </script>"; */
         
     }
 #----------------------------------FIN ENVIO INFO A LA BD-----------------------------------------------------

@@ -1,4 +1,5 @@
 <?php
+session_start();
 #-----------------------------------CONEXIÓN A LA BD----------------------------------------
     include ('conexion.php'); # me conecto a la BD
 
@@ -25,11 +26,13 @@ if($codigosRegistrados) #Si se ejecuta la consulta
 {
     if($codigosRegistrados->num_rows > 0) #si el número de rows es mayor a 0 es que ya está registrado
     {
-        echo "<script> 
+        $_SESSION["codigo"]=true;
+        header("location:../admin/indexadmin.php");
+        /* echo "<script> 
                     alert('EL CODIGO PERSONAL INGRESADO YA ESTÁ REGISTRADO EN EL SISTEMA');  
                     window.location.href='../admin/indexadmin.php';  
                 </script>";
-        exit;
+        exit; */
     }
     else #si num rows es menor a 0, es que no esta registrado
     {
@@ -72,9 +75,12 @@ if($codigosRegistrados) #Si se ejecuta la consulta
 
                 if($insuser) {
                     #------------muestra un mensaje donde el operario se registró correctamente--------#
-                    echo "<script> alert('OPERARIO REGISTRADO EXITOSAMENTE');
+                      
+                    $_SESSION["operarioRe"]=true;
+                    header("location:../admin/indexadmin.php");
+                  /*   echo "<script> alert('OPERARIO REGISTRADO EXITOSAMENTE');
                             window.location.href='../admin/indexadmin.php';
-                        </script>";
+                        </script>";  */
                 } else {
                     #-----------------muestra fallos al registrar el rol de operario----------#
                     echo "<script> alert('FALLO AL REGISTRAR');

@@ -78,9 +78,10 @@ if(isset($_SESSION["datosAct"])){
   <script>
     Swal.fire({
       icon: "success",
-      title: "",
       text: 'DATOS ACTUALIZADOS ',
-      footer: ''
+      timer:1500
+
+    
     });
   </script>
 <?php
@@ -88,30 +89,87 @@ if(isset($_SESSION["datosAct"])){
 }
   // Resetear la variable de sesión después de mostrar la alerta
   unset($_SESSION["datosAct"]);
-
+ 
 ?>
 
 <?php
     if (isset($_SESSION["adminRe"])){
       if($_SESSION["adminRe"]){
-
-?>
-   <script>
-    Swal.fire({
-      icon: "success",
-      title: "",
-      text: 'ADMINISTRADOR REGISTRADO EXITOSAMENTE ',
-      footer: ''
-    });
-  </script>
+      ?>
+        <script>
+          Swal.fire({
+            icon: "success",
+            title: "",
+            text: 'ADMINISTRADOR REGISTRADO EXITOSAMENTE ',
+            footer: ''
+          });
+        </script>
 
   <?php
       }
     }
 
     unset($_SESSION["adminRe"]);
-
   ?>
+
+  <?php
+  if(isset($_SESSION["codigo"])){
+    if($_SESSION["codigo"]){
+      ?>
+      <script>
+          Swal.fire({
+            icon: "ERROR",
+            title: "error",
+            text: 'EL CODIGO PERSONAL INGRESADO YA ESTÁ REGISTRADO EN EL SISTEMA ',
+            footer: ''
+          });
+        </script>
+      <?php
+    }
+  }
+  unset($_SESSION["codigo"]);
+  ?>
+
+  <?php 
+  if(isset($_SESSION["operarioRe"])){
+    if($_SESSION["operarioRe"]){
+      ?>
+        <script>
+          Swal.fire({
+            icon: "success",
+            title: "",
+            text: 'OPERARIO REGISTRADO EXITOSAMENTE ',
+            footer: ''
+          });
+        </script>
+      <?php
+    }
+  }
+  unset($_SESSION["operarioRe"]);
+  ?>
+
+  <?php
+  if(isset($_SESSION["fallaAc"])){
+    if($_SESSION["fallaAc"]){
+      ?>
+        <script>
+          Swal.fire({
+            icon: "error",
+            title: "error",
+            text: 'FALLO AL ACTUALIZAR DATOS',
+            timer:1800
+          });
+        </script>
+      <?php
+    }
+  }
+  unset($_SESSION["fallaAc"]);
+  ?>
+
+  
+
+
+
             
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
