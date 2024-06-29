@@ -29,7 +29,7 @@ include('../sistema/conexion.php');
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark" style="background-color: #1F3361;">
 
 <div class="container-fluid">
   <a class="navbar-brand" href="#">RENDIT</a>
@@ -162,51 +162,61 @@ include('../sistema/conexion.php');
                     <div class="modal fade" id="modal-parar" tabindex="-1" aria-labelledby="modalPararLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header text-center">
                                     <h5 class="modal-title text-warning" id="modalPararLabel">ATENCIÓN</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>¿Estás seguro de que quieres parar tú turno?</p>
-                                    <p>SELECCIONE EL MOTIVO DE PARO</p>
+                                 <p CLASS="display-5">SELECCIONE EL MOTIVO DE PARO</p>
+                                    <div class="row container text-center">
+                                        <div class="col">
+                                        <form action = "../sistema/motivosParo/desayuno.php" method ="POST" class = "action">
 
-                                    <form action = "../sistema/motivosParo/desayuno.php" method ="POST" class = "action">
+                                          <button class="btn btn-primary m-3 p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="fs-5"> DESAYUNO </p></button>
 
-                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> DESAYUNO </h3></button>
+                                        </form>
+                                        </div>
+                                        <div class="col">
+                                        <form action = "../sistema/motivosParo/faltaCanastilla.php" method ="POST" class = "action">
 
-                                    </form>
+                                            <button class="btn btn-warning m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> FALTA CANASTILLA </p></button>
 
-                                    <form action = "../sistema/motivosParo/faltaCanastilla.php" method ="POST" class = "action">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    <div class="row container text-center">
+                                        <div class="col">
+                                        <form action = "../sistema/motivosParo/bandaLlena.php" method ="POST" class = "action">
 
-                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> FALTA CANASTILLA </h3></button>
+                                            <button class="btn btn-success m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> BANDA LLENA </p></button>
 
-                                    </form>
+                                        </form>
+                                        </div>
+                                        <div class="col">
+                                        <form action = "../sistema/motivosParo/faltaFlor.php" method ="POST" class = "action">
 
-                                    <form action = "../sistema/motivosParo/bandaLlena.php" method ="POST" class = "action">
+                                            <button class="btn btn-warning m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> FALTA FLOR </p></button>
 
-                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> BANDA LLENA </h3></button>
+                                        </form>
+                                        </div>
+                                    </div>
 
-                                    </form>
+                                    <div class="row container text-center">
+                                        <div class="col">
+                                        <form action = "../sistema/motivosParo/faltaMaterial.php" method ="POST" class = "action">
 
-                                    <form action = "../sistema/motivosParo/faltaFlor.php" method ="POST" class = "action">
+                                            <button class="btn btn-danger m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> FALTA MATERIAL </p></button>
 
-                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> FALTA FLOR </h3></button>
+                                        </form>
+                                        </div>
+                                        <div class="col">
+                                        <form action = "../sistema/motivosParo/motivoEspecial.php" method ="POST" class = "action">
 
-                                    </form>
+                                            <button class="btn btn-warning m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> MOTIVO ESPECIAL </p></button>
 
-                                    <form action = "../sistema/motivosParo/faltaMaterial.php" method ="POST" class = "action">
-
-                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> FALTA MATERIAL </h3></button>
-
-                                    </form>
-
-                                    <form action = "../sistema/motivosParo/motivoEspecial.php" method ="POST" class = "action">
-
-                                        <button class="btn btn-danger m-2 p-5" type="submit" id="desayuno" name="desayuno" style="border-radius:150px;"><h3 class="display-1"> MOTIVO ESPECIAL </h3></button>
-
-                                    </form>
-
-                                    
+                                        </form>
+                                        </div>
+                                    </div>                    
                                 </div>
                             </div>
                         </div>

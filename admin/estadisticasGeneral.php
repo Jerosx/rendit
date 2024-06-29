@@ -170,11 +170,12 @@ $empacadoresOrdenadosParoJson = json_encode(array_keys($tiemposParo));
                 </form>
 
 
-                <h2>Tiempo de Pare por Empacador</h2>
+                <h2 class="display-4">Tiempo de Pare por Empacador</h2>
                 <canvas id="pareEmpacadores" width="400" height="100" class="mt-5"></canvas>
 
-                <h2>Tiempo Productivo vs Tiempo Improductivo</h2>
-                <canvas id="tiempoproductivo" width="400" height="100" class="mt-5"></canvas>
+                <h2 class="display-4">Tiempo Productivo vs Tiempo Improductivo</h2>
+                <div class="container text-center pt-5" style="width: 550px;">
+                <canvas id="tiempoproductivo" style="width: 100px;"></canvas>
 
                 <script>
                     // Convertir los datos de PHP a formato JSON para JavaScript
@@ -240,8 +241,8 @@ $empacadoresOrdenadosParoJson = json_encode(array_keys($tiemposParo));
                             datasets: [{
                                 label: 'Tiempo',
                                 data: [totalProductivo, totalImproductivo],
-                                backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
-                                borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
+                                backgroundColor: ['rgb(31, 51, 97)', 'rgb(255, 212, 10)'],
+                                borderColor: ['rgb(31, 51, 97)', 'rgb(31, 51, 97)'],
                                 borderWidth: 1
                             }]
                         },
@@ -263,6 +264,7 @@ $empacadoresOrdenadosParoJson = json_encode(array_keys($tiemposParo));
                         }
                     });
                 </script>
+                </div>
             </div>
         </div>
     </div>
