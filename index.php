@@ -69,7 +69,8 @@
                 icon: "error",
                 title: "error",
                 text: "CREDENCIALES INCORRECTAS",
-                footer: ''
+                showConfirmButton: false,
+                timer: 1500,
                 });
             </script>
                 <?php 

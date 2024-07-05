@@ -110,7 +110,8 @@
                 icon: "success",
                 title: "",
                 text: 'USTED YA TIENE UN TURNO REGISTRADO EL DÍA DE HOY ',
-                footer: ''
+                showConfirmButton: false,
+                timer: 2000,
                 });
             </script>
             <?php
@@ -131,7 +132,8 @@
                 icon: "success",
                 title: "",
                 text: 'TURNO FINALIZADO EXITOSAMENTE ',
-                footer: ''
+                showConfirmButton: false,
+                timer: 1500
                 });
             </script>
             <?php

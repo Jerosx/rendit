@@ -263,7 +263,7 @@ include('../sistema/conexion.php');
                     icon: "success",
                     title: "sesion iniciada",
                     text: ' TURNO INICIADO EXITOSAMENTE',
-                    footer: ''
+                    showConfirmButton: false,
                     });
                 </script>
             <?php 
@@ -285,7 +285,8 @@ include('../sistema/conexion.php');
                 icon: "error",
                 title: "Oops...",
                 text: 'USTED YA FINALIZÓ SU TURNO EL DÍA DE HOY ',
-                footer: ''
+                showConfirmButton: false,
+                timer: 1500,
                 });
          <?php
             }

@@ -24,10 +24,17 @@ session_destroy(); #destruyo la sesión
   position: "top-center",
   icon: "success",
   title: "SESION CERRADA CON EXITO",
-  confirmButtonText: '<a class="link-light link-underline-opacity-0" href="../index.php">ACEPTAR</a>'
+  showConfirmButton: false,
+  timer:1500,
+  timerprogressBar:true,
+    });
+
+    setTimeout(() =>{
+      window.location.href="../index.php";
+
+    }, 1500);
   
-  
-});
+
 </script>
 
 
