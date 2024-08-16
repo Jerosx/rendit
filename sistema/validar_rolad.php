@@ -23,7 +23,7 @@ mysqli_close($con); #cierro la conexión abierta a la bd
 
 if ($rolUsuario != 1) { # Si el rol del usuario no es administrador, redirigir al usuario a la página de inicio de sesión y cerrarle la sesión
     session_destroy();
-    header("location:../index.html");
+    header("location:../index.php");
     exit; # Detener la ejecución del script
 }
 

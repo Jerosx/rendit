@@ -24,7 +24,7 @@
 
     if ($rolUsuario != 2) { # Si el rol del usuario no es operario, redirigir al usuario a la página de inicio de sesión y cerrar la sesión
         session_destroy();
-        header("location:../index.html");
+        header("location:../index.php");
         exit; # Detener la ejecución del script
     }
 
