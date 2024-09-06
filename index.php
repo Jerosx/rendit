@@ -14,15 +14,22 @@
         .bg{
         background-image: url(diseño/img/login-img.jpg);
         background-position: center center;
+        padding-right: 50px;
+        margin-right: 50px;
+
+        
     }</style>
     <title>Inicio de sesión</title>
 </head>
 <body>
+    <div class="container  mb-5 p-5"></div>
+    <div class="container  mb-5 p-3"></div>
     <div class="container w-75  bg-light mt-5 rounded shadow">
         <div class="row align-items-stretch">
-                <div class="col bg d-none d-lg-block">
-                </div>
-                <div class="col">
+                 <div class="col bg d-none d-lg-block pl-3">
+                </div> 
+                   
+                <div class="col p-5">
                     <h2 class="fw-bold text-center pt-5 mb-5">BIENVENIDO A RENDIT</h2>
                 <form class="form-floating" action="sistema/validar.php" method="POST">
                 <div class="mt-5 mb-4">

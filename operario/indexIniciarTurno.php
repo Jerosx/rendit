@@ -35,7 +35,7 @@
     <script src="../sistema/js/hora.js"></script>
 
 </head>
-<body>
+<body class="bg-light.bg-gradient">
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 
 <div class="container-fluid">
@@ -60,8 +60,9 @@
   </div>
 </div>
 </nav>
-
-<div class="container text-center mt-5 w-75">
+<div class="container  mb-5 p-5 "></div>
+<div class="container  mb-5 p-5 "></div>
+<div class="container text-center mt-5 w-75  ">
          <H1 class="display-4">BIENVENIDO</H1>
          <P class="text-dark">Asegurese de estar listo antes de comenzar su turno</P>
 
@@ -74,7 +75,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-warning" id="modalIniciarLabel">ATENCIÓN</h5>
+                        <h5 class="modal-title text-danger" id="modalIniciarLabel">ATENCIÓN</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

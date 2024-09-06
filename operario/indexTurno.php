@@ -29,6 +29,62 @@ include('../sistema/conexion.php');
 
 </head>
 <body>
+    <style>
+       /*  .redondo{
+            border.radius: 50%;
+            width: 100px;
+            height: 100px;
+            font-size:18px;
+            padding:20px;
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            float: center;
+        } */
+
+
+        .motivo-paro{
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+
+        }
+
+        .motivo-paro p{
+            margin: 0;
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+
+        .modal-body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .row{
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .col{
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .btn-orange{
+            background-color: #ffa07a;
+            border-color: #ffa07a;
+            color: #ffffff;
+        }
+    </style>
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark" style="background-color: #1F3361;">
 
 <div class="container-fluid">
@@ -58,8 +114,8 @@ include('../sistema/conexion.php');
                 <div class="col">
 
             <!--TABLA CON CAJAS EMPACADAS--->
-                    <table class="table mt-5" border="1" align="left"> <!--Creo una tabla -->
-                                    <tr> 
+                    <table class="table mt-5" border="3" align="left"> <!--Creo una tabla -->
+                                    <tr  class="border-3"> 
                         
                                         <th>Cajas empacadas</th> <!--Creo el campo Cajas empacadas en la cabecera-->
 
@@ -71,7 +127,7 @@ include('../sistema/conexion.php');
                                 
 
                             ?>
-                                <tr><td><h3 class="display-1"><?php echo $fila['Cajas']?></h3></td> <!--Comienza a escribir las cajas que se encuentra con la consulta hasta finalizar el while -->
+                                <tr class="border-3"><td><h3 class="display-1 border-3"><?php echo $fila['Cajas']?></h3></td> <!--Comienza a escribir las cajas que se encuentra con la consulta hasta finalizar el while -->
 
                                 </tr>
                             <?php
@@ -88,7 +144,7 @@ include('../sistema/conexion.php');
 
                         <form action="../sistema/sumarcaja.php" method="post">
 
-                            <button class="btn btn-success m-2  p-5" type="submit" id="sumarCajaBTN" name="sumarCajaBTN" style="border-radius:150px;"> <h3 class="display-1">+</h3></button>
+                            <button class="btn btn-success m-2  p-5" type="submit" id="sumarCajaBTN" name="sumarCajaBTN" style="border-radius:50%; width: 180px; height: 180px display: flex ; align-items: center; justify-content: center; "> <h3 class="display-1">+</h3></button>
 
                         </form>
 
@@ -99,7 +155,7 @@ include('../sistema/conexion.php');
             
                             <form action="../sistema/restarcaja.php" method="post">
 
-                                <button class="btn btn-danger m-2 p-5" type="submit" id="restarCajaBTN" name="restarCajaBTN" style="border-radius:150px;"><h3 class="display-1"> - </h3></button>
+                                <button class="btn btn-danger m-2 p-5" type="submit" id="restarCajaBTN" name="restarCajaBTN" style="border-radius:50%; width: 180px; height: 180px display: flex ; align-items: center; justify-content: center;"><h3 class="display-1"> - </h3></button>
 
                             </form>
                         <!--BOTÓN RESTAR -1 CAJA EMPACADA--->
@@ -163,7 +219,7 @@ include('../sistema/conexion.php');
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header text-center">
-                                    <h5 class="modal-title text-warning" id="modalPararLabel">ATENCIÓN</h5>
+                                    <h5 class="modal-title text-danger" id="modalPararLabel">ATENCIÓN</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -172,14 +228,14 @@ include('../sistema/conexion.php');
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/desayuno.php" method ="POST" class = "action">
 
-                                          <button class="btn btn-primary m-3 p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="fs-5"> DESAYUNO </p></button>
+                                          <button class="btn btn-orange btn-block rounded-circle m3 p-2 redondo motivo-paro  " type="submit" id="desayuno" name="desayuno" style="border-radius: 50%; padding: 10px 20px"><p class="fs-5"> DESAYUNO </p></button>
 
                                         </form>
                                         </div>
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/faltaCanastilla.php" method ="POST" class = "action">
 
-                                            <button class="btn btn-warning m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> FALTA CANASTILLA </p></button>
+                                            <button class="btn bg-primary-subtle m-3  p-2 redondo motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5" style="margin: 0; font-size: 16px"> FALTA CANASTILLA </p></button>
 
                                         </form>
                                         </div>
@@ -188,14 +244,14 @@ include('../sistema/conexion.php');
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/bandaLlena.php" method ="POST" class = "action">
 
-                                            <button class="btn btn-success m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> BANDA LLENA </p></button>
+                                            <button class="btn bg-danger-subtle m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5"> BANDA LLENA </p></button>
 
                                         </form>
                                         </div>
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/faltaFlor.php" method ="POST" class = "action">
 
-                                            <button class="btn btn-warning m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> FALTA FLOR </p></button>
+                                             <button class="btn bg-success-subtle m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5"> FALTA FLOR </p></button>
 
                                         </form>
                                         </div>
@@ -205,14 +261,14 @@ include('../sistema/conexion.php');
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/faltaMaterial.php" method ="POST" class = "action">
 
-                                            <button class="btn btn-danger m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> FALTA MATERIAL </p></button>
+                                            <button class="btn bg-info-subtle m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5"> FALTA MATERIAL </p></button>
 
                                         </form>
                                         </div>
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/motivoEspecial.php" method ="POST" class = "action">
 
-                                            <button class="btn btn-warning m-3  p-2" type="submit" id="desayuno" name="desayuno" style="border-radius:20px;"><p class="FS-5"> MOTIVO ESPECIAL </p></button>
+                                            <button class="btn bg-dark-subtle m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 20px 40px ;font-size: 10px"><p class="FS-5" style="margin: 0; font-size: 16px"> MOTIVO ESPECIAL </p></button>
 
                                         </form>
                                         </div>

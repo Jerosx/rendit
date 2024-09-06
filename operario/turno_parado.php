@@ -23,7 +23,7 @@ include ('../sistema/fecha.php');
     <!-- <script src="../sistema/js/hora.js"></script> INHABILITO LA HORA POR FALLO--> 
 
 </head>
-<body class="body-admin">
+<body class="body-admin bg-light  bg-opacity-50">
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 
             <div class="container-fluid">
@@ -42,6 +42,8 @@ include ('../sistema/fecha.php');
                 </div>
             </div>
     </nav>
+    <div class="container  mb-5 p-5 "></div>
+    <div class="container  mb-5 p-5 "></div>
 <div class="container text-center mt-5 w-75">
             <H2 class="display-4">TURNO PARADO</H2>  
             <h3 class="display-5">Ha transcurrido:</h3>
