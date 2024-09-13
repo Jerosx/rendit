@@ -28,7 +28,7 @@ if($resultado->num_rows > 0) #En este punto valido que la varibale $resultado co
     {
         if($filas['Rol']==1){  #Si Rol==1 es administrador
 
-            header("location:../admin/indexadmin.php"); #envialo al index de administrador
+            header("location:../admin/estadisticasGeneral.php"); #envialo al index de administrador
 
         }
 

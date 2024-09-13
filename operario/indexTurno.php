@@ -79,11 +79,7 @@ include('../sistema/conexion.php');
 
         }
 
-        .btn-orange{
-            background-color: #ffa07a;
-            border-color: #ffa07a;
-            color: #ffffff;
-        }
+       
     </style>
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark" style="background-color: #1F3361;">
 
@@ -228,14 +224,14 @@ include('../sistema/conexion.php');
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/desayuno.php" method ="POST" class = "action">
 
-                                          <button class="btn btn-orange btn-block rounded-circle m3 p-2 redondo motivo-paro  " type="submit" id="desayuno" name="desayuno" style="border-radius: 50%; padding: 10px 20px"><p class="fs-5"> DESAYUNO </p></button>
+                                          <button class="btn bg-primary btn-block rounded-circle m3 p-2 redondo motivo-paro  " type="submit" id="desayuno" name="desayuno" style="border-radius: 50%; padding: 10px 20px"><p class="fs-5"> DESAYUNO </p></button>
 
                                         </form>
                                         </div>
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/faltaCanastilla.php" method ="POST" class = "action">
 
-                                            <button class="btn bg-primary-subtle m-3  p-2 redondo motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5" style="margin: 0; font-size: 16px"> FALTA CANASTILLA </p></button>
+                                            <button class="btn bg-secondary m-3  p-2 redondo motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5" style="margin: 0; font-size: 16px"> FALTA CANASTILLA </p></button>
 
                                         </form>
                                         </div>
@@ -244,14 +240,14 @@ include('../sistema/conexion.php');
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/bandaLlena.php" method ="POST" class = "action">
 
-                                            <button class="btn bg-danger-subtle m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5"> BANDA LLENA </p></button>
+                                            <button class="btn bg-success m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5"> BANDA LLENA </p></button>
 
                                         </form>
                                         </div>
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/faltaFlor.php" method ="POST" class = "action">
 
-                                             <button class="btn bg-success-subtle m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5"> FALTA FLOR </p></button>
+                                             <button class="btn bg-info m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5"> FALTA FLOR </p></button>
 
                                         </form>
                                         </div>
@@ -261,7 +257,7 @@ include('../sistema/conexion.php');
                                         <div class="col">
                                         <form action = "../sistema/motivosParo/faltaMaterial.php" method ="POST" class = "action">
 
-                                            <button class="btn bg-info-subtle m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5"> FALTA MATERIAL </p></button>
+                                            <button class="btn bg-danger m-3  p-2 motivo-paro" type="submit" id="desayuno" name="desayuno" style="border-radius:50%; padding: 10px 20px"><p class="FS-5"> FALTA MATERIAL </p></button>
 
                                         </form>
                                         </div>

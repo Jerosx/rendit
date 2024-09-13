@@ -27,7 +27,7 @@ if($codigosRegistrados) #Si se ejecuta la consulta
     if($codigosRegistrados->num_rows > 0) #si el número de rows es mayor a 0 es que ya está registrado
     {
         $_SESSION["codigo"]=true;
-        header("location:../admin/indexadmin.php");
+        header("location:../admin/estadisticasGeneral.php");
         /* echo "<script> 
                     alert('EL CODIGO PERSONAL INGRESADO YA ESTÁ REGISTRADO EN EL SISTEMA');  
                     window.location.href='../admin/indexadmin.php';  
@@ -51,14 +51,14 @@ if($codigosRegistrados) #Si se ejecuta la consulta
                     #-----------------el script muestra una ventana donde el administrador se registró con éxito----------------#
                     
                     $_SESSION["adminRe"]=true;
-                    header("location:../admin/indexadmin.php");
+                    header("location:../admin/?> estadisticasGeneral.php");
                     /* echo "<script> alert('ADMINISTRADOR REGISTRADO EXITOSAMENTE');  
                             window.location.href='../admin/indexadmin.php';  
                         </script>"; */
                 } else {
                     #-------------------muestra fallos al registrar en la sesión administrador --------------#
                     echo "<script> alert('FALLO AL REGISTRAR');
-                            window.location.href='../admin/indexadmin.php';
+                            window.location.href='../admin/?> estadisticasGeneral.php';
                         </script>";
                     echo $con->error;
                 }
@@ -77,14 +77,14 @@ if($codigosRegistrados) #Si se ejecuta la consulta
                     #------------muestra un mensaje donde el operario se registró correctamente--------#
                       
                     $_SESSION["operarioRe"]=true;
-                    header("location:../admin/indexadmin.php");
+                    header("location:../admin/estadisticasGeneral.php");
                   /*   echo "<script> alert('OPERARIO REGISTRADO EXITOSAMENTE');
                             window.location.href='../admin/indexadmin.php';
                         </script>";  */
                 } else {
                     #-----------------muestra fallos al registrar el rol de operario----------#
                     echo "<script> alert('FALLO AL REGISTRAR');
-                            window.location.href='../admin/indexadmin.php';
+                            window.location.href='../admin/?> estadisticasGeneral.php';
                         </script>";
                     echo $con->error;
                 }
@@ -93,7 +93,7 @@ if($codigosRegistrados) #Si se ejecuta la consulta
 
             default:
                 echo "<script> alert('ROL NO VÁLIDO');
-                        window.location.href='../admin/indexadmin.php';
+                        window.location.href='../admin/estadisticaGeneral.php';
                     </script>";
                 break; // rompe si el rol no es válido
         }

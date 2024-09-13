@@ -28,48 +28,46 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">RENDIT</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar bg-primary fixed-left " data-bs-theme="primary">
+  <div class="container-fluid d-flex justify-content-start">
+    <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           USUARIOS
-          </a>
-          <ul class="dropdown-menu">
-                <li class="dropdown-item"><a class="navbar-brand" href="tablaoperarios.php">Operarios registrados</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="tablaadmin.php">Administradores registrados</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="formusuario.php">Nuevo usuario</a></li>
-            </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           ESTADÍSTICA
-          </a>
-          <ul class="dropdown-menu">
-                <li class="dropdown-item"><a class="navbar-brand" href="estadisticas.php">Estadisticas operarios</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="estadisticasParo.php">Estadisticas de paros</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="estadisticasGeneral.php">Estadistica general</a></li>
-            </ul>
-        </li>
-      </ul>
-    <ul class="navbar-nav ">
-      <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
-      <li class="nav-item">
-            <form action="../sistema/cerrarsesion.php" method="post">
+    <a class="navbar-brand p-2" href="#">RENDIT</a>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">RENDIT</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+      <ul class="navbar-nav justify-content-start flex-grow-1 pe-3" style="--bs-scroll-height: 100px;">
+      <li class="nav-item"><span class="nav-link fw-bold">USUARIOS</span></li>
+
+
+                        <li class="nav-item"><a class="nav-link" href="tablaoperarios.php">Operarios registrados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tablaadmin.php">Administradores registrados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="formusuario.php">Nuevo usuario</a></li>
+
+                        <li class="nav-item"><span class="nav-link fw-bold">ESTADISTICAS</span></li>
+
+                        <li class="nav-item"><a class="nav-link" href="estadisticas.php">Estadísticas operarios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="estadisticasParo.php">Estadísticas de paros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="estadisticasGeneral.php">Estadística general</a></li>
+          <ul class="navbar-nav">
+            <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE --> 
+            <li class="nav-item">
+              <form action="../sistema/cerrarsesion.php" method="post">
                 <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-            </form>
-        </li>
-    </ul>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
+</nav> 
+
 
 <?php
 if(isset($_SESSION["datosAct"])){

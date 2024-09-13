@@ -31,7 +31,7 @@ $Estado=$_POST['Estado']; // Obtenemos el estado del formulario mediante el mét
         
         
         $_SESSION["datosAct"]=true;
-        header("Location:../admin/indexadmin.php");
+        header("Location:../admin/estadisticasGeneral.php");
 
         /* echo "<script> alert('DATOS ACTUALIZADOS');
                         window.location.href='../admin/indexadmin.php';
@@ -42,7 +42,7 @@ $Estado=$_POST['Estado']; // Obtenemos el estado del formulario mediante el mét
 
 
         $_SESSION["fallaAc"]=true;
-        header("location.href='../admin/indexadmin.php");
+        header("location.href='../admin/estadisticasGeneral.php");
 
         /* "<script> alert('FALLO AL ACTUALIZAR DATOS');
                         window.location.href='../admin/indexadmin.php';

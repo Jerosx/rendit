@@ -8,7 +8,7 @@ $valsesion= $_SESSION['codigoUser'];# Obtener el valor de la sesión
 
 # Validar si la sesión está activa
 if($valsesion== null || $valsesion==''){ #Si el valor codigoUser está vacio, significa que no hay una sesión activa, por ende no le doy acceso y lo devuelvo al index de login
-    header("location:../index.html");
+    header("location:../index.php");
     die(); 
 }
 ?>
