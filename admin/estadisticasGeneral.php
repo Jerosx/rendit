@@ -110,6 +110,7 @@ $empacadoresOrdenadosParoJson = json_encode(array_keys($tiemposParo));
     <title>Estadísticas Paros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="../sistema/js/hora.js"></script>
 </head>
 <body>
@@ -225,12 +226,26 @@ $empacadoresOrdenadosParoJson = json_encode(array_keys($tiemposParo));
                                             return context.label + ': ' + context.raw.toFixed(2) + ' minutos';
                                         }
                                     }
+                                },
+                                // Añadir los datos dentro de las barras
+                                datalabels: {
+                                    anchor: 'end',
+                                    align: 'start',
+                                    color: 'black',
+                                    font: {
+                                        weight: 'bold'
+                                    },
+                                    formatter: function(value, context) {
+                                        return value.toFixed(2) + ' min'; // Para mostrar los valores con dos decimales
+                                    }
                                 }
                             }
-                        }
+                        },
+                        plugins: [ChartDataLabels] // Añadimos el plugin de datalabels
                     });
 
-                    // Gráfico de Torta para Tiempo Productivo vs Improductivo
+
+                   // Gráfico de Torta para Tiempo Productivo vs Improductivo
                     var productiveTimeCtx = document.getElementById('tiempoproductivo').getContext('2d');
                     var totalProductivo = Object.values(tiemposTurno).reduce((a, b) => a + b, 0) - Object.values(tiemposParo).reduce((a, b) => a + b, 0);
                     var totalImproductivo = Object.values(tiemposParo).reduce((a, b) => a + b, 0);
@@ -255,14 +270,28 @@ $empacadoresOrdenadosParoJson = json_encode(array_keys($tiemposParo));
                                             if (label) {
                                                 label += ': ';
                                             }
-                                            label += context.raw.toFixed(2) + ' minutos';
+                                            label += context.raw.toFixed(2) + ' min';
                                             return label;
                                         }
                                     }
+                                },
+                                // Añadir los datos dentro de la torta
+                                datalabels: {
+                                    color: 'white',
+                                    formatter: function(value, context) {
+                                        return value.toFixed(2) + ' min'; // Para mostrar los minutos
+                                    },
+                                    font: {
+                                        weight: 'bold',
+                                        size: 16
+                                    }
                                 }
                             }
-                        }
+                        },
+                        plugins: [ChartDataLabels] // Añadimos el plugin de datalabels
                     });
+
+
                 </script>
                 </div>
             </div>
