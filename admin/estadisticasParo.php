@@ -97,6 +97,7 @@ $tiemposParoJson = json_encode(array_values($tiemposParo));
     <title>Estadísticas Paros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="../sistema/js/hora.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -219,35 +220,48 @@ $tiemposParoJson = json_encode(array_values($tiemposParo));
                     // Crear el gráfico con Chart.js
                     var ctx = document.getElementById('myChart').getContext('2d');
                     var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: labels,
-                            datasets: datasets
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: datasets
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Total Paro (minutos)'
+                                }
+                            }
                         },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true,
-                                    title: {
-                                        display: true,
-                                        text: 'Total Paro (minutos)'
+                        plugins: {
+                            legend: {
+                                display: true
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.raw + ' minutos';
                                     }
                                 }
                             },
-                            plugins: {
-                                legend: {
-                                    display: true
+                            // Aquí se activa el plugin de datalabels para mostrar los valores
+                            datalabels: {
+                                anchor: 'end', // Posición anclada
+                                align: 'start',  // Alineación del texto
+                                color: 'black', // Color del texto
+                                font: {
+                                    weight: 'bold'
                                 },
-                                tooltip: {
-                                    callbacks: {
-                                        label: function(context) {
-                                            return context.dataset.label + ': ' + context.raw + ' minutos';
-                                        }
-                                    }
+                                formatter: function(value) {
+                                    return value ? value + ' min' : ''; // Formato de los datos que se mostrarán
                                 }
                             }
                         }
-                    });
+                    },
+                    plugins: [ChartDataLabels] // Activar el plugin
+                });
                 </script>
             </div>
         </div>
