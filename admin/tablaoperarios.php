@@ -23,49 +23,72 @@
     <!--<link rel="stylesheet" href="../diseño/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="../sistema/js/hora.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+<style>
+
+
+
+    .navbar-nav .nav-link {
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background-color: #ccc;
+      /* Cambia el color de fondo al pasar el mouse */
+      color: #333;
+      /* Cambia el color del texto al pasar el mouse */
+      border-radius: 5px;
+      /* Agrega un borde redondeado */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      /* Agrega una sombra */
+    }
+  </style>
+
+<nav class="navbar bg-primary fixed-left px-3 py-3">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">RENDIT</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           USUARIOS
-          </a>
-          <ul class="dropdown-menu">
-                <li class="dropdown-item"><a class="navbar-brand" href="tablaoperarios.php">Operarios registrados</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="tablaadmin.php">Administradores registrados</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="formusuario.php">Nuevo usuario</a></li>
-            </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           ESTADÍSTICA
-          </a>
-          <ul class="dropdown-menu">
-                <li class="dropdown-item"><a class="navbar-brand" href="estadisticas.php">Estadisticas operarios</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="estadisticasParo.php">Estadisticas de paros</a></li>
-                <li class="dropdown-item"><a class="navbar-brand" href="estadisticasGeneral.php">Estadistica general</a></li>
-            </ul>
-        </li>
-      </ul>
-    <ul class="navbar-nav ">
-      <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
-      <li class="nav-item">
-            <form action="../sistema/cerrarsesion.php" method="post">
-                <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
-            </form>
-        </li>
-    </ul>
+    <div class="d-flex align-items-center">
+
+      <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand p-2 " href="#">RENDIT</a>
+    </div>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="margin: 10px;">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">RENDIT</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body overflow-auto px-3 py-3">
+        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3" style="max-heigth: 70vh;">
+          <li class="d-flex align-items-center nav-item mb-2"><i class="fa-solid fa-user fa-2xl fa-beat-fade" style="color: #1346a0;"></i><span class="nav-link fw-bold mx-2">USUARIOS</span> </li>
+
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="tablaoperarios.php">Operarios registrados</a></li>
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="tablaadmin.php">Administradores registrados</a></li>
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="formusuario.php">Nuevo usuario</a></li>
+
+          <li class="d-flex align-items-center nav-item mb-3 mt-3 ml-2"><i class="fa-solid fa-chart-line fa-2xl fa-beat-fade" style="color: #3c73d3;"></i><span class="nav-link fw-bold mx-2">ESTADISTICAS</span></li>
+
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="estadisticas.php">Estadísticas operarios</a></li>
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="estadisticasParo.php">Estadísticas de paros</a></li>
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="estadisticasGeneral.php">Estadística general</a></li>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <p class="  text-uppercase fs-6 mt-5 text-dark"> <?php echo "$nombreUsuario" . " " . "$apellidoUsuario"; ?> </p>
+            </li><!--SALUDO Y NOMBRE -->
+            <li class="nav-item">
+              <form action="../sistema/cerrarsesion.php" method="post">
+                <button class="btn btn-warning mt-4" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
+
 <div class="container text-center mt-5">
     <!--CREACION LISTA DE OPERARIOS EN LA BASE DE DATOS-->
     <div class="tabla-usuarios">

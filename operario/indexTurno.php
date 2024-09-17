@@ -220,11 +220,11 @@ include('../sistema/conexion.php');
                                 </div>
                                 <div class="modal-body">
                                  <p CLASS="display-5">SELECCIONE EL MOTIVO DE PARO</p>
-                                    <div class="row container text-center">
-                                        <div class="col">
+                                    <div class="row container text-center align-items-center">
+                                        <div class="col d-flex justify-content-center">
                                         <form action = "../sistema/motivosParo/desayuno.php" method ="POST" class = "action">
 
-                                          <button class="btn bg-primary btn-block rounded-circle m3 p-2 redondo motivo-paro  " type="submit" id="desayuno" name="desayuno" style="border-radius: 50%; padding: 10px 20px"><p class="fs-5"> DESAYUNO </p></button>
+                                          <button class="btn bg-primary  rounded-circle m3 p-2 redondo motivo-paro  " type="submit" id="desayuno" name="desayuno" style="border-radius: 50%; padding: 10px 20px"><p class="fs-5"> DESAYUNO </p></button>
 
                                         </form>
                                         </div>
@@ -315,7 +315,8 @@ include('../sistema/conexion.php');
                         <!--FIN PESTAÑA MODAL TERMINAR TURNO -->
                 </div>
                      
-                <?php
+               <?php
+               /*
     
         if(isset($_SESSION["turnoIn"])){
             if($_SESSION["turnoIn"]){
@@ -333,9 +334,10 @@ include('../sistema/conexion.php');
            
     }
     unset($_SESSION["turnoIn"]);
+    */
 
-?>
-
+?> 
+ 
 <?php
 
  if(isset($_SESSION["finalizoTurno"])){

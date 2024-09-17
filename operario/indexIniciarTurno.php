@@ -28,14 +28,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="../diseño/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>COMENZAR TURNO</title>
 
     <script src="../sistema/js/hora.js"></script>
+    
+    
+<style>
+  
 
+</style>
 </head>
-<body class="bg-light.bg-gradient">
+<body class="bg-light bg-gradient ">
+  
+
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 
 <div class="container-fluid">
