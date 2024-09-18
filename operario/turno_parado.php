@@ -60,10 +60,12 @@ include ('../sistema/fecha.php');
     <div class="container  mb-5 p-5 "></div>
     <div class="container  mb-5 p-5 "></div>
 <div class="container text-center mt-5 w-75">
-            <H2 class="display-4">TURNO PARADO</H2>  
+            <H2 class="display-4">TURNO PARADO</H2> 
+            <h3 class="display-5">MOTIVO: <?php echo $filaNombreParo['Nombre']?></h3>
             <h3 class="display-5">Ha transcurrido:</h3>
             <p class="text-primary fs-2" id="timer">00:00:00</p>
             <!--<script src="../sistema/js/cronometro_pare.js"></script>-->
+            <script src="../sistema/js/retoma_tiempo_pare.js"></script> 
 
             <!--INICIO PESTAÑA MODAL RE-INICIAR TURNO -->
             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-retomar">RETOMAR TURNO</button>
