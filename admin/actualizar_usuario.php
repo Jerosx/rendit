@@ -25,18 +25,79 @@ $resultadoRoles = mysqli_query($con, $consultaRoles); #Se ejecuta la consulta SQ
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background: whitesmoke;
-            background: linear-gradient(to right, rgb(71, 128, 194), rgb(34, 52, 80));
-        }
-    </style>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Actualizar datos Operarios</title>
 </head>
 
 <body>
-    <a class="btn btn-warning m-4" href="../admin/indexadmin.php" role="button">REGRESAR</a>
+<style>
+
+body {
+            background-image: url(../diseño/img/fondoRendit.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+    .navbar-nav .nav-link {
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background-color: #ccc;
+      /* Cambia el color de fondo al pasar el mouse */
+      color: #333;
+      /* Cambia el color del texto al pasar el mouse */
+      border-radius: 5px;
+      /* Agrega un borde redondeado */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      /* Agrega una sombra */
+    }
+  </style>
+
+<nav class="navbar bg-primary fixed-left px-3 py-3">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center">
+
+      <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand p-2 " href="#">RENDIT</a>
+    </div>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="margin: 10px;">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">RENDIT</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body overflow-auto px-3 py-3">
+        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3" style="max-heigth: 70vh;">
+          <li class="d-flex align-items-center nav-item mb-2"><i class="fa-solid fa-user fa-2xl " style="color: #1346a0;"></i><span class="nav-link fw-bold mx-2">USUARIOS</span> </li>
+
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="tablaoperarios.php">Operarios registrados</a></li>
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="tablaadmin.php">Administradores registrados</a></li>
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="formusuario.php">Nuevo usuario</a></li>
+
+          <li class="d-flex align-items-center nav-item mb-3 mt-3 ml-2"><i class="fa-solid fa-chart-line fa-2xl " style="color: #3c73d3;"></i><span class="nav-link fw-bold mx-2">ESTADISTICAS</span></li>
+
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="estadisticas.php">Estadísticas operarios</a></li>
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="estadisticasParo.php">Estadísticas de paros</a></li>
+          <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="estadisticasGeneral.php">Estadística general</a></li>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <p class="  text-uppercase fs-6 mt-5 text-dark"> <?php echo "$nombreUsuario" . " " . "$apellidoUsuario"; ?> </p>
+            </li><!--SALUDO Y NOMBRE -->
+            <li class="nav-item">
+              <form action="../sistema/cerrarsesion.php" method="post">
+                <button class="btn btn-warning mt-4" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
     <div class="container mt-5 text-center bg-light rounded w-75 ">
         <form class="form-floating" action="../sistema/update.php" method="POST">
             <h2 class="display-4 mt-5">Diligencie la información correspondiente</h2>

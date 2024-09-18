@@ -7,50 +7,56 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        body{
+       body {
             background: whitesmoke;
-            background: linear-gradient(to right, rgb(71, 128, 194), rgb(34, 52, 80) );
+            background: linear-gradient(to right, rgb(71, 128, 194), rgb(34, 52, 80));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
         }
-        .bg{
-        background-image: url(diseño/img/login-img.jpg);
-        background-position: center center;
-        padding-right: 50px;
-        margin-right: 50px;
 
-        
-    }</style>
+        .bg {
+            background-image: url(diseño/img/login-img.jpg);
+            background-position: center center;
+            padding-right: 50px;
+            margin-right: 50px;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 800px; /* Aumentamos el ancho máximo a 800px */
+        }
+    </style>
     <title>Inicio de sesión</title>
 </head>
 <body>
-    <div class="container  mb-5 p-5"></div>
-    <div class="container  mb-5 p-3"></div>
-    <div class="container w-75  bg-light mt-5 rounded shadow">
+    <div class="container w-75 bg-light rounded shadow form-container">
         <div class="row align-items-stretch">
-                 <div class="col bg d-none d-lg-block pl-3">
-                </div> 
-                   
-                <div class="col p-5">
-                    <h2 class="fw-bold text-center pt-5 mb-5">BIENVENIDO A RENDIT</h2>
+            <div class="col bg d-none d-lg-block pl-3"></div>
+            
+            <div class="col p-5">
+                <h2 class="fw-bold text-center pt-5 mb-5">BIENVENIDO A RENDIT</h2>
                 <form class="form-floating" action="sistema/validar.php" method="POST">
-                <div class="mt-5 mb-4">
-                        <label for="codigoUser" class="form-label"> Codigo personal </label>
+                    <div class="mb-4">
+                        <label for="codigoUser" class="form-label">Codigo personal</label>
                         <input type="text" placeholder="Inserte su código" class="form-control" id="codigoUser" name="codigoUser" required>
                     </div>
-                <div class=" mt-5 mb-4">
-                        <label for="contrasena" class="form-label"> Contraseña </label>
+                    <div class="mb-4">
+                        <label for="contrasena" class="form-label">Contraseña</label>
                         <input type="password" placeholder="Inserte su contraseña" class="form-control" id="contrasena" name="contrasena" required>
-                
                     </div>
-                    <div class="d-grid mt-5 mb-5">
-                    <button class="btn btn-warning" type="submmit">Iniciar Sesión</button>
-                </div>
-                
-
+                    <div class="d-grid mb-5">
+                        <button class="btn btn-warning" type="submit">Iniciar Sesión</button>
+                    </div>
                 </form>
                 <div class="form-text">SENA ADSO 2024 (RENDIT)</div>
             </div>
         </div>
     </div>
+</body>
+</html>
 
     <?php
         session_start();

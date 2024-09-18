@@ -51,7 +51,7 @@ if($codigosRegistrados) #Si se ejecuta la consulta
                     #-----------------el script muestra una ventana donde el administrador se registró con éxito----------------#
                     
                     $_SESSION["adminRe"]=true;
-                    header("location:../admin/?> estadisticasGeneral.php");
+                    header("location:../admin/estadisticasGeneral.php");
                     /* echo "<script> alert('ADMINISTRADOR REGISTRADO EXITOSAMENTE');  
                             window.location.href='../admin/indexadmin.php';  
                         </script>"; */
