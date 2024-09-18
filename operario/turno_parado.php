@@ -16,42 +16,52 @@ include ('../sistema/fecha.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- <link rel="stylesheet" href="../diseño/style.css">-->
+    <!-- <link rel="stylesheet" href="../diseño/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Página de turno parado</title>
 
-    <!-- <script src="../sistema/js/hora.js"></script> INHABILITO LA HORA POR FALLO--> 
+    <!-- <script src="../sistema/js/hora.js"></script> INHABILITO LA HORA POR FALLO-->
 
+    <style>
+        body {
+            background-image: url(../diseño/img/fondoRendit.jpg);
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+        }
+        .content-wrapper {
+            min-height: 100vh; /* Asegura que el contenedor ocupe al menos toda la pantalla */
+        }
+    </style>
 </head>
-<body class="body-admin bg-light  bg-opacity-50">
+<body class="d-flex flex-column">
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">RENDIT</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">RENDIT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;"></ul>
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                    </ul>
-                <ul class="navbar-nav ">
-                    <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
-                
+                        <p class="text-uppercase fs-6 mt-3 text-light">
+                            <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?>
+                        </p>
+                    </li> <!--SALUDO Y NOMBRE -->
                 </ul>
-                </div>
             </div>
+        </div>
     </nav>
-    <div class="container  mb-5 p-5 "></div>
-    <div class="container  mb-5 p-5 "></div>
-<div class="container text-center mt-5 w-75">
-            <H2 class="display-4">TURNO PARADO</H2>  
+
+    <div class="container d-flex flex-column justify-content-center align-items-center content-wrapper">
+        <div class="text-center">
+            <h2 class="display-4">TURNO PARADO</h2>
             <h3 class="display-5">Ha transcurrido:</h3>
             <p class="text-primary fs-2" id="timer">00:00</p>
             <script src="../sistema/js/cronometro_pare.js"></script>
 
-        <!--INICIO PESTAÑA MODAL RE-INICIAR TURNO -->
-
+            <!--INICIO PESTAÑA MODAL RE-INICIAR TURNO -->
             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-retomar">RETOMAR TURNO</button>
 
             <div class="modal fade" id="modal-retomar" tabindex="-1" aria-labelledby="modalRetomarLabel" aria-hidden="true">
@@ -77,13 +87,14 @@ include ('../sistema/fecha.php');
                     </div>
                 </div>
             </div>
-        <!--FIN PESTAÑA MODAL RE-INICIAR TURNO -->
+            <!--FIN PESTAÑA MODAL RE-INICIAR TURNO -->
+        </div>
     </div>
 
-<!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
-<script src="../sistema/js/modal_retomar_turno.js"></script>         <!--Script controla modal inicio turno -->
+    <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
+    <script src="../sistema/js/modal_retomar_turno.js"></script>         <!--Script controla modal inicio turno -->
 
-<!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
+    <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 </body>
 </html>

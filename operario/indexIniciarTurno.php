@@ -32,79 +32,90 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>COMENZAR TURNO</title>
-
     <script src="../sistema/js/hora.js"></script>
     
-    
-<style>
-  
+    <style>
+        body {
+            background-image: url(../diseño/img/fondoRendit.jpg);
+            background-size: cover;
+            background-position: center;
+        }
 
-</style>
+        /* Centramos el contenido principal */
+        .container-custom {
+            min-height: 80vh; /* Asegura que ocupe el 80% del alto de la pantalla */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-dialog {
+            max-width: 500px;
+        }
+    </style>
 </head>
-<body class="bg-light bg-gradient ">
-  
+<body>
 
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-
-<div class="container-fluid">
-  <a class="navbar-brand" href="#">RENDIT</a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarScroll">
-    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-      <li class="nav-item">
-    </ul>
-  <ul class="navbar-nav ">
-    <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li><!--SALUDO Y NOMBRE -->
-    <li class="nav-item"></li>
-    <LI class="nav-item">
-      <form action="../sistema/cerrarsesion.php" method="post">
-                <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button> <!--CERRAR SESIÓN-->
-      </form>
-    </LI>
-  </ul>
-  
-  </div>
-</div>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">RENDIT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item"></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item"><p class="text-uppercase fs-6 mt-3 text-light"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p></li>
+                <li class="nav-item">
+                    <form action="../sistema/cerrarsesion.php" method="post">
+                        <button class="btn btn-warning m-2" type="submit" id="cerrarSesionBtn" name="cerrarSesionBtn">Cerrar Sesión</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
-<div class="container  mb-5 p-5 "></div>
-<div class="container  mb-5 p-5 "></div>
-<div class="container text-center mt-5 w-75  ">
-         <H1 class="display-4">BIENVENIDO</H1>
-         <P class="text-dark">Asegurese de estar listo antes de comenzar su turno</P>
 
+<!-- El contenido central -->
+<div class="container-custom text-center">
+    <h1 class="display-4">BIENVENIDO</h1>
+    <p class="text-dark">Asegúrese de estar listo antes de comenzar su turno</p>
 
-        <!--INICIO PESTAÑA MODAL INICIAR TURNO -->
+    <!-- INICIO PESTAÑA MODAL INICIAR TURNO -->
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-iniciar">INICIAR TURNO</button>
 
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-iniciar">INICIAR TURNO</button>
-
-        <div class="modal fade" id="modal-iniciar" tabindex="-1" aria-labelledby="modalIniciarLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-danger" id="modalIniciarLabel">ATENCIÓN</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>¿Estás seguro de que quieres comenzar tú turno?</p>
-                        <form class="form-fluid" method="post" action="../sistema/iniciarTurno.php">
-                            <div class="mb-3">
-                                <label for="opcion" class="form-label">Seleccione una opción:</label>
-                                <select class="form-select" name="opcion" id="opcion" required>
-                                    <option disabled selected>SELECCIONE UNA OPCIÓN:</option>
-                                    <option value="opcionSi">SI</option>
-                                    <option value="opcionNo">NO</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-success">CONFIRMAR</button>
-                        </form>
-                    </div>
+    <div class="modal fade" id="modal-iniciar" tabindex="-1" aria-labelledby="modalIniciarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="modalIniciarLabel">ATENCIÓN</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que quieres comenzar tu turno?</p>
+                    <form class="form-fluid" method="post" action="../sistema/iniciarTurno.php">
+                        <div class="mb-3">
+                            <label for="opcion" class="form-label">Seleccione una opción:</label>
+                            <select class="form-select" name="opcion" id="opcion" required>
+                                <option disabled selected>SELECCIONE UNA OPCIÓN:</option>
+                                <option value="opcionSi">SI</option>
+                                <option value="opcionNo">NO</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">CONFIRMAR</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <!--FIN PESTAÑA MODAL INICIAR TURNO -->
+    </div>
+    <!-- FIN PESTAÑA MODAL INICIAR TURNO -->
 </div>
+
+</body>
+</html>
 
 
 <?php
