@@ -68,7 +68,8 @@ include ('../sistema/fecha.php');
     <div class="container-fluid d-flex justify-content-center flex-wrap mb-5 p-5">
     <div class="container-fluid d-flex justify-content-center flex-wrap mb-5 p-5"></div>
     <div class="text-center mt-5 w-75">
-        <H2 class="display-4">TURNO PARADO</H2> 
+        <H2 class="display-4">TURNO PARADO</H2>
+        <br>
         <h3 class="display-5">MOTIVO: <?php echo $filaNombreParo['Nombre']?></h3>
         <h3 class="display-5">Ha transcurrido:</h3>
         <p class="text-primary fs-2" id="timer">00:00:00</p>
