@@ -122,13 +122,13 @@ body {
 </nav>
     <div class="container text-center mt-5 w-75">
          <p class="text-uppercase display-3 mt-3 text-secondary"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p>
-     <div class="row">
-        <div class="col-6">    
+     <div class="row justify-content-center align-items-center">
+        <div class="col-lg-6 col-12 mb-4 ">    
             <div class="row">
                 <div class="col ">
 
             <!--TABLA CON CAJAS EMPACADAS--->
-                    <table class="table mt-5" border="3" align="left"> <!--Creo una tabla -->
+                    <table class="table mt-5" border="3" align="left" style="height: 100px;"> <!--Creo una tabla -->
                                     <tr  class="border-3"> 
                         
                                         <th>Cajas empacadas</th> <!--Creo el campo Cajas empacadas en la cabecera-->
@@ -177,7 +177,7 @@ body {
 
                 </div>
             </div>
-        <div class="col-6 pt-4">
+        <div class="col-lg-6 col-12 pt-4">
             <div class="row m-4"></div>
             <div class="row mt-4">
 

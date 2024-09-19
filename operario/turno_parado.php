@@ -42,6 +42,8 @@ include ('../sistema/fecha.php');
         .content-wrapper {
             min-height: 100vh; /* Asegura que el contenedor ocupe al menos toda la pantalla */
         }
+
+        
     </style>
 </head>
 <body class="d-flex flex-column">
@@ -63,50 +65,52 @@ include ('../sistema/fecha.php');
             </div>
         </div>
     </nav>
-    <div class="container  mb-5 p-5 "></div>
-    <div class="container  mb-5 p-5 "></div>
-<div class="container text-center mt-5 w-75">
-            <H2 class="display-4">TURNO PARADO</H2> 
-            <h3 class="display-5">MOTIVO: <?php echo $filaNombreParo['Nombre']?></h3>
-            <h3 class="display-5">Ha transcurrido:</h3>
-            <p class="text-primary fs-2" id="timer">00:00:00</p>
-            <!--<script src="../sistema/js/cronometro_pare.js"></script>-->
-            <script src="../sistema/js/retoma_tiempo_pare.js"></script> 
+    <div class="container-fluid d-flex justify-content-center flex-wrap mb-5 p-5">
+    <div class="container-fluid d-flex justify-content-center flex-wrap mb-5 p-5"></div>
+    <div class="text-center mt-5 w-75">
+        <H2 class="display-4">TURNO PARADO</H2> 
+        <h3 class="display-5">MOTIVO: <?php echo $filaNombreParo['Nombre']?></h3>
+        <h3 class="display-5">Ha transcurrido:</h3>
+        <p class="text-primary fs-2" id="timer">00:00:00</p>
+        <!--<script src="../sistema/js/cronometro_pare.js"></script>-->
+        <script src="../sistema/js/retoma_tiempo_pare.js"></script> 
 
-            <!--INICIO PESTAÑA MODAL RE-INICIAR TURNO -->
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-retomar">RETOMAR TURNO</button>
+        <!--INICIO PESTAÑA MODAL RE-INICIAR TURNO -->
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-retomar">RETOMAR TURNO</button>
 
-            <div class="modal fade" id="modal-retomar" tabindex="-1" aria-labelledby="modalRetomarLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-warning" id="modalRetomarLabel">ATENCIÓN</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>¿Estás seguro de que quieres retomar tú turno?</p>
-                            <form method="post" action="../sistema/retomar_turno.php">
-                                <div class="mb-3">
-                                    <label for="opcion" class="form-label">Seleccione "SI" para retomar:</label>
-                                    <select class="form-select" name="opcion" id="opcion" required>
-                                        <option disabled selected>SELECCIONE UNA OPCIÓN:</option>
-                                        <option value="opcionSi">SI</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-danger">CONFIRMAR</button>
-                            </form>
-                        </div>
+        <div class="modal fade" id="modal-retomar" tabindex="-1" aria-labelledby="modalRetomarLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-warning" id="modalRetomarLabel">ATENCIÓN</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro de que quieres retomar tú turno?</p>
+                        <form method="post" action="../sistema/retomar_turno.php">
+                            <div class="mb-3">
+                                <label for="opcion" class="form-label">Seleccione "SI" para retomar:</label>
+                                <select class="form-select" name="opcion" id="opcion" required>
+                                    <option disabled selected>SELECCIONE UNA OPCIÓN:</option>
+                                    <option value="opcionSi">SI</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-danger">CONFIRMAR</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!--FIN PESTAÑA MODAL RE-INICIAR TURNO -->
         </div>
+        <!--FIN PESTAÑA MODAL RE-INICIAR TURNO -->
     </div>
+</div>
 
 <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
 <script src="../sistema/js/modal_retomar_turno.js"></script>         <!--Script controla modal inicio turno -->
 
-    <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
+<!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 </body>
 </html>
+
+<!-- Estilos CSS adicionales -->

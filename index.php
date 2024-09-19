@@ -27,14 +27,35 @@
         .form-container {
             width: 100%;
             max-width: 800px; /* Aumentamos el ancho máximo a 800px */
+
+
         }
+        
+
+        @media (min-width: 992px) {
+            .form-container {
+                max-width: 1200px; /* Expande el contenedor en pantallas grandes */
+            }
+
+            .bg {
+                height: auto;
+                border-radius: 0.5rem 0 0 0.5rem; /* Ajuste de los bordes en pantallas grandes */
+            }
+
+            .col.p-5 {
+                padding: 50px; /* Mayor espaciado en pantallas grandes */
+            }
+        }
+
+       
+        
     </style>
     <title>Inicio de sesión</title>
 </head>
 <body>
     <div class="container w-75 bg-light rounded shadow form-container">
-        <div class="row align-items-stretch">
-            <div class="col bg d-none d-lg-block pl-3"></div>
+        <div class="row align-items-stretch expand-lg ">
+            <div class="col bg d-none d-lg-block pl-3 img-thumbnail"></div>
             
             <div class="col p-5">
                 <h2 class="fw-bold text-center pt-5 mb-5">BIENVENIDO A RENDIT</h2>
