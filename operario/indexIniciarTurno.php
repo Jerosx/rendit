@@ -36,9 +36,16 @@
     
     <style>
         body {
-            background-image: url(../diseño/img/fondoRendit.jpg);
-            background-size: cover;
+            background-image: url(../diseño/img/fondoRendit.jpeg);
+            background-size: 100% 100%;
+            filter: unsharp-mask(1px 1px 1px);
+
+            background-repeat: no-repeat;
+
             background-position: center;
+
+            background-blend-mode: multiply;
+            
         }
 
         /* Centramos el contenido principal */

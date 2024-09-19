@@ -24,10 +24,16 @@ include ('../sistema/fecha.php');
 
     <style>
         body {
-            background-image: url(../diseño/img/fondoRendit.jpg);
-            background-size: cover;
+            background-image: url(../diseño/img/fondoRendit.jpeg);
+            background-size: 100% 100%;
+            filter: unsharp-mask(1px 1px 1px);
+
+            background-repeat: no-repeat;
+
             background-position: center;
-            min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+
+            background-blend-mode: multiply;
+            
         }
         .content-wrapper {
             min-height: 100vh; /* Asegura que el contenedor ocupe al menos toda la pantalla */

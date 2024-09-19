@@ -33,10 +33,19 @@ $resultadoRoles = mysqli_query($con, $consultaRoles); #Se ejecuta la consulta SQ
 <style>
 
 body {
-            background-image: url(../diseño/img/fondoRendit.jpg);
-            background-size: cover;
+            background-image: url(../diseño/img/fondoRendit.jpeg);
+            background-size: 100% 100%;
+            filter: unsharp-mask(1px 1px 1px);
+
+            background-repeat: no-repeat;
+
             background-position: center;
-        }
+
+            background-blend-mode: multiply;
+            
+
+         
+    }
 
 
 
@@ -108,22 +117,22 @@ body {
             <!-- Campo para ingresar nombres -->
             <div class="mb-3">
                 <label class="form-label">NOMBRES</label><br/>
-                <input type="text" class="form-control lg-8" name="Nombres" required>
+                <input type="text" class="form-control lg-8" name="Nombres" required placeholder="Jhon">
             </div>
             <!-- Campo para ingresar apellidos -->
             <div class="mb-3">
                 <label class="form-label">APELLIDOS</label><br/>
-                <input type="text" class="form-control" name="Apellidos" required>
+                <input type="text" class="form-control" name="Apellidos" required placeholder="Dugglas">
         </div>
             <!-- Campo para ingresar código personal -->
             <div class="mb-3">
                 <label class="form-label">CÓDIGO PERSONAL</label><br/>
-                <input type="text" class="form-control" name="codigo" required>
+                <input type="text" class="form-control" name="codigo" required placeholder="1111">
             </div>
             <!-- Campo para ingresar contraseña -->
             <div class="mb-3">
                 <label class="form-label">CONTRASEÑA</label><br/>
-                <input type="password" class="form-control" name="contrasena" required>
+                <input type="password" class="form-control" name="contrasena" required placeholder="xxxxx">
             </div>
             <!-- Lista desplegable para seleccionar el cargo -->
             <div class="mb-3">
