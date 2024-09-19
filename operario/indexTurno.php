@@ -7,6 +7,10 @@ include ('../sistema/validar_sesion.php');
 include ('../sistema/validar_rolop.php');
 #FIN VALIDACIÓN DE ROL
 
+#INICIO VALIDACIÓN DE PARE FINALIZADO
+include ('../sistema/val_PareActivo.php');
+#FIN VALIDACIÓN DE PARE FINALIZADO
+
 # INICIO FECHA
 include ('../sistema/fecha.php');
 #FIN FECHA

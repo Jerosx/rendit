@@ -7,6 +7,10 @@ include ('../sistema/validar_sesion.php');
 include ('../sistema/validar_rolop.php');
 #FIN VALIDACIÓN DE ROL
 
+#INICIO IMPRESIÓN MOTIVO DEL PARO
+include ('../sistema/consultaMotivoPare.php');
+#INICIO IMPRESIÓN MOTIVO DEL PARO
+
 # INICIO FECHA
 include ('../sistema/fecha.php');
 #FIN FECHA
@@ -59,13 +63,15 @@ include ('../sistema/fecha.php');
             </div>
         </div>
     </nav>
-
-    <div class="container d-flex flex-column justify-content-center align-items-center content-wrapper">
-        <div class="text-center">
-            <h2 class="display-4">TURNO PARADO</h2>
+    <div class="container  mb-5 p-5 "></div>
+    <div class="container  mb-5 p-5 "></div>
+<div class="container text-center mt-5 w-75">
+            <H2 class="display-4">TURNO PARADO</H2> 
+            <h3 class="display-5">MOTIVO: <?php echo $filaNombreParo['Nombre']?></h3>
             <h3 class="display-5">Ha transcurrido:</h3>
-            <p class="text-primary fs-2" id="timer">00:00</p>
-            <script src="../sistema/js/cronometro_pare.js"></script>
+            <p class="text-primary fs-2" id="timer">00:00:00</p>
+            <!--<script src="../sistema/js/cronometro_pare.js"></script>-->
+            <script src="../sistema/js/retoma_tiempo_pare.js"></script> 
 
             <!--INICIO PESTAÑA MODAL RE-INICIAR TURNO -->
             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-retomar">RETOMAR TURNO</button>
@@ -97,8 +103,8 @@ include ('../sistema/fecha.php');
         </div>
     </div>
 
-    <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
-    <script src="../sistema/js/modal_retomar_turno.js"></script>         <!--Script controla modal inicio turno -->
+<!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->   
+<script src="../sistema/js/modal_retomar_turno.js"></script>         <!--Script controla modal inicio turno -->
 
     <!--EL SCRIPT DEL MODAL VA AL FINAL PARA GARANTIZAR QUE SE CARGUE DESPUÉS DE LOS BOTONES QUE VA A USAR -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
