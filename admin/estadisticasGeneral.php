@@ -114,7 +114,7 @@ $empacadoresOrdenadosParoJson = json_encode(array_keys($tiemposParo));
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="../sistema/js/hora.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <link rel="icon" href="../diseño/img/rendit logo.png.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
@@ -148,10 +148,14 @@ body {
         <div class="container-fluid">
             <div class="d-flex align-items-center">
 
-                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <button class="navbar-toggler " type="button"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand p-2 " href="#">RENDIT</a>
+                <!-- <a class="navbar-brand p-2 " href="#">RENDIT</a> -->
+                <div class="mx-3">
+             <img src="../diseño/img/renditlogo.png" alt="" style="width="60" height="60"">
+            </div>
+
             </div>
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="margin: 10px;">
                 <div class="offcanvas-header">

@@ -29,7 +29,7 @@
     <!--<link rel="stylesheet" href="../diseño/style.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="icon" href="../diseño/img/rendit logo.png.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>COMENZAR TURNO</title>
     <script src="../sistema/js/hora.js"></script>
@@ -66,7 +66,12 @@
 
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">RENDIT</a>
+      <!--   <a class="navbar-brand" href="#">RENDIT</a> -->
+         <div>
+             <img src="../diseño/img/rendit logo.png.png" alt="" style="width="110" height="110"">
+            </div>
+
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

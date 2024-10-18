@@ -95,6 +95,7 @@ $tiemposParoJson = json_encode(array_values($tiemposParo));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas Paros</title>
+    <link rel="icon" href="../diseño/img/rendit logo.png.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -130,7 +131,10 @@ $tiemposParoJson = json_encode(array_values($tiemposParo));
       <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand p-2 " href="#">RENDIT</a>
+      <!-- <a class="navbar-brand p-2 " href="#">RENDIT</a> -->
+      <div class="mx-3">
+             <img src="../diseño/img/renditlogo.png" alt="" style="width="60" height="60"">
+            </div>
     </div>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="margin: 10px;">
       <div class="offcanvas-header">

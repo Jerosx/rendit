@@ -25,7 +25,7 @@ $resultadoRoles = mysqli_query($con, $consultaRoles); #Se ejecuta la consulta SQ
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="icon" href="../diseño/img/rendit logo.png.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Actualizar datos Operarios</title>
 </head>
@@ -69,7 +69,10 @@ body {
       <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand p-2 " href="#">RENDIT</a>
+      <!-- <a class="navbar-brand p-2 " href="#">RENDIT</a> -->
+      <div class="mx-3">
+             <img src="../diseño/img/renditlogo.png" alt="" style="width="60" height="60"">
+            </div>
     </div>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="margin: 10px;">
       <div class="offcanvas-header">
@@ -117,15 +120,15 @@ body {
             </div>
             <div class="mb-3">
                 <label class="form-label">NOMBRE</label>
-                <input class="form-control" type="text" value="<?php echo $fila['Nombre'] ?>" name="Nombre" required><br>
+                <input class="form-control" type="text" value="<?php echo $fila['Nombre'] ?>" name="Nombre"pattern="[A-Za-zÀ-ÿ\s]+"  required><br>
             </div>
             <div class="mb-3">
                 <label class="form-label">APELLIDO</label>
-                <input class="form-control" type="text" value="<?php echo $fila['Apellido'] ?>" name="Apellido" required><br>
+                <input class="form-control" type="text" value="<?php echo $fila['Apellido'] ?>" name="Apellido" pattern="[A-Za-zÀ-ÿ\s]+" required><br>
             </div>
             <div class="mb-3">
                 <label class="form-label">ROL</label>
-                <select id="Rol" name="Rol" required>
+                <select id="Rol" class="form-control" name="Rol" required>
                     <?php while ($rol = mysqli_fetch_assoc($resultadoRoles)): ?>
                         <option value="<?= htmlspecialchars($rol['Codigo']) ?>" <?php if ($rol['Codigo'] == $fila['Rol']) echo 'selected'; ?>>
                             <?= htmlspecialchars($rol['Nombre']) ?>
@@ -134,8 +137,8 @@ body {
                 </select><br>
             </div>
             <div class="mb-3">
-                <label for="Estado">ESTADO</label>
-                <select id="Estado" name="Estado" required>
+                <label for="form-label" class="form-label">ESTADO</label>
+                <select id="Estado" class="form-control" name="Estado" required>
                     <?php while ($estado = mysqli_fetch_assoc($resultadoEstados)): ?>
                         <option value="<?= htmlspecialchars($estado['Codigo']) ?>" <?php if ($estado['Codigo'] == $fila['Estado']) echo 'selected'; ?>>
                             <?= htmlspecialchars($estado['Nombre']) ?>

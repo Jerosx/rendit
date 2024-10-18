@@ -28,7 +28,7 @@ include('../sistema/conexion.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>TURNO EN PROCESO</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <link rel="icon" href="../diseño/img/rendit logo.png.png" type="image/x-icon">
     <script src="../sistema/js/hora.js"></script>
 
 </head>
@@ -102,7 +102,8 @@ body {
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark" style="background-color: #1F3361;">
 
 <div class="container-fluid">
-  <a class="navbar-brand" href="#">RENDIT</a>
+  <!-- <a class="navbar-brand" href="#">RENDIT</a> -->
+   <img src="../diseño/img/rendit logo.png.png" alt="" style="width="90" height="90"">
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -120,15 +121,15 @@ body {
   </div>
 </div>
 </nav>
-    <div class="container text-center mt-5 w-75">
-         <p class="text-uppercase display-3 mt-3 text-secondary"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p>
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center text-center vh-60px">
+         <p class="text-uppercase display-5 mb-2 text-secondary"> <?php echo "$nombreUsuario"." "."$apellidoUsuario"; ?> </p>
      <div class="row justify-content-center align-items-center">
         <div class="col-lg-6 col-12 mb-4 ">    
             <div class="row">
                 <div class="col ">
 
             <!--TABLA CON CAJAS EMPACADAS--->
-                    <table class="table mt-5" border="3" align="left" style="height: 100px;"> <!--Creo una tabla -->
+                    <table class="table mt-3" border="3" align="left" style="height: 80px;"> <!--Creo una tabla -->
                                     <tr  class="border-3"> 
                         
                                         <th>Cajas empacadas</th> <!--Creo el campo Cajas empacadas en la cabecera-->
@@ -227,7 +228,7 @@ body {
 
             
             <!--INICIO PESTAÑA MODAL PARE TURNO V2 -->   
-                <button class="btn btn-warning m-3 p-4" data-bs-toggle="modal" data-bs-target="#modal-parar"><h3 class="display-2">PARAR TURNO</h3></button>
+                <button class="btn btn-warning mb-5 ms-5 p-4" data-bs-toggle="modal" data-bs-target="#modal-parar"><h3 class="display-4">PARAR TURNO</h3></button>
 
                     <div class="modal fade" id="modal-parar" tabindex="-1" aria-labelledby="modalPararLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -304,7 +305,7 @@ body {
                                                     
                         <!--INICIO PESTAÑA MODAL TERMINAR TURNO -->
 
-                            <button class="btn btn-danger m-3 p-4" data-bs-toggle="modal" data-bs-target="#modal-terminar"><h3 class="display-2">FINALIZAR TURNO</h3></button>
+                            <button class="btn btn-danger mb-5 p-2 ms-3" data-bs-toggle="modal" data-bs-target="#modal-terminar"><h3 class="display-4">FINALIZAR TURNO</h3></button>
 
                             <div class="modal fade" id="modal-terminar" tabindex="-1" aria-labelledby="modalTerminarLabel" aria-hidden="true">
                                 <div class="modal-dialog">

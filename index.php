@@ -6,6 +6,7 @@
     <!-- <link rel="stylesheet" href="diseño/style.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="./diseño/img/rendit logo.png.png" type="image/x-icon">
     <style>
        body {
             background: whitesmoke;
@@ -58,7 +59,11 @@
             <div class="col bg d-none d-lg-block pl-3 img-thumbnail"></div>
             
             <div class="col p-5">
-                <h2 class="fw-bold text-center pt-5 mb-5">BIENVENIDO A RENDIT</h2>
+               <!--  <h2  class="fw-bold text-center pt-5 mb-5"> BIENVENIDO A RENDIT</h2> -->
+                 <div class="col justify-content-center">
+                    <div class="justify-content-center btn-light" style="padding-left:22%">
+                     <img  src="./diseño/img/rendit logo.png.png"  alt="logo rendit" style="width: 200px"> 
+                     </div>
                 <form class="form-floating" action="sistema/validar.php" method="POST">
                     <div class="mb-4">
                         <label for="codigoUser" class="form-label">Codigo personal</label>
@@ -66,13 +71,16 @@
                     </div>
                     <div class="mb-4">
                         <label for="contrasena" class="form-label">Contraseña</label>
-                        <input type="password" placeholder="Inserte su contraseña" class="form-control" id="contrasena" name="contrasena" required>
+                        <input type="password" placeholder="Inserte su contraseña" class="form-control" id="contrasena" name="contrasena"  required>
                     </div>
                     <div class="d-grid mb-5">
                         <button class="btn btn-warning" type="submit">Iniciar Sesión</button>
                     </div>
                 </form>
-                <div class="form-text">SENA ADSO 2024 (RENDIT)</div>
+                </div>
+   
+                <div class="form-text" >SENA ADSO 2024 (RENDIT)  </div>
+                
             </div>
         </div>
     </div>
