@@ -56,7 +56,7 @@
   </button>
   <!-- <a class="navbar-brand p-2 " href="#">RENDIT</a> -->
   <div class="mx-3">
-             <img src="../diseño/img/renditlogo.png" alt="" style="width:'60' height'60'">
+             <img src="../diseño/img/renditlogo.png" alt="" style="width="60" height="60"">
             </div>
   
 </div>
@@ -66,7 +66,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body overflow-auto px-3 py-3">
-    <ul class="navbar-nav justify-content-start flex-grow-1 pe-3" style="max-heigth:'70vh'">
+    <ul class="navbar-nav justify-content-start flex-grow-1 pe-3" style="max-heigth: 70vh;">
       <li class="d-flex align-items-center nav-item mb-2"><i class="fa-solid fa-user fa-2xl " style="color: #1346a0;"></i><span class="nav-link fw-bold mx-2">USUARIOS</span> </li>
 
       <li class="nav-item mb-3"><a class="nav-link p-3 border rounded d-block text-truncate" href="tablaoperarios.php">Operarios registrados</a></li>
